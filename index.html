@@ -2597,10 +2597,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const container = document.createElement("div");
         container.className = "contact-actions";
         container.innerHTML = `
-            <a href="https://instagram.com/maruto.septriono" target="_blank" rel="noopener noreferrer" class="btn-contact btn-ig">
+            <a href="intent://instagram.com/_u/maruto.septriono/#Intent;package=com.instagram.android;scheme=https;end" 
+               onclick="window.location.href='https://instagram.com/maruto.septriono'; return false;"
+               target="_blank" rel="noopener noreferrer" class="btn-contact btn-ig">
                 💬 DM Instagram
             </a>
-            <a href="mailto:studiowizhclop@gmail.com?subject=Order / License - ${encodeURIComponent(labelKarya)}&body=Halo Maruto Septriono,%0D%0A%0D%0ASaya tertarik dengan lisensi karya: ${encodeURIComponent(labelKarya)}.%0D%0AMohon informasi ketersediaannya.%0D%0A%0D%0ATerima kasih." class="btn-contact btn-mail">
+            <a href="mailto:studiowizhclop@gmail.com?subject=Inquiry / License Order - ${encodeURIComponent(labelKarya)}&body=Dear Maruto Septriono,%0D%0A%0D%0AI am interested in acquiring a commercial license / print for your artwork:%0D%0A- Title: ${encodeURIComponent(labelKarya)}%0D%0A%0D%0ACould you please provide details regarding licensing terms and availability?%0D%0A%0D%0ABest regards." class="btn-contact btn-mail">
                 ✉️ Order Email
             </a>
         `;
