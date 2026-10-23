@@ -2580,5 +2580,39 @@
             }
         }
     </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        if (card.querySelector(".contact-actions")) return;
+        
+        const titleEl = card.querySelector("h3, .card-title, [data-title]");
+        const title = titleEl ? (titleEl.innerText || titleEl.getAttribute("data-title") || "Artwork").trim() : "Artwork";
+        
+        const badgeEl = card.querySelector(".badge-row, .badge, [class*='id']");
+        const artId = badgeEl ? badgeEl.innerText.split("\n")[0].trim() : "";
+        const labelKarya = artId ? `${title} (${artId})` : title;
+        
+        const container = document.createElement("div");
+        container.className = "contact-actions";
+        container.innerHTML = `
+            <a href="https://ig.me/m/maruto.septriono" target="_blank" rel="noopener noreferrer" class="btn-contact btn-ig">
+                💬 DM Instagram
+            </a>
+            <a href="mailto:studiowizhclop@gmail.com?subject=Order / License - ${encodeURIComponent(labelKarya)}&body=Halo Maruto Septriono,%0D%0A%0D%0ASaya tertarik dengan lisensi karya: ${encodeURIComponent(labelKarya)}.%0D%0AMohon informasi ketersediaannya.%0D%0A%0D%0ATerima kasih." class="btn-contact btn-mail">
+                ✉️ Order Email
+            </a>
+        `;
+        
+        const targetPoint = card.querySelector(".statement, p.trans-block, details");
+        if (targetPoint) {
+            targetPoint.parentNode.insertBefore(container, targetPoint);
+        } else {
+            card.querySelector(".card-content")?.appendChild(container);
+        }
+    });
+});
+</script>
 </body>
 </html>
