@@ -1,6 +1,7 @@
 ﻿import os
 import json
 import shutil
+import re
 
 CATALOG_PATH = r"F:\DATABASE_AI ART\ART\art_catalog.json"
 SOURCE_IMAGE_DIR = r"F:\DATABASE_AI ART\ART\ART_70"
@@ -11,7 +12,7 @@ os.makedirs(OUTPUT_IMG_DIR, exist_ok=True)
 
 def build_gallery():
     print("==================================================")
-    print("  MEMBANGUN GALERI WEB PORTOFOLIO SENI (GOTHIC)")
+    print("  MENYINKRONKAN SELURUH FOTO KARYA DARI ART_70")
     print("==================================================")
 
     if not os.path.exists(CATALOG_PATH):
@@ -21,11 +22,13 @@ def build_gallery():
     with open(CATALOG_PATH, "r", encoding="utf-8-sig") as f:
         catalog = json.load(f)
 
-    # Urutkan karya secara terbalik (karya terbaru seperti ART-072 muncul paling atas)
-    catalog_reversed = list(reversed(catalog))
+    # Ambil seluruh daftar file yang ada di folder ART_70
+    all_files_in_folder = os.listdir(SOURCE_IMAGE_DIR)
 
+    catalog_reversed = list(reversed(catalog))
     cards_html = []
-    copied_count = 0
+    found_count = 0
+    missing_count = 0
 
     for item in catalog_reversed:
         art_id = item.get("ID") or item.get("id") or "ART"
@@ -34,34 +37,43 @@ def build_gallery():
         size = item.get("Ukuran") or item.get("ukuran") or "-"
         media = item.get("Media") or item.get("media") or "-"
         filename = item.get("Nama_File") or item.get("file") or ""
-        statement = item.get("artist_statement_id") or ""
-        curatorial = item.get("deskripsi_kuratorial") or ""
-        raw_tags = item.get("tags") or ""
 
-        # Format Tagar
-        tags_badge = ""
-        if raw_tags:
-            for t in raw_tags.split(","):
-                clean_t = t.strip().replace("#", "")
-                if clean_t:
-                    tags_badge += f'<span class="tag">#{clean_t}</span> '
+        # Cari file di folder ART_70:
+        # 1. Coba nama persis
+        # 2. Coba cari file yang mengandung kode ID (misal: "ART-001")
+        matched_file = None
+        if filename and os.path.exists(os.path.join(SOURCE_IMAGE_DIR, filename)):
+            matched_file = filename
+        else:
+            clean_id_num = re.search(r"(\d+)", art_id)
+            if clean_id_num:
+                target_token = f"ART-{int(clean_id_num.group(1)):03d}"
+                for f in all_files_in_folder:
+                    if target_token.lower() in f.lower():
+                        matched_file = f
+                        break
 
-        # Salin gambar ke direktori web jika ada
-        src_img = os.path.join(SOURCE_IMAGE_DIR, filename)
-        web_img_rel = f"images/{filename}"
-        dst_img = os.path.join(OUTPUT_IMG_DIR, filename)
-
-        if os.path.exists(src_img) and not os.path.exists(dst_img):
-            try:
-                shutil.copy2(src_img, dst_img)
-                copied_count += 1
-            except Exception as e:
-                pass
+        if matched_file:
+            src_img = os.path.join(SOURCE_IMAGE_DIR, matched_file)
+            # Standarisasi nama file di web galeri agar rapi dan tanpa spasi aneh
+            ext = os.path.splitext(matched_file)[1]
+            web_filename = f"{art_id}{ext}"
+            dst_img = os.path.join(OUTPUT_IMG_DIR, web_filename)
+            
+            shutil.copy2(src_img, dst_img)
+            web_img_rel = f"images/{web_filename}"
+            found_count += 1
+            # Perbarui nama file untuk data modal
+            item["web_image"] = web_filename
+        else:
+            web_img_rel = "images/notfound.jpg"
+            item["web_image"] = ""
+            missing_count += 1
 
         card = f"""
         <div class="art-card" onclick="openModal('{art_id}')">
             <div class="img-container">
-                <img src="{web_img_rel}" alt="{title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/111/444?text=Karya+Seni'">
+                <img src="{web_img_rel}" alt="{title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-id-badge">{art_id}</div>
             </div>
             <div class="card-info">
@@ -93,291 +105,43 @@ def build_gallery():
             --text-muted: #8e8e9f;
             --border-color: #272733;
         }}
-
-        * {{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }}
-
-        body {{
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
-        }}
-
-        header {{
-            text-align: center;
-            padding: 80px 20px 40px;
-            background: radial-gradient(circle at center, #1c1524 0%, var(--bg-color) 70%);
-            border-bottom: 1px solid var(--border-color);
-        }}
-
-        header h1 {{
-            font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
-            letter-spacing: 4px;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }}
-
-        header p.subtitle {{
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }}
-
-        .stats-bar {{
-            margin-top: 25px;
-            display: inline-block;
-            padding: 8px 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            border-radius: 30px;
-            font-size: 0.9rem;
-            color: var(--accent-gold);
-        }}
-
-        .container {{
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 50px 25px;
-        }}
-
-        /* Masonry Grid */
-        .gallery-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }}
-
-        .art-card {{
-            background: var(--card-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }}
-
-        .art-card:hover {{
-            transform: translateY(-8px);
-            border-color: var(--accent-gold);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-        }}
-
-        .img-container {{
-            position: relative;
-            background: #000;
-            width: 100%;
-            height: 380px;
-            overflow: hidden;
-        }}
-
-        .img-container img {{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }}
-
-        .art-card:hover .img-container img {{
-            transform: scale(1.05);
-        }}
-
-        .art-id-badge {{
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(10, 10, 12, 0.85);
-            color: var(--accent-gold);
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-            border-radius: 4px;
-            backdrop-filter: blur(4px);
-        }}
-
-        .card-info {{
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }}
-
-        .art-title {{
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            color: #fff;
-            margin-bottom: 6px;
-        }}
-
-        .art-meta {{
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 4px;
-        }}
-
-        .art-size {{
-            font-size: 0.8rem;
-            color: var(--accent-gold);
-            font-weight: 600;
-        }}
-
-        /* MODAL POP-UP */
-        .modal {{
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(5, 5, 8, 0.95);
-            backdrop-filter: blur(8px);
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }}
-
-        .modal-content {{
-            background: var(--surface-color);
-            border: 1px solid var(--accent-gold);
-            border-radius: 12px;
-            max-width: 1000px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
-            position: relative;
-        }}
-
-        .modal-close {{
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: var(--text-muted);
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 10;
-            transition: color 0.2s;
-        }}
-
-        .modal-close:hover {{
-            color: #fff;
-        }}
-
-        .modal-img-wrap {{
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }}
-
-        .modal-img-wrap img {{
-            max-width: 100%;
-            max-height: 75vh;
-            object-fit: contain;
-            border-radius: 4px;
-        }}
-
-        .modal-details {{
-            padding: 35px 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }}
-
-        .modal-id {{
-            font-family: 'Cinzel', serif;
-            color: var(--accent-gold);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-        }}
-
-        .modal-title {{
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            color: #fff;
-            line-height: 1.3;
-        }}
-
-        .modal-specs {{
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 12px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }}
-
-        .modal-specs span {{
-            color: var(--text-main);
-            font-weight: 600;
-        }}
-
-        .statement-box {{
-            background: rgba(197, 160, 89, 0.05);
-            border-left: 3px solid var(--accent-gold);
-            padding: 12px 16px;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: #dedede;
-        }}
-
-        .curatorial-box {{
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }}
-
-        .tag {{
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.05);
-            color: #b0b0c5;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            margin: 3px 2px;
-            border: 1px solid var(--border-color);
-        }}
-
-        footer {{
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }}
-
-        @media (max-width: 900px) {{
-            .modal-content {{
-                grid-template-columns: 1fr;
-            }}
-            .modal-img-wrap {{
-                height: 350px;
-            }}
-            header h1 {{
-                font-size: 2rem;
-            }}
-        }}
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        body {{ background-color: var(--bg-color); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; }}
+        header {{ text-align: center; padding: 80px 20px 40px; background: radial-gradient(circle at center, #1c1524 0%, var(--bg-color) 70%); border-bottom: 1px solid var(--border-color); }}
+        header h1 {{ font-family: 'Cinzel', serif; font-size: 2.8rem; letter-spacing: 4px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 8px; }}
+        header p.subtitle {{ font-size: 1.1rem; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }}
+        .stats-bar {{ margin-top: 25px; display: inline-block; padding: 8px 24px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 30px; font-size: 0.9rem; color: var(--accent-gold); }}
+        .container {{ max-width: 1400px; margin: 0 auto; padding: 50px 25px; }}
+        .gallery-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }}
+        .art-card {{ background: var(--card-color); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; }}
+        .art-card:hover {{ transform: translateY(-8px); border-color: var(--accent-gold); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); }}
+        .img-container {{ position: relative; background: #000; width: 100%; height: 380px; overflow: hidden; }}
+        .img-container img {{ width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }}
+        .art-card:hover .img-container img {{ transform: scale(1.05); }}
+        .art-id-badge {{ position: absolute; top: 12px; left: 12px; background: rgba(10, 10, 12, 0.85); color: var(--accent-gold); border: 1px solid rgba(197, 160, 89, 0.3); padding: 4px 10px; font-size: 0.75rem; font-family: 'Cinzel', serif; font-weight: 700; border-radius: 4px; backdrop-filter: blur(4px); }}
+        .card-info {{ padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }}
+        .art-title {{ font-family: 'Cinzel', serif; font-size: 1.2rem; color: #fff; margin-bottom: 6px; }}
+        .art-meta {{ font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px; }}
+        .art-size {{ font-size: 0.8rem; color: var(--accent-gold); font-weight: 600; }}
+        .modal {{ display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(5, 5, 8, 0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px; }}
+        .modal-content {{ background: var(--surface-color); border: 1px solid var(--accent-gold); border-radius: 12px; max-width: 1000px; width: 100%; max-height: 90vh; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; box-shadow: 0 25px 50px rgba(0,0,0,0.8); position: relative; }}
+        .modal-close {{ position: absolute; top: 15px; right: 20px; color: var(--text-muted); font-size: 2rem; cursor: pointer; z-index: 10; transition: color 0.2s; }}
+        .modal-close:hover {{ color: #fff; }}
+        .modal-img-wrap {{ background: #000; display: flex; align-items: center; justify-content: center; padding: 20px; }}
+        .modal-img-wrap img {{ max-width: 100%; max-height: 75vh; object-fit: contain; border-radius: 4px; }}
+        .modal-details {{ padding: 35px 30px; display: flex; flex-direction: column; gap: 16px; }}
+        .modal-id {{ font-family: 'Cinzel', serif; color: var(--accent-gold); font-size: 0.9rem; letter-spacing: 2px; }}
+        .modal-title {{ font-family: 'Cinzel', serif; font-size: 1.8rem; color: #fff; line-height: 1.3; }}
+        .modal-specs {{ border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 12px 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; color: var(--text-muted); }}
+        .modal-specs span {{ color: var(--text-main); font-weight: 600; }}
+        .statement-box {{ background: rgba(197, 160, 89, 0.05); border-left: 3px solid var(--accent-gold); padding: 12px 16px; font-style: italic; font-size: 0.95rem; color: #dedede; }}
+        .curatorial-box {{ font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }}
+        .tag {{ display: inline-block; background: rgba(255, 255, 255, 0.05); color: #b0b0c5; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; margin: 3px 2px; border: 1px solid var(--border-color); }}
+        footer {{ text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; }}
+        @media (max-width: 900px) {{ .modal-content {{ grid-template-columns: 1fr; }} .modal-img-wrap {{ height: 350px; }} header h1 {{ font-size: 2rem; }} }}
     </style>
 </head>
 <body>
-
     <header>
         <h1>Maruto Art Studio</h1>
         <p class="subtitle">Official Curatorial Archive & Fine Art Portfolio</p>
@@ -385,14 +149,11 @@ def build_gallery():
             Total Terarsip: <strong>{len(catalog)} Karya Seni</strong>
         </div>
     </header>
-
     <main class="container">
         <div class="gallery-grid">
             {''.join(cards_html)}
         </div>
     </main>
-
-    <!-- MODAL POPUP -->
     <div id="artModal" class="modal" onclick="closeModalOnOutside(event)">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -407,40 +168,29 @@ def build_gallery():
                     <div>Media: <span id="mMedia">Tinta di atas kertas</span></div>
                     <div>Ukuran Fisik: <span id="mSize">38 cm x 42 cm</span></div>
                 </div>
-                <div class="statement-box" id="mStatement">
-                    "Artist Statement..."
-                </div>
-                <div class="curatorial-box" id="mCuratorial">
-                    Catatan kuratorial mendalam...
-                </div>
+                <div class="statement-box" id="mStatement">"Artist Statement..."</div>
+                <div class="curatorial-box" id="mCuratorial">Catatan kuratorial...</div>
                 <div id="mTags"></div>
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2026 Maruto Art Studio. Didukung oleh AI Kurator Lokal.</p>
-    </footer>
-
+    <footer><p>&copy; 2026 Maruto Art Studio. Didukung oleh AI Kurator Lokal.</p></footer>
     <script>
         const catalogData = {catalog_json_str};
-
         function openModal(artId) {{
             const item = catalogData.find(x => (x.ID === artId || x.id === artId));
             if (!item) return;
-
             document.getElementById('mId').innerText = item.ID || item.id || '';
             document.getElementById('mTitle').innerText = item.Judul || item.judul || 'Tanpa Judul';
             document.getElementById('mYear').innerText = item.Tahun || item.tahun || '-';
             document.getElementById('mMedia').innerText = item.Media || item.media || '-';
             document.getElementById('mSize').innerText = item.Ukuran || item.ukuran || '-';
             
-            const filename = item.Nama_File || item.file || '';
-            document.getElementById('mImg').src = 'images/' + filename;
+            const webImg = item.web_image || '';
+            document.getElementById('mImg').src = webImg ? ('images/' + webImg) : '';
 
             document.getElementById('mStatement').innerText = '"' + (item.artist_statement_id || 'Refleksi artistik.') + '"';
             document.getElementById('mCuratorial').innerText = item.deskripsi_kuratorial || 'Belum ada catatan kuratorial rinci.';
-
             const tagsDiv = document.getElementById('mTags');
             tagsDiv.innerHTML = '';
             if (item.tags) {{
@@ -454,38 +204,28 @@ def build_gallery():
                     }}
                 }});
             }}
-
             document.getElementById('artModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }}
-
         function closeModal() {{
             document.getElementById('artModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }}
-
         function closeModalOnOutside(e) {{
-            if (e.target.id === 'artModal') {{
-                closeModal();
-            }}
+            if (e.target.id === 'artModal') {{ closeModal(); }}
         }}
-
-        document.addEventListener('keydown', (e) => {{
-            if (e.key === 'Escape') closeModal();
-        }});
+        document.addEventListener('keydown', (e) => {{ if (e.key === 'Escape') closeModal(); }});
     </script>
 </body>
 </html>
 """
 
-    index_html_path = os.path.join(OUTPUT_DIR, "index.html")
-    with open(index_html_path, "w", encoding="utf-8") as f:
+    with open(os.path.join(OUTPUT_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"[OK] Website portofolio berhasil dibangun di folder:")
-    print(f"     📂 {OUTPUT_DIR}")
-    print(f"[OK] Berkas gambar tersinkron: {copied_count} file baru.")
-    print(f"[OK] Siap dibuka di browser atau dipublikasikan ke GitHub Pages!")
+    print(f"\n[OK] Selesai! Sebanyak {found_count} gambar berhasil dipasangkan ke galeri web.")
+    if missing_count > 0:
+        print(f"[PERINGATAN] {missing_count} karya belum memiliki berkas gambar yang cocok di ART_70.")
 
 if __name__ == "__main__":
     build_gallery()
