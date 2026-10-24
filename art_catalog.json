@@ -1328,5 +1328,27 @@
     "harga_lisensi_cetak_usd": 100,
     "catatan_lisensi_cetak": "Free Ongkos Kirim",
     "status_penjualan": "Tersedia"
+  },
+  {
+    "ID": "ART-071",
+    "Judul": "Kematian yang Menyatu dengan Alam",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "AI Generated",
+    "Nama_File": "ComfyUI_00175_.png",
+    "artist_statement_id": "1-Perpaduan antara keterbatasan dan kekuatan, dalam bentuk yang terdengar seperti misteri alam semesta.",
+    "deskripsi_kuratorial": "Karya ini menggambarkan makna kematian dengan cara yang sangat mendalam. Komposisi visual menampilkan sosok penghuni hutan yang berbentuk kekuatan dari jaringan tubuh manusia dan tulang rusuk, terhubung secara simbolis dengan beberapa tengkorak yang membentuk bentuk seperti tangan atau bagian dari tubuh lainnya. Tinta di atas kertas menunjukkan teknik yang memperlihatkan detail yang sangat halus dan tekstur yang mendalam. Karya ini menggambarkan makna kematian sebagai proses perubahan yang tidak dapat dilihat secara langsung, tetapi terdengar dalam bentuk mimpi atau misteri alam semesta.",
+    "tags": "art, sketch, drawing, indonesia, darkart, contemporaryart"
+  },
+  {
+    "ID": "ART-072",
+    "Judul": "Keruntuhan yang Menyentuh",
+    "Tahun": 2026,
+    "Ukuran": "10 cm x 20 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "ART-072 - Keruntuhan yang Menyentuh.jpg",
+    "artist_statement_id": "1-merupakan sebuah perjalanan spiritual ke dalam ketakutan dan kekuatan, menggambarkan keterbatasan dari hati yang terjebak dalam kegelapan.",
+    "deskripsi_kuratorial": "Karya ini menggunakan teknik sketsa dengan garis-garis tajam dan tekstur yang mendalam untuk mengekspresikan konflik antara kekuatan dan ketakutan. Komposisi visual menggambarkan struktur yang kompleks, mungkin sebagai representasi dari ruang mental atau alam semesta yang terjebak dalam perasaan. Karya ini mencerminkan proses introspektif dan pengalaman emosional yang mendalam.",
+    "tags": "art, sketch, drawing, indonesia, darkart, contemporaryart, surealisgothic, gothic"
   }
 ]

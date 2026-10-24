@@ -1,0 +1,562 @@
+[
+  {
+    "ID": "ART-001",
+    "Judul": "AMIEN",
+    "Tahun": "2003",
+    "Ukuran": "38 cm x 42 cm",
+    "Media": "tinta di atas kertas",
+    "Nama_File": "...._AMIEN"
+  },
+  {
+    "ID": "ART-002",
+    "Judul": "Thinker",
+    "Tahun": "2008",
+    "Ukuran": "20 cm x 10 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Thinker"
+  },
+  {
+    "ID": "ART-003",
+    "Judul": "Tertikam Persoalan",
+    "Tahun": "2008",
+    "Ukuran": "38 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Tertikam Persoalan"
+  },
+  {
+    "ID": "ART-004",
+    "Judul": "A story about a clown",
+    "Tahun": "2003",
+    "Ukuran": "42 x 46 cm",
+    "Media": "conte di atas kanvas",
+    "Nama_File": "A story about a clown"
+  },
+  {
+    "ID": "ART-005",
+    "Judul": "Terasang",
+    "Tahun": "2001",
+    "Ukuran": "21 cm x 29 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Terasang"
+  },
+  {
+    "ID": "ART-006",
+    "Judul": "tiga ikan",
+    "Tahun": "2006",
+    "Ukuran": "21 cm x 30 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Tiga_Ikan"
+  },
+  {
+    "ID": "ART-007",
+    "Judul": "Kingdom of Skulls",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "Kingdom of Skulls"
+  },
+  {
+    "ID": "ART-008",
+    "Judul": "Kalay Kalay",
+    "Tahun": "2015",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Kalay Kalay"
+  },
+  {
+    "ID": "ART-009",
+    "Judul": "Batik Gothic",
+    "Tahun": "2003",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Batik Gothic"
+  },
+  {
+    "ID": "ART-010",
+    "Judul": "Sakratulmaut",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Sakratulmaut"
+  },
+  {
+    "ID": "ART-011",
+    "Judul": "The Phobia ",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "The Phobia"
+  },
+  {
+    "ID": "ART-012",
+    "Judul": "Gadis, Pohon Dan Rembulan",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Gadis, Pohon Dan Rembulan"
+  },
+  {
+    "ID": "ART-013",
+    "Judul": "Terjungkal",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Terjungkal"
+  },
+  {
+    "ID": "ART-014",
+    "Judul": "Sawan",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "Sawan"
+  },
+  {
+    "ID": "ART-015",
+    "Judul": "Petarung",
+    "Tahun": "2006",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Petarung"
+  },
+  {
+    "ID": "ART-016",
+    "Judul": "Family",
+    "Tahun": "2017",
+    "Ukuran": "38 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Family"
+  },
+  {
+    "ID": "ART-017",
+    "Judul": "DORONGAN DUNIA DISTOPIA",
+    "Tahun": "2017",
+    "Ukuran": "38 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "DORONGAN DUNIA DISTOPIA"
+  },
+  {
+    "ID": "ART-018",
+    "Judul": "Migrasi Jiwa Berterbangan",
+    "Tahun": "2013",
+    "Ukuran": "38 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Migrasi Jiwa Berterbangan"
+  },
+  {
+    "ID": "ART-019",
+    "Judul": "Terbelenggu Cahaya Kecil",
+    "Tahun": "2015",
+    "Ukuran": "38 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Terbelenggu Cahaya Kecil"
+  },
+  {
+    "ID": "ART-020",
+    "Judul": "Hujan Deras Persoalan",
+    "Tahun": "2011",
+    "Ukuran": "38 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Hujan Deras Persoalan"
+  },
+  {
+    "ID": "ART-021",
+    "Judul": "Kandang Hati Membara",
+    "Tahun": "2013",
+    "Ukuran": "38 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Kandang Hati Membara"
+  },
+  {
+    "ID": "ART-022",
+    "Judul": "Cahaya Penjaga Kesunyian",
+    "Tahun": "2012",
+    "Ukuran": "38 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Cahaya Penjaga Kesunyian"
+  },
+  {
+    "ID": "ART-023",
+    "Judul": "Keinginan Sumber Penderitaan",
+    "Tahun": "2010",
+    "Ukuran": "40 cm x 54 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Keinginan Sumber Penderitaan"
+  },
+  {
+    "ID": "ART-024",
+    "Judul": "Traumatic Kelahiran",
+    "Tahun": "2019",
+    "Ukuran": "40 cm x 54 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Traumatic Kelahiran"
+  },
+  {
+    "ID": "ART-025",
+    "Judul": "Perkembangbiakan",
+    "Tahun": "2017",
+    "Ukuran": "40 cm x 54 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Perkembangbiakan"
+  },
+  {
+    "ID": "ART-026",
+    "Judul": "Lorong Doa Abadi",
+    "Tahun": "2020",
+    "Ukuran": "42 cm x 46 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Lorong Doa Abadi"
+  },
+  {
+    "ID": "ART-027",
+    "Judul": "Immoral",
+    "Tahun": "2000",
+    "Ukuran": "42 x 46 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Immoral"
+  },
+  {
+    "ID": "ART-028",
+    "Judul": "Pelita Hati",
+    "Tahun": "2019",
+    "Ukuran": "46 x 52 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Pelita Hati"
+  },
+  {
+    "ID": "ART-029",
+    "Judul": "Actor in Action",
+    "Tahun": "2019",
+    "Ukuran": "100 x 140 cm",
+    "Media": "acrylik di kanvas",
+    "Nama_File": "Actor in Action"
+  },
+  {
+    "ID": "ART-030",
+    "Judul": "Pandangan Badut",
+    "Tahun": "2011",
+    "Ukuran": "42 cm x 46 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Pandangan Badut"
+  },
+  {
+    "ID": "ART-031",
+    "Judul": "Bermimpi Berpengharapan Nasib",
+    "Tahun": "2003",
+    "Ukuran": "40 cm x 54 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Bermimpi Berpengharapan Nasib"
+  },
+  {
+    "ID": "ART-032",
+    "Judul": "Bintang Kosong Para Pemimpi",
+    "Tahun": "2002",
+    "Ukuran": "30 cm x 43 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Bintang Kosong Para Pemimpi"
+  },
+  {
+    "ID": "ART-033",
+    "Judul": "Cerita Berduri",
+    "Tahun": "2025",
+    "Ukuran": "42 cm x 46 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Cerita Berduri"
+  },
+  {
+    "ID": "ART-034",
+    "Judul": "Cerita Dibalik Pohon",
+    "Tahun": "2023",
+    "Ukuran": "40 cm x 54 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Cerita Dibalik Pohon"
+  },
+  {
+    "ID": "ART-035",
+    "Judul": "cinta tumbuh terkubur usia",
+    "Tahun": "2022",
+    "Ukuran": "40 cm X 54 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "cinta tumbuh terkubur usia"
+  },
+  {
+    "ID": "ART-036",
+    "Judul": "Derita Berakar Gelap",
+    "Tahun": "2026",
+    "Ukuran": "29,7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "Derita Berakar Gelap"
+  },
+  {
+    "ID": "ART-037",
+    "Judul": "Family's Holiday",
+    "Tahun": "2012",
+    "Ukuran": "100 cm x 140 cm",
+    "Media": "acrylik di kanvas",
+    "Nama_File": "Family's Holiday"
+  },
+  {
+    "ID": "ART-038",
+    "Judul": "Gerbang dan Bayi",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "Gerbang dan Bayi"
+  },
+  {
+    "ID": "ART-039",
+    "Judul": "Hydrant People",
+    "Tahun": "2005",
+    "Ukuran": "130 cm X 215 cm",
+    "Media": "acrylik di kanvas",
+    "Nama_File":"Hydrant People"
+  },
+  {
+    "ID": "ART-040",
+    "Judul": "Kerangka",
+    "Tahun": "2019",
+    "Ukuran": "40 cm x 54 cm",
+    "Media": "Conte di atas kertas",
+    "Nama_File":"kerangka"
+  },
+  {
+    "ID": "ART-041",
+    "Judul": "khalayak",
+    "Tahun": "2011",
+    "Ukuran": "52 cm x 80 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "khalayak"
+  },
+  {
+    "ID": "ART-042",
+    "Judul": "KIRIM DOA",
+    "Tahun": "2005",
+    "Ukuran": "32 x 42 cm",
+    "Media": "Conte di atas kertas",
+    "Nama_File": "KIRIM DOA"
+  },
+  {
+    "ID": "ART-043",
+    "Judul": "lahir derita sia sia (AI)",
+    "Tahun": "2013",
+    "Ukuran": "29,7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "lahir derita sia sia"
+  },
+  {
+    "ID": "ART-044",
+    "Judul": "lahir derita sia sia",
+    "Tahun": "2013",
+    "Ukuran": "35 x 50 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "lahir derita sia sia"
+  },
+  {
+    "ID": "ART-045",
+    "Judul": "Lakon... in action",
+    "Tahun": "2011",
+    "Ukuran": "100 x 140 cm",
+    "Media": "acrylik di kanvas",
+    "Nama_File": "Lakon... in action"
+  },
+  {
+    "ID": "ART-046",
+    "Judul": "MATABENCANA",
+    "Tahun": "2004",
+    "Ukuran": "32 CM X 36 CM",
+    "Media": "Conte di atas kertas",
+    "Nama_File": "MATABENCANA"
+  },
+  {
+    "ID": "ART-047",
+    "Judul": "Matacahari",
+    "Tahun": "2004",
+    "Ukuran": "42 cm x 46 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Matacahari"
+  },
+  {
+    "ID": "ART-048",
+    "Judul": "Maut Merindu Putus Asa",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "Maut Merindu Putus Asa"
+  },
+  {
+    "ID": "ART-049",
+    "Judul": "Membebaskan beban",
+    "Tahun": "2024",
+    "Ukuran": "38 cm x 42 cm",
+    "Media": "conte di atas kertas",
+    "Nama_File": "Membebaskan beban"
+  },
+  {
+    "ID": "ART-050",
+    "Judul": "Mengais Dikotak Logika",
+    "Tahun": "2022",
+    "Ukuran": "40 cm x 54 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Mengais Dikotak Logika"
+  },
+  {
+    "ID": "ART-051",
+    "Judul": "Mengikat Hati",
+    "Tahun": "2025",
+    "Ukuran": "32 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Mengikat Hati"
+  },
+  {
+    "ID": "ART-052",
+    "Judul": "MENYULAM KEBERSAMAAN",
+    "Tahun": "2005",
+    "Ukuran": "32 cm X 36 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "MENYULAM KEBERSAMAAN"
+  },
+  {
+    "ID": "ART-053",
+    "Judul": "Penari",
+    "Tahun": "1997",
+    "Ukuran": "29 cm x 34 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "Penari"
+  },
+  {
+    "ID": "ART-054",
+    "Judul": "Perawan Disarang Cakrawala",
+    "Tahun": "2026",
+    "Ukuran": "29,7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "Perawan Disarang Cakrawala"
+  },
+  {
+    "ID": "ART-055",
+    "Judul": "Perempuan Berangin Api",
+    "Tahun": "2026",
+    "Ukuran": "29,7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "Perempuan Berangin Api"
+  },
+  {
+    "ID": "ART-056",
+    "Judul": "Perempuan dan Sayap",
+    "Tahun": "2026",
+    "Ukuran": "29,7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "Perempuan dan Sayap"
+  },
+  {
+    "ID": "ART-057",
+    "Judul": "pohon dan gadis",
+    "Tahun": "2026",
+    "Ukuran": "29,7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "pohon dan gadis"
+  },
+  {
+    "ID": "ART-058",
+    "Judul": "ruang sesal tengah malam",
+    "Tahun": "2026",
+    "Ukuran": "29,7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "ruang sesal tengah malam"
+  },
+  {
+    "ID": "ART-059",
+    "Judul": "Saat luka bencana datang",
+    "Tahun": "2005",
+    "Ukuran": "79 cm x 109 cm",
+    "Media": "acrylik di kanvas",
+    "Nama_File": "Saat luka bencana datang"
+  },
+  {
+    "ID": "ART-060",
+    "Judul": "senandung Doa",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "cat air di atas kertas",
+    "Nama_File": "senandung Doa "
+  },
+  {
+    "ID": "ART-061",
+    "Judul": "Sisa Direruntuhan Sepi",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "Sisa Direruntuhan Sepi"
+  },
+  {
+    "ID": "ART-062",
+    "Judul": "sleep on fire",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "sleep on fire"
+  },
+  {
+    "ID": "ART-063",
+    "Judul": "Swara",
+    "Tahun": "2010",
+    "Ukuran": "100 cm x 140 cm",
+    "Media": "acrylik di kanvas",
+    "Nama_File": "Swara"
+  },
+  {
+    "ID": "ART-064",
+    "Judul": "TERIKAT KERAGUAN",
+    "Tahun": "2005",
+    "Ukuran": "79 cm x 109 cm",
+    "Media": "conte di atas kertas",
+    "Nama_File": "TERIKAT DALAM KERAGUAN"
+  },
+  {
+    "ID": "ART-065",
+    "Judul": "TERIKAT KEBEBASAN",
+    "Tahun": "2003",
+    "Ukuran": "42 cm x 46 cm",
+    "Media": "tinta di atas kertas",
+    "Nama_File": "TERIKAT KEBEBASAN"
+  },
+  {
+    "ID": "ART-066",
+    "Judul": "Terkenang",
+    "Tahun": "2011",
+    "Ukuran": "40 cm x 28 cm",
+    "Media": "tinta di atas kertas",
+    "Nama_File": "Terkenang"
+  },
+  {
+    "ID": "ART-067",
+    "Judul": "The Thinker",
+    "Tahun": "2026",
+    "Ukuran": "29.7 cm x 42 cm",
+    "Media": "Image Generate AI",
+    "Nama_File": "The Thinker"
+  },
+  {
+    "ID": "ART-068",
+    "Judul": "TRAGEDI SETELAH BENCANA",
+    "Tahun": "2005",
+    "Ukuran": "40 cm x 50 cm",
+    "Media": "conte di atas kertas",
+    "Nama_File": "TRAGEDI SETELAH BENCANA"
+  },
+  {
+    "ID": "ART-069",
+    "Judul": "untuk yang tercinta",
+    "Tahun": "2011",
+    "Ukuran": "23 cm x 30 cm",
+    "Media": "Tinta di atas kertas",
+    "Nama_File": "untuk yang tercinta"
+  },
+  {
+    "ID": "ART-070",
+    "Judul": "URBAN PRODUK",
+    "Tahun": "2006",
+    "Ukuran": "50 cm x 70 cm",
+    "Media": "conte di atas kertas",
+    "Nama_File": "URBAN PRODUK"
+  }
+]

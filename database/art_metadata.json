@@ -1,0 +1,562 @@
+﻿[
+    {
+        "file_name":  "....AMIEN. 38 cm x 42 cm pen diatas kertas baru.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\....AMIEN. 38 cm x 42 cm pen diatas kertas baru.jpg",
+        "title":  "....AMIEN. 38 cm x 42 cm pen diatas kertas baru",
+        "year":  null,
+        "size":  "38 cm x 42 cm",
+        "technique":  "BALLPOINT/PEN"
+    },
+    {
+        "file_name":  "20 cm x 10 cm tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\20 cm x 10 cm tinta diatas kertas.jpg",
+        "title":  "20 cm x 10 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "20 cm x 10 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "2003 - 42 x 46 cm - tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\2003 - 42 x 46 cm - tinta diatas kertas.jpg",
+        "title":  "2003 - 42 x 46 cm - tinta diatas kertas",
+        "year":  "2003",
+        "size":  null,
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "21 cm x 29 cm ink on paper.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\21 cm x 29 cm ink on paper.JPG",
+        "title":  "21 cm x 29 cm ink on paper",
+        "year":  null,
+        "size":  "21 cm x 29 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "21 cm x 30 cm tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\21 cm x 30 cm tinta diatas kertas.jpg",
+        "title":  "21 cm x 30 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "21 cm x 30 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "29.7 cm x 42 cm tinta diatas kertas (2).jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\29.7 cm x 42 cm tinta diatas kertas (2).jpg",
+        "title":  "29.7 cm x 42 cm tinta diatas kertas (2)",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "29.7 cm x 42 cm tinta diatas kertas (2).png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\29.7 cm x 42 cm tinta diatas kertas (2).png",
+        "title":  "29.7 cm x 42 cm tinta diatas kertas (2)",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "29.7 cm x 42 cm tinta diatas kertas (3).JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\29.7 cm x 42 cm tinta diatas kertas (3).JPG",
+        "title":  "29.7 cm x 42 cm tinta diatas kertas (3)",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "29.7 cm x 42 cm tinta diatas kertas (4).JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\29.7 cm x 42 cm tinta diatas kertas (4).JPG",
+        "title":  "29.7 cm x 42 cm tinta diatas kertas (4)",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "29.7 cm x 42 cm tinta diatas kertas (5).jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\29.7 cm x 42 cm tinta diatas kertas (5).jpg",
+        "title":  "29.7 cm x 42 cm tinta diatas kertas (5)",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "29.7 cm x 42 cm tinta diatas kertas (6).jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\29.7 cm x 42 cm tinta diatas kertas (6).jpg",
+        "title":  "29.7 cm x 42 cm tinta diatas kertas (6)",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "29.7 cm x 42 cm tinta diatas kertas (7).jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\29.7 cm x 42 cm tinta diatas kertas (7).jpg",
+        "title":  "29.7 cm x 42 cm tinta diatas kertas (7)",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "29.7 cm x 42 cm tinta diatas kertas.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\29.7 cm x 42 cm tinta diatas kertas.JPG",
+        "title":  "29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "29.7 cm x 42 cm tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\29.7 cm x 42 cm tinta diatas kertas.png",
+        "title":  "29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "38 cm x 42 cm  tinta diatas kertas (8).JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\38 cm x 42 cm  tinta diatas kertas (8).JPG",
+        "title":  "38 cm x 42 cm  tinta diatas kertas (8)",
+        "year":  null,
+        "size":  "38 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "38 cm x 42 cm tinta diatas kertas  (3).JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\38 cm x 42 cm tinta diatas kertas  (3).JPG",
+        "title":  "38 cm x 42 cm tinta diatas kertas  (3)",
+        "year":  null,
+        "size":  "38 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "38 cm x 42 cm tinta diatas kertas  (4).JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\38 cm x 42 cm tinta diatas kertas  (4).JPG",
+        "title":  "38 cm x 42 cm tinta diatas kertas  (4)",
+        "year":  null,
+        "size":  "38 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "38 cm x 42 cm tinta diatas kertas  (6).JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\38 cm x 42 cm tinta diatas kertas  (6).JPG",
+        "title":  "38 cm x 42 cm tinta diatas kertas  (6)",
+        "year":  null,
+        "size":  "38 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "38 cm x 42 cm tinta diatas kertas (2).JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\38 cm x 42 cm tinta diatas kertas (2).JPG",
+        "title":  "38 cm x 42 cm tinta diatas kertas (2)",
+        "year":  null,
+        "size":  "38 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "38 cm x 42 cm tinta diatas kertas (5).JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\38 cm x 42 cm tinta diatas kertas (5).JPG",
+        "title":  "38 cm x 42 cm tinta diatas kertas (5)",
+        "year":  null,
+        "size":  "38 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "38 cm x 42 cm tinta diatas kertas (7).JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\38 cm x 42 cm tinta diatas kertas (7).JPG",
+        "title":  "38 cm x 42 cm tinta diatas kertas (7)",
+        "year":  null,
+        "size":  "38 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "38 cm x 42 cm tinta diatas kertas.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\38 cm x 42 cm tinta diatas kertas.JPG",
+        "title":  "38 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "38 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "40 cm x 54 cm tinta diatas kertas (2).jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\40 cm x 54 cm tinta diatas kertas (2).jpg",
+        "title":  "40 cm x 54 cm tinta diatas kertas (2)",
+        "year":  null,
+        "size":  "40 cm x 54 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "40 cm x 54 cm tinta diatas kertas (3).jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\40 cm x 54 cm tinta diatas kertas (3).jpg",
+        "title":  "40 cm x 54 cm tinta diatas kertas (3)",
+        "year":  null,
+        "size":  "40 cm x 54 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "40 cm x 54 cm tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\40 cm x 54 cm tinta diatas kertas.jpg",
+        "title":  "40 cm x 54 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "40 cm x 54 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "42 x 46 cm - tinta diatas kertas (2).jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\42 x 46 cm - tinta diatas kertas (2).jpg",
+        "title":  "42 x 46 cm - tinta diatas kertas (2)",
+        "year":  null,
+        "size":  null,
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "42 x 46 cm - tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\42 x 46 cm - tinta diatas kertas.jpg",
+        "title":  "42 x 46 cm - tinta diatas kertas",
+        "year":  null,
+        "size":  null,
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "46 x 52 cm - tinta diatas kertas.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\46 x 52 cm - tinta diatas kertas.JPG",
+        "title":  "46 x 52 cm - tinta diatas kertas",
+        "year":  null,
+        "size":  null,
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "Actor in action.2011-acrylik on canvas 100 cm x 140 cm..JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\Actor in action.2011-acrylik on canvas 100 cm x 140 cm..JPG",
+        "title":  "Actor in action.2011-acrylik on canvas 100 cm x 140 cm.",
+        "year":  "2011",
+        "size":  "100 cm x 140 cm",
+        "technique":  "ACRYLIC"
+    },
+    {
+        "file_name":  "BADUT - 2003 - 42 x 46 cm - tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\BADUT - 2003 - 42 x 46 cm - tinta diatas kertas.jpg",
+        "title":  "BADUT - 2003 - 42 x 46 cm - tinta diatas kertas",
+        "year":  "2003",
+        "size":  null,
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "bermimpi, berpengharapan, nasib.  40 cm x 54 cm tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\bermimpi, berpengharapan, nasib.  40 cm x 54 cm tinta diatas kertas.jpg",
+        "title":  "bermimpi, berpengharapan, nasib.  40 cm x 54 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "40 cm x 54 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "Bintang Kosong para Pemimpi.2002 - 30 cm X 43 cm - tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\Bintang Kosong para Pemimpi.2002 - 30 cm X 43 cm - tinta diatas kertas.jpg",
+        "title":  "Bintang Kosong para Pemimpi.2002 - 30 cm X 43 cm - tinta diatas kertas",
+        "year":  "2002",
+        "size":  "30 cm x 43 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "cerita berduri. 42 x 46 cm -  tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\cerita berduri. 42 x 46 cm -  tinta diatas kertas.jpg",
+        "title":  "cerita berduri. 42 x 46 cm -  tinta diatas kertas",
+        "year":  null,
+        "size":  null,
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "cerita dibalik pohon. 40 cm x 54 cm tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\cerita dibalik pohon. 40 cm x 54 cm tinta diatas kertas.jpg",
+        "title":  "cerita dibalik pohon. 40 cm x 54 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "40 cm x 54 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "cinta tumbuh terkubur usia. 40 cm x 54 cm tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\cinta tumbuh terkubur usia. 40 cm x 54 cm tinta diatas kertas.jpg",
+        "title":  "cinta tumbuh terkubur usia. 40 cm x 54 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "40 cm x 54 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "Derita Berakar Gelap. 29.7 cm x 42 cm tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\Derita Berakar Gelap. 29.7 cm x 42 cm tinta diatas kertas.png",
+        "title":  "Derita Berakar Gelap. 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "Family\u0027s Holiday 2012 - 100 cm x 140 cm - acrylik di kanvas.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\Family\u0027s Holiday 2012 - 100 cm x 140 cm - acrylik di kanvas.JPG",
+        "title":  "Family\u0027s Holiday 2012 - 100 cm x 140 cm - acrylik di kanvas",
+        "year":  "2012",
+        "size":  "100 cm x 140 cm",
+        "technique":  "ACRYLIC"
+    },
+    {
+        "file_name":  "gerbang dan bayi 29.7 cm x 42 cm tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\gerbang dan bayi 29.7 cm x 42 cm tinta diatas kertas.png",
+        "title":  "gerbang dan bayi 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "hydrant people 2011 - acrylik di kanvas-130 cm X 215 cm.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\hydrant people 2011 - acrylik di kanvas-130 cm X 215 cm.JPG",
+        "title":  "hydrant people 2011 - acrylik di kanvas-130 cm X 215 cm",
+        "year":  "2011",
+        "size":  "130 cm x 215 cm",
+        "technique":  "ACRYLIC"
+    },
+    {
+        "file_name":  "kerangka 40 cm x 54 cm tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\kerangka 40 cm x 54 cm tinta diatas kertas.jpg",
+        "title":  "kerangka 40 cm x 54 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "40 cm x 54 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "khalayak 2011 ( edisi Rohsaurus ) - 52 cm x 80 cm - ballpoint on paper..jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\khalayak 2011 ( edisi Rohsaurus ) - 52 cm x 80 cm - ballpoint on paper..jpg",
+        "title":  "khalayak 2011 ( edisi Rohsaurus ) - 52 cm x 80 cm - ballpoint on paper.",
+        "year":  "2011",
+        "size":  "52 cm x 80 cm",
+        "technique":  "BALLPOINT/PEN"
+    },
+    {
+        "file_name":  "KIRIM DOA - 2005 - 32 x 42 cm - conte diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\KIRIM DOA - 2005 - 32 x 42 cm - conte diatas kertas.jpg",
+        "title":  "KIRIM DOA - 2005 - 32 x 42 cm - conte diatas kertas",
+        "year":  "2005",
+        "size":  null,
+        "technique":  "CONTE"
+    },
+    {
+        "file_name":  "lahir derita sia sia. 29.7 cm x 42 cm tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\lahir derita sia sia. 29.7 cm x 42 cm tinta diatas kertas.png",
+        "title":  "lahir derita sia sia. 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "Lahir Derita Sia-sia 2013 - 35 cm X 50 cm  - tinta diatas kertas.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\Lahir Derita Sia-sia 2013 - 35 cm X 50 cm  - tinta diatas kertas.JPG",
+        "title":  "Lahir Derita Sia-sia 2013 - 35 cm X 50 cm  - tinta diatas kertas",
+        "year":  "2013",
+        "size":  "35 cm x 50 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "Lakon... in action 2011-acrylik on canvas 100 cm x 140 cm..JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\Lakon... in action 2011-acrylik on canvas 100 cm x 140 cm..JPG",
+        "title":  "Lakon... in action 2011-acrylik on canvas 100 cm x 140 cm.",
+        "year":  "2011",
+        "size":  "100 cm x 140 cm",
+        "technique":  "ACRYLIC"
+    },
+    {
+        "file_name":  "MATABENCANA - 2004 - 32 x 36 cm - conte diatas kertas.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\MATABENCANA - 2004 - 32 x 36 cm - conte diatas kertas.JPG",
+        "title":  "MATABENCANA - 2004 - 32 x 36 cm - conte diatas kertas",
+        "year":  "2004",
+        "size":  null,
+        "technique":  "CONTE"
+    },
+    {
+        "file_name":  "MATACAHARI -2004 - 42 x 46 cm - ballpoint.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\MATACAHARI -2004 - 42 x 46 cm - ballpoint.jpg",
+        "title":  "MATACAHARI -2004 - 42 x 46 cm - ballpoint",
+        "year":  "2004",
+        "size":  null,
+        "technique":  "BALLPOINT/PEN"
+    },
+    {
+        "file_name":  "maut merindu putus asa -  29.7 cm x 42 cm - tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\maut merindu putus asa -  29.7 cm x 42 cm - tinta diatas kertas.png",
+        "title":  "maut merindu putus asa -  29.7 cm x 42 cm - tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "Membebaskan beban - 38 cm x 42 cm - conte diatas kertas crop.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\Membebaskan beban - 38 cm x 42 cm - conte diatas kertas crop.jpg",
+        "title":  "Membebaskan beban - 38 cm x 42 cm - conte diatas kertas crop",
+        "year":  null,
+        "size":  "38 cm x 42 cm",
+        "technique":  "CONTE"
+    },
+    {
+        "file_name":  "mengais dikotak logika - 29.7 cm x 42 cm tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\mengais dikotak logika - 29.7 cm x 42 cm tinta diatas kertas.png",
+        "title":  "mengais dikotak logika - 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "mengikat hati.jpg  32 cm x 42 cm  tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\mengikat hati.jpg  32 cm x 42 cm  tinta diatas kertas.jpg",
+        "title":  "mengikat hati.jpg  32 cm x 42 cm  tinta diatas kertas",
+        "year":  null,
+        "size":  "32 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "MENYULAM KEBERSAMAAM - 2005 - 32 x 36 cm - conte diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\MENYULAM KEBERSAMAAM - 2005 - 32 x 36 cm - conte diatas kertas.jpg",
+        "title":  "MENYULAM KEBERSAMAAM - 2005 - 32 x 36 cm - conte diatas kertas",
+        "year":  "2005",
+        "size":  null,
+        "technique":  "CONTE"
+    },
+    {
+        "file_name":  "penari 1997 29 cm x 34 cm tinta diatas kertas.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\penari 1997 29 cm x 34 cm tinta diatas kertas.JPG",
+        "title":  "penari 1997 29 cm x 34 cm tinta diatas kertas",
+        "year":  "1997",
+        "size":  "29 cm x 34 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "perawan disarang cakrawala 29.7 cm x 42 cm tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\perawan disarang cakrawala 29.7 cm x 42 cm tinta diatas kertas.png",
+        "title":  "perawan disarang cakrawala 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "perempuan berangin api 01 29.7 cm x 42 cm tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\perempuan berangin api 01 29.7 cm x 42 cm tinta diatas kertas.png",
+        "title":  "perempuan berangin api 01 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "perempuan dan sayap 29.7 cm x 42 cm tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\perempuan dan sayap 29.7 cm x 42 cm tinta diatas kertas.png",
+        "title":  "perempuan dan sayap 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "pohon dan gadis 29.7 cm x 42 cm tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\pohon dan gadis 29.7 cm x 42 cm tinta diatas kertas.png",
+        "title":  "pohon dan gadis 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "ruang sesal tengah malam 29.7 cm x 42 cm tinta diatas kertas.PNG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\ruang sesal tengah malam 29.7 cm x 42 cm tinta diatas kertas.PNG",
+        "title":  "ruang sesal tengah malam 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "Saat luka bencana datang 79 cm x 109 cm conte diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\Saat luka bencana datang 79 cm x 109 cm conte diatas kertas.jpg",
+        "title":  "Saat luka bencana datang 79 cm x 109 cm conte diatas kertas",
+        "year":  null,
+        "size":  "79 cm x 109 cm",
+        "technique":  "CONTE"
+    },
+    {
+        "file_name":  "senangdung  Doa 2007 - 50cm x 70cm - cat air diatas kertas.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\senangdung  Doa 2007 - 50cm x 70cm - cat air diatas kertas.JPG",
+        "title":  "senangdung  Doa 2007 - 50cm x 70cm - cat air diatas kertas",
+        "year":  "2007",
+        "size":  "50 cm x 70 cm",
+        "technique":  "WATERCOLOR"
+    },
+    {
+        "file_name":  "sisa direruntuhan sepi 29.7 cm x 42 cm tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\sisa direruntuhan sepi 29.7 cm x 42 cm tinta diatas kertas.png",
+        "title":  "sisa direruntuhan sepi 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "sleep on fire 29.7 cm x 42 cm tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\sleep on fire 29.7 cm x 42 cm tinta diatas kertas.jpg",
+        "title":  "sleep on fire 29.7 cm x 42 cm tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "Swara.2010 - acrylik di kanvas - 100 cm X 140 cm.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\Swara.2010 - acrylik di kanvas - 100 cm X 140 cm.JPG",
+        "title":  "Swara.2010 - acrylik di kanvas - 100 cm X 140 cm",
+        "year":  "2010",
+        "size":  "100 cm x 140 cm",
+        "technique":  "ACRYLIC"
+    },
+    {
+        "file_name":  "TERIKAT DALAM KERAGUAN - 2005 - 79 x 109 cm - conte diatas kertas.JPG",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\TERIKAT DALAM KERAGUAN - 2005 - 79 x 109 cm - conte diatas kertas.JPG",
+        "title":  "TERIKAT DALAM KERAGUAN - 2005 - 79 x 109 cm - conte diatas kertas",
+        "year":  "2005",
+        "size":  null,
+        "technique":  "CONTE"
+    },
+    {
+        "file_name":  "TERIKAT KEBEBASAN - 2003 - 42 x 46 cm - tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\TERIKAT KEBEBASAN - 2003 - 42 x 46 cm - tinta diatas kertas.jpg",
+        "title":  "TERIKAT KEBEBASAN - 2003 - 42 x 46 cm - tinta diatas kertas",
+        "year":  "2003",
+        "size":  null,
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "terkenang 2011 ( edisi Rohsaurus ) - 40 cm x 28 cm - tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\terkenang 2011 ( edisi Rohsaurus ) - 40 cm x 28 cm - tinta diatas kertas.jpg",
+        "title":  "terkenang 2011 ( edisi Rohsaurus ) - 40 cm x 28 cm - tinta diatas kertas",
+        "year":  "2011",
+        "size":  "40 cm x 28 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "thinker - 29.7 cm x 42 cm - tinta diatas kertas.png",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\thinker - 29.7 cm x 42 cm - tinta diatas kertas.png",
+        "title":  "thinker - 29.7 cm x 42 cm - tinta diatas kertas",
+        "year":  null,
+        "size":  "29.7 cm x 42 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "TRAGEDI SETELAH BENCANA - 2005 - 80 x 80 cm - tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\TRAGEDI SETELAH BENCANA - 2005 - 80 x 80 cm - tinta diatas kertas.jpg",
+        "title":  "TRAGEDI SETELAH BENCANA - 2005 - 80 x 80 cm - tinta diatas kertas",
+        "year":  "2005",
+        "size":  null,
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "untuk yang tercinta 2011 _  23 cm x 30 cm _  tinta diatas kertas.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\untuk yang tercinta 2011 _  23 cm x 30 cm _  tinta diatas kertas.jpg",
+        "title":  "untuk yang tercinta 2011 _  23 cm x 30 cm _  tinta diatas kertas",
+        "year":  "2011",
+        "size":  "23 cm x 30 cm",
+        "technique":  "INK/TINTA"
+    },
+    {
+        "file_name":  "URBAN PRODUCK 2006 - 50 CM X 70 CM - CONTE DI ATAS KERTAS.jpg",
+        "file_path":  "F:\\AI\\model\\MyArtLibrary\\URBAN PRODUCK 2006 - 50 CM X 70 CM - CONTE DI ATAS KERTAS.jpg",
+        "title":  "URBAN PRODUCK 2006 - 50 CM X 70 CM - CONTE DI ATAS KERTAS",
+        "year":  "2006",
+        "size":  "50 cm x 70 cm",
+        "technique":  "CONTE"
+    }
+]
