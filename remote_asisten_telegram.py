@@ -54,6 +54,16 @@ PROMO_DIR = os.path.join(BASE_DIR, "promosi_konten")
 LM_STUDIO_URL = "http://localhost:1234/v1/chat/completions"
 LM_MODELS_URL = "http://localhost:1234/v1/models"
 
+# --- PROFIL RESMI SENIMAN ---
+ARTIST_NAME = "Maruto Septriono"
+ARTIST_EMAIL = "kirimdoa@gmail.com"
+ARTIST_IG = "@maruto.septriono"
+ARTIST_PIN = "@marutostudio"
+ARTIST_PIN_URL = "https://id.pinterest.com/marutostudio"
+ARTIST_BLOG = "https://artofdiary.blogspot.com/"
+ARTIST_FB = "https://www.facebook.com/maruto.septriono"
+CATALOG_WEB_URL = "http://wizhclop.github.io/katalog-maruto-septriono"
+
 os.makedirs(WATCH_DIR, exist_ok=True)
 os.makedirs(PROMO_DIR, exist_ok=True)
 
@@ -87,9 +97,8 @@ def resize_image_bytes(image_bytes, max_dim=800):
 
 def inject_metadata_single(img_path, art_id, title, statement, curatorial, tags):
     ext = os.path.splitext(img_path)[1].lower()
-    artist_name = "Maruto Septriono"
-    copyright_notice = "© 2026 Maruto Septriono. Official Portfolio: http://wizhclop.github.io/katalog-maruto-septriono"
-    full_desc = f"{statement}\n\nCatatan Kuratorial:\n{curatorial}\n\nKode Arsip: {art_id}"[:1500]
+    copyright_notice = f"© 2026 {ARTIST_NAME}. Portfolio: {CATALOG_WEB_URL} | Blog: {ARTIST_BLOG}"
+    full_desc = f"{statement}\n\nCatatan Kuratorial:\n{curatorial}\n\nKode Arsip: {art_id}\nKontak: {ARTIST_EMAIL}"[:1500]
     safe_tags = tags[:1000]
 
     try:
@@ -103,11 +112,11 @@ def inject_metadata_single(img_path, art_id, title, statement, curatorial, tags)
                 except Exception:
                     pass
 
-            exif_dict["0th"][piexif.ImageIFD.Artist] = artist_name.encode("utf-8", errors="ignore")
+            exif_dict["0th"][piexif.ImageIFD.Artist] = ARTIST_NAME.encode("utf-8", errors="ignore")
             exif_dict["0th"][piexif.ImageIFD.Copyright] = copyright_notice.encode("utf-8", errors="ignore")
             exif_dict["0th"][piexif.ImageIFD.ImageDescription] = full_desc.encode("utf-8", errors="ignore")
             exif_dict["0th"][piexif.ImageIFD.XPTitle] = title.encode("utf-16le", errors="ignore")
-            exif_dict["0th"][piexif.ImageIFD.XPAuthor] = artist_name.encode("utf-16le", errors="ignore")
+            exif_dict["0th"][piexif.ImageIFD.XPAuthor] = ARTIST_NAME.encode("utf-16le", errors="ignore")
             exif_dict["0th"][piexif.ImageIFD.XPKeywords] = safe_tags.encode("utf-16le", errors="ignore")
             exif_dict["0th"][piexif.ImageIFD.XPComment] = statement[:500].encode("utf-16le", errors="ignore")
 
@@ -123,7 +132,7 @@ def inject_metadata_single(img_path, art_id, title, statement, curatorial, tags)
             im = Image.open(img_path)
             meta = PngImagePlugin.PngInfo()
             meta.add_text("Title", title)
-            meta.add_text("Author", artist_name)
+            meta.add_text("Author", ARTIST_NAME)
             meta.add_text("Copyright", copyright_notice)
             meta.add_text("Description", full_desc)
             meta.add_text("Comment", statement)
@@ -138,11 +147,11 @@ def inject_metadata_single(img_path, art_id, title, statement, curatorial, tags)
         print(f"Peringatan injeksi EXIF: {e}")
 
 def generate_promo_files(art_id, title, year, media, size, statement, curatorial, tags):
-    web_url = "http://wizhclop.github.io/katalog-maruto-septriono"
     tags_formatted = " ".join([f"#{t.strip().replace('#','')}" for t in tags.split(",") if t.strip()])
-    pin_title = f"{title} - Gothic Surrealism Art by Maruto Septriono"[:100]
-    pin_desc = f'"{statement}" Karya orisinal "{title}" ({year}) oleh Maruto Septriono. Medium: {media}, Dimensi: {size}. Tersedia High-Res Digital Master ($250) & Lisensi Cetak ($100). Inquiry lisensi: {web_url}'[:450]
+    pin_title = f"{title} - Gothic Surrealism by {ARTIST_NAME}"[:100]
+    pin_desc = f'"{statement}" Karya orisinal "{title}" ({year}) oleh {ARTIST_NAME}. Medium: {media}, Dimensi: {size}. Inquiry: {ARTIST_EMAIL} | Web: {CATALOG_WEB_URL}'[:450]
 
+    # 1. Instagram
     ig_text = (
         f"\"{statement}\"\n\n"
         f"{title} ({year})\n"
@@ -152,34 +161,53 @@ def generate_promo_files(art_id, title, year, media, size, statement, curatorial
         f"• Kode Arsip: {art_id}\n"
         f"• Medium: {media}\n"
         f"• Dimensi Fisik: {size}\n"
-        f"• Status Fisik: Koleksi Pribadi\n\n"
+        f"• Status: Koleksi Pribadi / Karya Orisinal\n\n"
         f"💼 Ketersediaan Lisensi & Format Digital:\n"
         f"• High-Res Digital Master: $ 250 USD\n"
         f"• Commercial Print License: $ 100 USD (Bebas Royalti)\n\n"
-        f"Inquiry lisensi atau koleksi: DM @marutoseptriono / Email: marutoseptriono@gmail.com\n"
-        f"Katalog Lengkap: {web_url}\n\n"
+        f"Inquiry lisensi atau koleksi:\n"
+        f"DM Instagram: {ARTIST_IG}\n"
+        f"Email: {ARTIST_EMAIL}\n"
+        f"Katalog Web: {CATALOG_WEB_URL}\n"
+        f"Blog Diary: {ARTIST_BLOG}\n\n"
         f"{tags_formatted}"
     )
 
+    # 2. Pinterest
     pin_text = (
         f"📌 JUDUL PIN:\n{pin_title}\n\n"
         f"📝 DESKRIPSI:\n{pin_desc}\n\n"
-        f"🔗 TAUTAN TUJUAN:\n{web_url}\n\n"
-        f"🏷 REKOMENDASI PAPAN: Dark Surrealism Art, Fine Art Ink Drawings"
+        f"🔗 TAUTAN TUJUAN:\n{CATALOG_WEB_URL}\n\n"
+        f"👤 AKUN PINTEREST: {ARTIST_PIN} ({ARTIST_PIN_URL})\n"
+        f"🏷 REKOMENDASI PAPAN: Gothic Surrealism, Dark Fantasy Ink Art"
     )
 
-    full_content = f"{ig_text}\n\n{'='*50}\n\n{pin_text}"
+    # 3. Blogspot / Facebook Draft
+    blog_fb_text = (
+        f"📝 DRAF BLOGSPOT & FACEBOOK:\n\n"
+        f"Judul Post: {title} ({year}) - Catatan Visual {ARTIST_NAME}\n\n"
+        f"{statement}\n\n"
+        f"Catatan Kuratorial:\n{curatorial}\n\n"
+        f"Detail Karya:\n"
+        f"- Arsip: {art_id}\n"
+        f"- Media: {media}\n"
+        f"- Ukuran: {size}\n\n"
+        f"Galeri Portofolio: {CATALOG_WEB_URL}\n"
+        f"Profil Seniman: {ARTIST_FB} | IG: {ARTIST_IG}\n"
+        f"Kontak: {ARTIST_EMAIL}"
+    )
+
+    full_content = f"{ig_text}\n\n{'='*50}\n\n{pin_text}\n\n{'='*50}\n\n{blog_fb_text}"
     with open(os.path.join(PROMO_DIR, f"{art_id}_promosi.txt"), "w", encoding="utf-8") as f:
         f.write(full_content)
 
-    return ig_text, pin_text
+    return ig_text, pin_text, blog_fb_text
 
 def get_active_model_name():
     try:
         r = requests.get(LM_MODELS_URL, timeout=5)
         if r.status_code == 200:
             data = r.json().get("data", [])
-            # Prioritaskan model dengan kata 'vl' atau 'vision'
             for m in data:
                 m_id = m.get("id", "")
                 if "vl" in m_id.lower() or "vision" in m_id.lower():
@@ -195,14 +223,16 @@ def analyze_with_local_ai(img_bytes):
     model_name = get_active_model_name()
 
     prompt_text = (
-        "Analisis karya seni ini secara mendalam sebagai kurator seni rupa surealisme gotik. "
-        "Kembalikan HANYA JSON valid tanpa markdown pengantar:\n"
+        "Kamu adalah kurator seni rupa ahli surealisme gotik. "
+        "Lihat gambar ini dan berikan analisis kuratorial orisinal yang puitis dan mendalam. "
+        "DILARANG keras menyalin teks contoh. Tuliskan analisis asli dari gambar. "
+        "Kembalikan HANYA format JSON murni tanpa pengantar:\n"
         "{\n"
-        '  "Judul": "Judul puitis karya",\n'
+        '  "Judul": "Tulis judul puitis/mistis spesifik untuk gambar ini",\n'
         '  "Tahun": "2026",\n'
         '  "Media": "Tinta di atas kertas",\n'
-        '  "artist_statement_id": "1-2 kalimat refleksi filosofis karya.",\n'
-        '  "deskripsi_kuratorial": "Deskripsi kuratorial mengenai ritme tarikan garis, arsir rumit, dan makna organik karya.",\n'
+        '  "artist_statement_id": "Tulis 1-2 kalimat refleksi filosofis puitis mengenai esensi gambar ini",\n'
+        '  "deskripsi_kuratorial": "Tulis 1 paragraf analisis detail mengenai arsitektur imajinatif, ritme arsir tinta, dan suasana gotik dalam karya ini",\n'
         '  "tags": "art, sketch, drawing, indonesia, darkart, contemporaryart, surealisgothic, gothic"\n'
         "}"
     )
@@ -218,8 +248,8 @@ def analyze_with_local_ai(img_bytes):
                 ]
             }
         ],
-        "temperature": 0.3,
-        "max_tokens": 700
+        "temperature": 0.5,
+        "max_tokens": 800
     }
 
     resp = requests.post(LM_STUDIO_URL, json=payload, timeout=120)
@@ -443,7 +473,7 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
         except Exception as e:
             web_status = f"⚠️ Web Sync: {e}"
 
-        ig_caption, pin_info = generate_promo_files(
+        ig_caption, pin_info, blog_info = generate_promo_files(
             art_id,
             new_entry['Judul'],
             new_entry['Tahun'],
@@ -454,23 +484,32 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
             new_entry['tags']
         )
 
+        # Balasan 1: Status Publikasi Web & Metadata
         await query.message.reply_text(
             f"✅ <b>KARYA {art_id} SUKSES DIPUBLIKASIKAN!</b>\n\n"
             f"• <b>Judul:</b> {new_entry['Judul']}\n"
             f"• <b>Ukuran:</b> {new_entry['Ukuran']}\n"
-            f"• <b>Metadata EXIF:</b> Tersuntik aman di gambar fisik\n"
+            f"• <b>Metadata EXIF:</b> Tersuntik aman hak cipta Maruto Septriono\n"
             f"• {web_status}\n\n"
-            f"👇 <i>Salin draf di bawah untuk Instagram & Pinterest:</i>",
+            f"👇 <i>Draf konten siap salin di bawah ini:</i>",
             parse_mode="HTML"
         )
 
+        # Balasan 2: Takarir Instagram
         await query.message.reply_text(
             f"📸 <b>TAKARIR INSTAGRAM (SIAP SALIN):</b>\n\n{ig_caption}",
             parse_mode="HTML"
         )
 
+        # Balasan 3: Materi Pinterest
         await query.message.reply_text(
             f"📌 <b>MATERI PIN PINTEREST:</b>\n\n{pin_info}",
+            parse_mode="HTML"
+        )
+
+        # Balasan 4: Materi Blogspot & Facebook
+        await query.message.reply_text(
+            f"🌐 <b>MATERI BLOGSPOT & FACEBOOK:</b>\n\n{blog_info}",
             parse_mode="HTML"
         )
 
