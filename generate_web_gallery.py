@@ -10,7 +10,6 @@ OUTPUT_IMG_DIR = os.path.join(OUTPUT_DIR, "images")
 
 os.makedirs(OUTPUT_IMG_DIR, exist_ok=True)
 
-# Glosarium istilah medium seni rupa ke bahasa Inggris
 MEDIA_TRANSLATIONS = {
     "tinta di atas kertas": "Ink on paper",
     "conte di atas kertas": "Conté crayon on paper",
@@ -34,7 +33,7 @@ def translate_media(media_str):
 
 def build_bilingual_gallery():
     print("==================================================")
-    print("  MEMBANGUN GALERI WEB DWIBAHASA (ID & EN RESMI)  ")
+    print("  MEMBANGUN GALERI WEB HP 2-KOLOM (COMPACT GRID)  ")
     print("==================================================")
 
     if not os.path.exists(CATALOG_PATH):
@@ -59,7 +58,6 @@ def build_bilingual_gallery():
         media_en = translate_media(media_id)
         filename = item.get("Nama_File") or item.get("file") or ""
 
-        # Deteksi statement & kuratorial ID
         stmt_id = (
             item.get("artist_statement_id") or 
             item.get("Artist_Statement") or 
@@ -78,15 +76,11 @@ def build_bilingual_gallery():
         ).strip()
 
         if not stmt_id:
-            if curat_id:
-                stmt_id = curat_id
-            else:
-                stmt_id = f"Eksplorasi visual dan perenungan bentuk mengenai dinamika eksistensial, diwujudkan melalui medium {media_id.lower()}."
+            stmt_id = curat_id if curat_id else f"Eksplorasi visual dan perenungan bentuk mengenai dinamika eksistensial, diwujudkan melalui medium {media_id.lower()}."
 
         if not curat_id:
             curat_id = f"Karya {title_id} ({year}) merefleksikan kedalaman simbolik surealisme dalam tarikan garis dan kontras material {media_id.lower()}."
 
-        # Deteksi statement & kuratorial EN
         stmt_en = (
             item.get("artist_statement_en") or 
             item.get("Artist_Statement_EN") or 
@@ -108,7 +102,6 @@ def build_bilingual_gallery():
 
         raw_tags = item.get("tags") or item.get("Tags") or "surealisgothic, gothic, art, drawing"
 
-        # Simpan kembali ke katalog internal web
         item["Judul"] = title_id
         item["Judul_EN"] = title_en
         item["Media"] = media_id
@@ -118,7 +111,6 @@ def build_bilingual_gallery():
         item["deskripsi_kuratorial"] = curat_id
         item["deskripsi_kuratorial_en"] = curat_en
 
-        # Pencocokan nama berkas
         matched_file = None
         if filename and os.path.exists(os.path.join(SOURCE_IMAGE_DIR, filename)):
             matched_file = filename
@@ -156,7 +148,7 @@ def build_bilingual_gallery():
                 <div class="art-badge-row">
                     <span class="badge badge-id">{art_id}</span>
                     <span class="badge badge-year">{year}</span>
-                    <span class="badge badge-status" data-i18n="badge_status">Karya Asli: Koleksi Pribadi</span>
+                    <span class="badge badge-status" data-i18n="badge_status">Koleksi Pribadi</span>
                 </div>
             </div>
 
@@ -166,22 +158,21 @@ def build_bilingual_gallery():
 
                 <div class="commercial-box">
                     <div class="price-col">
-                        <span class="price-label" data-i18n="label_softfile">Soft File (High-Res)</span>
+                        <span class="price-label" data-i18n="label_softfile">Soft File</span>
                         <span class="price-val">$ 250</span>
                     </div>
                     <div class="price-col">
                         <span class="price-label" data-i18n="label_license">Lisensi Cetak</span>
                         <span class="price-val">$ 100</span>
-                        <small class="free-shipping" data-i18n="label_royalty">Bebas Royalti</small>
                     </div>
                 </div>
 
                 <div class="action-buttons">
                     <a href="https://instagram.com/marutoseptriono" target="_blank" class="btn btn-dm">
-                        ✉ DM Instagram
+                        ✉ DM
                     </a>
                     <a href="mailto:marutoseptriono@gmail.com?subject=Inquiry {art_id} - {title_id}" class="btn btn-email" data-email-title="{title_id}">
-                        ✉ Order Email
+                        ✉ Email
                     </a>
                 </div>
 
@@ -190,7 +181,7 @@ def build_bilingual_gallery():
                 </div>
 
                 <div class="card-footer-link" onclick="openModal('{art_id}')" data-i18n="btn_curatorial">
-                    &bull; Catatan Kuratorial & Detail Lengkap &rsaquo;
+                    &bull; Catatan Kuratorial &rsaquo;
                 </div>
             </div>
         </div>
@@ -220,103 +211,337 @@ def build_bilingual_gallery():
         }}
 
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-        body {{ background-color: var(--bg-color); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.5; }}
+        body {{
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }}
 
-        .top-nav {{ display: flex; justify-content: flex-end; padding: 15px 30px; background: #08080b; border-bottom: 1px solid var(--border-color); }}
+        .top-nav {{
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 16px;
+            background: #08080b;
+            border-bottom: 1px solid var(--border-color);
+        }}
         .lang-switch button {{
             background: #1b1d26; color: var(--text-muted); border: 1px solid var(--border-color);
-            padding: 6px 14px; font-size: 0.82rem; cursor: pointer; border-radius: 4px; font-family: inherit; font-weight: 600; transition: all 0.2s;
+            padding: 5px 12px; font-size: 0.8rem; cursor: pointer; border-radius: 4px; font-family: inherit; font-weight: 600; transition: all 0.2s;
         }}
         .lang-switch button.active {{ background: #0284c7; color: #fff; border-color: #0284c7; }}
 
-        header {{ text-align: center; padding: 60px 20px 35px; background: radial-gradient(circle at center, #1e1b29 0%, var(--bg-color) 75%); border-bottom: 1px solid var(--border-color); }}
-        header h1 {{ font-family: 'Cinzel', serif; font-size: 2.6rem; letter-spacing: 2px; color: #38bdf8; margin-bottom: 6px; }}
-        header p.subtitle {{ font-size: 1rem; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 25px; }}
-
-        .search-container {{ max-width: 600px; margin: 0 auto; position: relative; }}
-        .search-container input {{
-            width: 100%; background: #101217; border: 1px solid #2f3447; border-radius: 8px;
-            padding: 12px 20px; color: #fff; font-size: 0.95rem; font-family: inherit; outline: none; transition: all 0.3s;
+        header {{
+            text-align: center;
+            padding: 35px 14px 20px;
+            background: radial-gradient(circle at center, #1e1b29 0%, var(--bg-color) 75%);
+            border-bottom: 1px solid var(--border-color);
         }}
-        .search-container input:focus {{ border-color: #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }}
+        header h1 {{
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 1.5px;
+            color: #38bdf8;
+            margin-bottom: 4px;
+        }}
+        header p.subtitle {{
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }}
+
+        .search-container {{
+            max-width: 550px;
+            width: 100%;
+            margin: 0 auto;
+        }}
+        .search-container input {{
+            width: 100%;
+            background: #101217;
+            border: 1px solid #2f3447;
+            border-radius: 8px;
+            padding: 10px 16px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s;
+        }}
+        .search-container input:focus {{ border-color: #38bdf8; box-shadow: 0 0 12px rgba(56, 189, 248, 0.2); }}
 
         .stats-tag {{
-            display: inline-block; margin-top: 15px; font-size: 0.85rem; color: var(--accent-gold);
-            background: rgba(197, 160, 89, 0.1); padding: 4px 14px; border-radius: 20px; border: 1px solid rgba(197, 160, 89, 0.25);
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            background: rgba(197, 160, 89, 0.1);
+            padding: 3px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(197, 160, 89, 0.25);
         }}
 
-        .container {{ max-width: 1440px; margin: 0 auto; padding: 40px 25px; }}
-        .gallery-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }}
+        .container {{
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 24px 14px;
+        }}
+        .gallery-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }}
 
         .art-card {{
-            background: var(--card-color); border: 1px solid var(--border-color); border-radius: 10px;
-            overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s, border-color 0.25s;
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
         }}
-        .art-card:hover {{ border-color: #38bdf8; transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.5); }}
+        .art-card:hover {{ border-color: #38bdf8; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }}
 
-        .img-container {{ position: relative; background: #000; width: 100%; height: 340px; cursor: pointer; overflow: hidden; }}
-        .img-container img {{ width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }}
-        .art-card:hover .img-container img {{ transform: scale(1.04); }}
+        .img-container {{
+            position: relative;
+            background: #000;
+            width: 100%;
+            height: 320px;
+            cursor: pointer;
+            overflow: hidden;
+        }}
+        .img-container img {{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }}
+        .art-card:hover .img-container img {{ transform: scale(1.03); }}
 
-        .art-badge-row {{ position: absolute; top: 10px; left: 10px; right: 10px; display: flex; gap: 6px; flex-wrap: wrap; }}
-        .badge {{ padding: 3px 8px; font-size: 0.7rem; font-weight: 600; border-radius: 4px; backdrop-filter: blur(4px); }}
+        .art-badge-row {{
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }}
+        .badge {{ padding: 2px 6px; font-size: 0.68rem; font-weight: 600; border-radius: 4px; backdrop-filter: blur(4px); }}
         .badge-id {{ background: #0284c7; color: #fff; }}
         .badge-year {{ background: #0369a1; color: #e0f2fe; }}
         .badge-status {{ background: rgba(30, 41, 59, 0.9); color: #94a3b8; border: 1px solid #475569; }}
 
-        .card-info {{ padding: 18px; display: flex; flex-direction: column; flex-grow: 1; background: var(--card-inner); }}
-        .art-title {{ font-family: 'Cinzel', serif; font-size: 1.15rem; color: #fff; margin-bottom: 4px; cursor: pointer; }}
+        .card-info {{
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            background: var(--card-inner);
+        }}
+        .art-title {{
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            color: #fff;
+            margin-bottom: 3px;
+            cursor: pointer;
+            line-height: 1.3;
+        }}
         .art-title:hover {{ color: #38bdf8; }}
-        .art-spec {{ font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; }}
+        .art-spec {{ font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; }}
 
         .commercial-box {{
-            display: grid; grid-template-columns: 1fr 1fr; background: #181b24;
-            border: 1px solid var(--border-color); border-radius: 6px; padding: 10px; margin-bottom: 12px; gap: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #181b24;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px;
+            margin-bottom: 10px;
+            gap: 6px;
         }}
         .price-col {{ display: flex; flex-direction: column; }}
-        .price-label {{ font-size: 0.72rem; color: var(--text-muted); }}
-        .price-val {{ font-size: 1.05rem; font-weight: 700; color: #38bdf8; }}
-        .free-shipping {{ font-size: 0.68rem; color: #64748b; }}
+        .price-label {{ font-size: 0.68rem; color: var(--text-muted); }}
+        .price-val {{ font-size: 0.95rem; font-weight: 700; color: #38bdf8; }}
 
-        .action-buttons {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }}
-        .btn {{ text-align: center; padding: 7px 10px; border-radius: 5px; font-size: 0.78rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }}
+        .action-buttons {{ display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }}
+        .btn {{ text-align: center; padding: 7px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }}
         .btn:hover {{ opacity: 0.88; }}
         .btn-dm {{ background: linear-gradient(135deg, #e1306c, #fd1d1d); color: #fff; }}
         .btn-email {{ background: #272a38; color: #e2e8f0; border: 1px solid #3e445b; }}
 
         .card-statement {{
-            font-size: 0.82rem; color: #b3b7c8; font-style: italic; margin-bottom: 12px;
-            cursor: pointer; min-height: 52px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.45;
+            font-size: 0.78rem;
+            color: #b3b7c8;
+            font-style: italic;
+            margin-bottom: 10px;
+            cursor: pointer;
+            min-height: 42px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
         }}
-        .card-footer-link {{ margin-top: auto; font-size: 0.76rem; color: #38bdf8; cursor: pointer; padding-top: 8px; border-top: 1px solid #1f2330; }}
+        .card-footer-link {{ margin-top: auto; font-size: 0.72rem; color: #38bdf8; cursor: pointer; padding-top: 6px; border-top: 1px solid #1f2330; }}
 
+        /* MODAL POPUP */
         .modal {{
-            display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(5, 6, 9, 0.94); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px;
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 6, 9, 0.95);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
         }}
         .modal-content {{
-            background: var(--surface-color); border: 1px solid var(--accent-gold); border-radius: 12px;
-            max-width: 1050px; width: 100%; max-height: 90vh; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; box-shadow: 0 25px 60px rgba(0,0,0,0.9); position: relative;
+            background: var(--surface-color);
+            border: 1px solid var(--accent-gold);
+            border-radius: 10px;
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+            position: relative;
         }}
-        .modal-close {{ position: absolute; top: 15px; right: 20px; color: var(--text-muted); font-size: 2rem; cursor: pointer; z-index: 10; }}
+        .modal-close {{
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            color: var(--text-muted);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 10;
+        }}
         .modal-close:hover {{ color: #fff; }}
-        .modal-img-wrap {{ background: #000; display: flex; align-items: center; justify-content: center; padding: 20px; }}
-        .modal-img-wrap img {{ max-width: 100%; max-height: 75vh; object-fit: contain; border-radius: 4px; }}
-        .modal-details {{ padding: 35px 30px; display: flex; flex-direction: column; gap: 14px; }}
-        .modal-id {{ font-family: 'Cinzel', serif; color: var(--accent-gold); font-size: 0.85rem; letter-spacing: 2px; }}
-        .modal-title {{ font-family: 'Cinzel', serif; font-size: 1.8rem; color: #fff; line-height: 1.25; }}
-        .modal-specs {{ border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 10px 0; font-size: 0.88rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px; }}
+        .modal-img-wrap {{
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+        }}
+        .modal-img-wrap img {{
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 4px;
+        }}
+        .modal-details {{
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }}
+        .modal-id {{ font-family: 'Cinzel', serif; color: var(--accent-gold); font-size: 0.8rem; letter-spacing: 2px; }}
+        .modal-title {{ font-family: 'Cinzel', serif; font-size: 1.5rem; color: #fff; line-height: 1.25; }}
+        .modal-specs {{
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 0;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }}
         .modal-specs span {{ color: #fff; font-weight: 600; }}
-        .modal-pricing-box {{ background: #1a1e29; border: 1px solid #2d3448; padding: 12px; border-radius: 6px; display: flex; justify-content: space-around; }}
-        .statement-box {{ background: rgba(197, 160, 89, 0.05); border-left: 3px solid var(--accent-gold); padding: 10px 14px; font-style: italic; font-size: 0.92rem; color: #dedee5; }}
-        .curatorial-box {{ font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }}
-        .tag {{ display: inline-block; background: rgba(255, 255, 255, 0.05); color: #b0b0c5; padding: 3px 8px; border-radius: 4px; font-size: 0.72rem; margin: 2px; border: 1px solid var(--border-color); }}
-        footer {{ text-align: center; padding: 45px 20px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; }}
+        .modal-pricing-box {{
+            background: #1a1e29;
+            border: 1px solid #2d3448;
+            padding: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-around;
+        }}
+        .statement-box {{
+            background: rgba(197, 160, 89, 0.05);
+            border-left: 3px solid var(--accent-gold);
+            padding: 8px 12px;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #dedee5;
+        }}
+        .curatorial-box {{ font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }}
+        .tag {{
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            color: #b0b0c5;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin: 2px;
+            border: 1px solid var(--border-color);
+        }}
+        footer {{ text-align: center; padding: 30px 14px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.8rem; }}
 
-        @media (max-width: 900px) {{
-            .modal-content {{ grid-template-columns: 1fr; }}
-            .modal-img-wrap {{ height: 320px; }}
-            header h1 {{ font-size: 2rem; }}
+        /* ============================================================ */
+        /* KHUSUS TAMPILAN HP (MOBILE COMPACT: 2 KOLOM SEPERTI WEB LAMA) */
+        /* ============================================================ */
+        @media (max-width: 768px) {{
+            header {{ padding: 22px 10px 14px; }}
+            header h1 {{ font-size: 1.35rem; }}
+            header p.subtitle {{ font-size: 0.75rem; margin-bottom: 12px; }}
+            .container {{ padding: 12px 6px; }}
+
+            /* 2 KOLOM KARTU BERJAJAR DI HP */
+            .gallery-grid {{
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }}
+
+            /* TINGGI GAMBAR DI HP DIBUAT KOMPAK (CEPAT DI-SCROLL) */
+            .img-container {{ height: 180px; }}
+
+            .art-badge-row {{ top: 5px; left: 5px; right: 5px; gap: 3px; }}
+            .badge {{ font-size: 0.6rem; padding: 2px 4px; }}
+            .badge-status {{ display: none; }} /* Sembunyikan badge panjang di HP */
+
+            .card-info {{ padding: 8px; }}
+            .art-title {{ font-size: 0.85rem; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }}
+            .art-spec {{ font-size: 0.68rem; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }}
+
+            .commercial-box {{ padding: 5px 6px; margin-bottom: 6px; gap: 4px; }}
+            .price-label {{ font-size: 0.6rem; }}
+            .price-val {{ font-size: 0.82rem; }}
+
+            .action-buttons {{ gap: 4px; margin-bottom: 6px; }}
+            .btn {{ padding: 5px 4px; font-size: 0.68rem; }}
+
+            .card-statement {{
+                font-size: 0.72rem;
+                min-height: 32px;
+                -webkit-line-clamp: 2;
+                margin-bottom: 6px;
+                line-height: 1.3;
+            }}
+            .card-footer-link {{ font-size: 0.65rem; padding-top: 4px; }}
+
+            /* MODAL TETAP BESAR & DETAIL SAAT DIKLIK */
+            .modal-content {{
+                grid-template-columns: 1fr;
+                max-height: 92vh;
+            }}
+            .modal-img-wrap {{
+                height: 260px;
+                padding: 8px;
+            }}
+            .modal-img-wrap img {{
+                max-height: 240px;
+            }}
+            .modal-details {{ padding: 16px 14px; gap: 10px; }}
+            .modal-title {{ font-size: 1.25rem; }}
         }}
     </style>
 </head>
@@ -334,7 +559,7 @@ def build_bilingual_gallery():
         <p class="subtitle" id="mainSubtitle">Arsip Digital, Portofolio & Etalase Komersial Internasional</p>
 
         <div class="search-container">
-            <input type="text" id="searchInput" onkeyup="filterGallery()" placeholder="Cari judul karya, medium, tahun, atau ID (misal: ART-072, tinta)...">
+            <input type="text" id="searchInput" onkeyup="filterGallery()" placeholder="Cari judul karya, medium, tahun, atau ID (misal: ART-073, tinta)...">
         </div>
 
         <div class="stats-tag">
@@ -367,11 +592,11 @@ def build_bilingual_gallery():
                 <div class="modal-pricing-box">
                     <div>
                         <small style="color:#94a3b8; display:block;" id="mP1Label">Soft File High-Res</small>
-                        <strong style="color:#38bdf8; font-size:1.1rem;">$ 250</strong>
+                        <strong style="color:#38bdf8; font-size:1.05rem;">$ 250</strong>
                     </div>
-                    <div style="border-left:1px solid #334155; padding-left:15px;">
+                    <div style="border-left:1px solid #334155; padding-left:14px;">
                         <small style="color:#94a3b8; display:block;" id="mP2Label">Lisensi Cetak Royalti</small>
-                        <strong style="color:#38bdf8; font-size:1.1rem;">$ 100</strong>
+                        <strong style="color:#38bdf8; font-size:1.05rem;">$ 100</strong>
                     </div>
                 </div>
 
@@ -379,7 +604,7 @@ def build_bilingual_gallery():
                 <div class="curatorial-box" id="mCuratorial">Catatan kuratorial...</div>
                 <div id="mTags"></div>
 
-                <div class="action-buttons" style="margin-top:10px;">
+                <div class="action-buttons" style="margin-top:8px;">
                     <a id="mDmBtn" href="https://instagram.com/marutoseptriono" target="_blank" class="btn btn-dm">✉ DM Instagram</a>
                     <a id="mEmailBtn" href="#" class="btn btn-email">✉ Order via Email</a>
                 </div>
@@ -400,14 +625,13 @@ def build_bilingual_gallery():
             ID: {{
                 mainTitle: "Katalog Karya Maruto Septriono",
                 mainSubtitle: "Arsip Digital, Portofolio & Etalase Komersial Internasional",
-                searchPlaceholder: "Cari judul karya, medium, tahun, atau ID (misal: ART-072, tinta)...",
+                searchPlaceholder: "Cari judul karya, medium, tahun, atau ID (misal: ART-073, tinta)...",
                 txtTotal: "Total Terarsip",
                 txtUnit: "Karya Seni",
-                badge_status: "Karya Asli: Koleksi Pribadi",
-                label_softfile: "Soft File (High-Res)",
+                badge_status: "Koleksi Pribadi",
+                label_softfile: "Soft File",
                 label_license: "Lisensi Cetak",
-                label_royalty: "Bebas Royalti",
-                btn_curatorial: "• Catatan Kuratorial & Detail Lengkap ›",
+                btn_curatorial: "• Catatan Kuratorial ›",
                 mYearLabel: "Tahun",
                 mMediaLabel: "Media",
                 mSizeLabel: "Ukuran Fisik",
@@ -420,14 +644,13 @@ def build_bilingual_gallery():
             EN: {{
                 mainTitle: "Maruto Septriono Art Catalog",
                 mainSubtitle: "Official Curatorial Archive & International Commercial Portfolio",
-                searchPlaceholder: "Search artwork title, medium, year, or ID (e.g., ART-072, ink)...",
+                searchPlaceholder: "Search artwork title, medium, year, or ID (e.g., ART-073, ink)...",
                 txtTotal: "Total Archived",
                 txtUnit: "Artworks",
-                badge_status: "Original: Private Collection",
-                label_softfile: "High-Res Digital File",
+                badge_status: "Private Collection",
+                label_softfile: "Digital File",
                 label_license: "Print License",
-                label_royalty: "Royalty-Free",
-                btn_curatorial: "• Curatorial Notes & Full Specs ›",
+                btn_curatorial: "• Curatorial Notes ›",
                 mYearLabel: "Year",
                 mMediaLabel: "Medium",
                 mSizeLabel: "Physical Dimensions",
@@ -452,13 +675,11 @@ def build_bilingual_gallery():
             document.getElementById('txtUnit').innerText = dict.txtUnit;
             document.getElementById('footerTxt').innerText = dict.footerTxt;
 
-            // Perbarui antarmuka kartu
             document.querySelectorAll('[data-i18n]').forEach(el => {{
                 const key = el.getAttribute('data-i18n');
                 if (dict[key]) el.innerText = dict[key];
             }});
 
-            // Perbarui Judul, Spek, dan Statement pada seluruh kartu
             document.querySelectorAll('.art-card').forEach(card => {{
                 const titleEl = card.querySelector('.art-title');
                 const specEl = card.querySelector('.art-spec');
@@ -475,10 +696,7 @@ def build_bilingual_gallery():
                 }}
             }});
 
-            // Jika modal sedang terbuka, perbarui teks modal
-            if (currentModalArtId) {{
-                renderModalData(currentModalArtId);
-            }}
+            if (currentModalArtId) renderModalData(currentModalArtId);
         }}
 
         function filterGallery() {{
@@ -563,7 +781,7 @@ def build_bilingual_gallery():
     with open(os.path.join(OUTPUT_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"[OK] Selesai! Web Galeri Dwibahasa (ID/EN) berhasil dibangun.")
+    print(f"[OK] Selesai! Web Galeri Compact 2-Kolom Mobile berhasil dibangun.")
 
 if __name__ == "__main__":
     build_bilingual_gallery()

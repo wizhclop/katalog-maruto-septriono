@@ -37,3 +37,22 @@ Pilihan 3: Generator Konten Promosi Media Sosial & Blog Otomatis
 Pilihan 4: Injeksi Metadata IPTC/EXIF ke Berkas Gambar (Persiapan Platform Luar)
            Konsep: Menyematkan judul, nama seniman, hak cipta, dan tagar langsung ke dalam data internal berkas .jpg / .png.
            Manfaat: Ketika gambar diunggah ke ArtStation, Google Image, atau platform stok (Adobe Stock/Shutterstock), judul dan kata kuncinya langsung terbaca otomatis tanpa perlu diketik ulang satu per satu.
+
+PORTFOLIO_WEBSITES 
+
+[ ANDA DI HP ] 
+  Kirim foto karya baru ke Bot Telegram
+        │
+        ▼
+[ PC LOKAL ]
+  AI Lokal (LM Studio) menganalisis -> menyematkan metadata IPTC/EXIF
+        │
+        ▼
+[ BOT TELEGRAM (Balasan ke HP Anda) ]
+  Menampilkan draft kuratorial + 1 Tombol Aksi:
+  🔘 [ 🚀 TERBITKAN KE SEMUA PLATFORM ]
+        │
+        ▼ (Sekali Klik)
+  ├─► Otomatis terbit ke Web Portofolio (GitHub Pages)
+  ├─► Otomatis terbit ke Artikel Blogspot Resmi
+  └─► Mengirimkan draft siap salin untuk Instagram & Pinterest ke HP Anda

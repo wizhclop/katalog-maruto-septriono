@@ -1,14 +1,18 @@
 ﻿import os
+import sys
 import json
 import base64
 import re
 import shutil
 import subprocess
+import tempfile
 from io import BytesIO
-from PIL import Image
+from PIL import Image, PngImagePlugin
+import piexif
 import requests
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.request import HTTPXRequest
 from telegram.ext import (
     ApplicationBuilder,
     CommandHandler,
@@ -18,18 +22,41 @@ from telegram.ext import (
     filters,
 )
 
+# --- PENGAMAN KUNCI TUNGGAL ---
+LOCK_FILE = os.path.join(tempfile.gettempdir(), "maruto_bot_lock.lck")
+if os.path.exists(LOCK_FILE):
+    try:
+        os.remove(LOCK_FILE)
+    except Exception:
+        pass
+
+with open(LOCK_FILE, "w") as f:
+    f.write(str(os.getpid()))
+
+def cleanup_lock():
+    if os.path.exists(LOCK_FILE):
+        try:
+            os.remove(LOCK_FILE)
+        except Exception:
+            pass
+
+import atexit
+atexit.register(cleanup_lock)
+
 # --- KONFIGURASI PRIBADI ---
-TELEGRAM_TOKEN = "8525326297:AAF1jAnSrJbfZ0SVOg0nCVNrIbi3L5c5E4U"
+TELEGRAM_TOKEN = "8525326297:AAGnAmyTVsFyZ4zG4J5Y6DJE3RQOZRPPiVc"
 AUTHORIZED_USER_ID = 6300301484
 
 BASE_DIR = r"F:\DATABASE_AI ART\ART"
 WATCH_DIR = os.path.join(BASE_DIR, "ART_70")
 CATALOG_PATH = os.path.join(BASE_DIR, "art_catalog.json")
+PROMO_DIR = os.path.join(BASE_DIR, "promosi_konten")
 LM_STUDIO_URL = "http://localhost:1234/v1/chat/completions"
+LM_MODELS_URL = "http://localhost:1234/v1/models"
 
 os.makedirs(WATCH_DIR, exist_ok=True)
+os.makedirs(PROMO_DIR, exist_ok=True)
 
-# Status antrean & input ukuran manual
 PENDING_SUBMISSIONS = {}
 AWAITING_UKURAN = {}
 
@@ -50,31 +77,138 @@ def get_next_art_id(catalog_data):
                 max_id = num
     return f"ART-{max_id + 1:03d}"
 
-def resize_image_bytes(image_bytes, max_dim=1024):
+def resize_image_bytes(image_bytes, max_dim=800):
     with Image.open(BytesIO(image_bytes)) as img:
         img = img.convert("RGB")
         img.thumbnail((max_dim, max_dim), Image.Resampling.LANCZOS)
         buf = BytesIO()
-        img.save(buf, format="JPEG", quality=85)
+        img.save(buf, format="JPEG", quality=80)
         return buf.getvalue()
+
+def inject_metadata_single(img_path, art_id, title, statement, curatorial, tags):
+    ext = os.path.splitext(img_path)[1].lower()
+    artist_name = "Maruto Septriono"
+    copyright_notice = "© 2026 Maruto Septriono. Official Portfolio: http://wizhclop.github.io/katalog-maruto-septriono"
+    full_desc = f"{statement}\n\nCatatan Kuratorial:\n{curatorial}\n\nKode Arsip: {art_id}"[:1500]
+    safe_tags = tags[:1000]
+
+    try:
+        if ext in [".jpg", ".jpeg"]:
+            im = Image.open(img_path)
+            im_rgb = im.convert("RGB")
+            exif_dict = {"0th": {}, "Exif": {}, "GPS": {}, "1st": {}, "thumbnail": None}
+            if "exif" in im.info:
+                try:
+                    exif_dict = piexif.load(im.info["exif"])
+                except Exception:
+                    pass
+
+            exif_dict["0th"][piexif.ImageIFD.Artist] = artist_name.encode("utf-8", errors="ignore")
+            exif_dict["0th"][piexif.ImageIFD.Copyright] = copyright_notice.encode("utf-8", errors="ignore")
+            exif_dict["0th"][piexif.ImageIFD.ImageDescription] = full_desc.encode("utf-8", errors="ignore")
+            exif_dict["0th"][piexif.ImageIFD.XPTitle] = title.encode("utf-16le", errors="ignore")
+            exif_dict["0th"][piexif.ImageIFD.XPAuthor] = artist_name.encode("utf-16le", errors="ignore")
+            exif_dict["0th"][piexif.ImageIFD.XPKeywords] = safe_tags.encode("utf-16le", errors="ignore")
+            exif_dict["0th"][piexif.ImageIFD.XPComment] = statement[:500].encode("utf-16le", errors="ignore")
+
+            exif_bytes = piexif.dump(exif_dict)
+            fd, tmp_file = tempfile.mkstemp(suffix=".jpg")
+            os.close(fd)
+            im_rgb.save(tmp_file, format="JPEG", quality=95, exif=exif_bytes)
+            im.close()
+            im_rgb.close()
+            shutil.move(tmp_file, img_path)
+
+        elif ext == ".png":
+            im = Image.open(img_path)
+            meta = PngImagePlugin.PngInfo()
+            meta.add_text("Title", title)
+            meta.add_text("Author", artist_name)
+            meta.add_text("Copyright", copyright_notice)
+            meta.add_text("Description", full_desc)
+            meta.add_text("Comment", statement)
+            meta.add_text("Keywords", safe_tags)
+
+            fd, tmp_file = tempfile.mkstemp(suffix=".png")
+            os.close(fd)
+            im.save(tmp_file, format="PNG", pnginfo=meta)
+            im.close()
+            shutil.move(tmp_file, img_path)
+    except Exception as e:
+        print(f"Peringatan injeksi EXIF: {e}")
+
+def generate_promo_files(art_id, title, year, media, size, statement, curatorial, tags):
+    web_url = "http://wizhclop.github.io/katalog-maruto-septriono"
+    tags_formatted = " ".join([f"#{t.strip().replace('#','')}" for t in tags.split(",") if t.strip()])
+    pin_title = f"{title} - Gothic Surrealism Art by Maruto Septriono"[:100]
+    pin_desc = f'"{statement}" Karya orisinal "{title}" ({year}) oleh Maruto Septriono. Medium: {media}, Dimensi: {size}. Tersedia High-Res Digital Master ($250) & Lisensi Cetak ($100). Inquiry lisensi: {web_url}'[:450]
+
+    ig_text = (
+        f"\"{statement}\"\n\n"
+        f"{title} ({year})\n"
+        f"Karya ini mengalirkan ketegangan visual antara ruang sunyi dan detail organik, "
+        f"merefleksikan dialog batin seniman melalui tarikan {media.lower()}.\n\n"
+        f"📐 Rincian Teknis & Arsip:\n"
+        f"• Kode Arsip: {art_id}\n"
+        f"• Medium: {media}\n"
+        f"• Dimensi Fisik: {size}\n"
+        f"• Status Fisik: Koleksi Pribadi\n\n"
+        f"💼 Ketersediaan Lisensi & Format Digital:\n"
+        f"• High-Res Digital Master: $ 250 USD\n"
+        f"• Commercial Print License: $ 100 USD (Bebas Royalti)\n\n"
+        f"Inquiry lisensi atau koleksi: DM @marutoseptriono / Email: marutoseptriono@gmail.com\n"
+        f"Katalog Lengkap: {web_url}\n\n"
+        f"{tags_formatted}"
+    )
+
+    pin_text = (
+        f"📌 JUDUL PIN:\n{pin_title}\n\n"
+        f"📝 DESKRIPSI:\n{pin_desc}\n\n"
+        f"🔗 TAUTAN TUJUAN:\n{web_url}\n\n"
+        f"🏷 REKOMENDASI PAPAN: Dark Surrealism Art, Fine Art Ink Drawings"
+    )
+
+    full_content = f"{ig_text}\n\n{'='*50}\n\n{pin_text}"
+    with open(os.path.join(PROMO_DIR, f"{art_id}_promosi.txt"), "w", encoding="utf-8") as f:
+        f.write(full_content)
+
+    return ig_text, pin_text
+
+def get_active_model_name():
+    try:
+        r = requests.get(LM_MODELS_URL, timeout=5)
+        if r.status_code == 200:
+            data = r.json().get("data", [])
+            # Prioritaskan model dengan kata 'vl' atau 'vision'
+            for m in data:
+                m_id = m.get("id", "")
+                if "vl" in m_id.lower() or "vision" in m_id.lower():
+                    return m_id
+            if data:
+                return data[0].get("id")
+    except Exception:
+        pass
+    return "qwen3-vl-2b-instruct"
 
 def analyze_with_local_ai(img_bytes):
     b64_img = base64.b64encode(img_bytes).decode("utf-8")
+    model_name = get_active_model_name()
+
     prompt_text = (
-        "Analisis karya seni ini secara mendalam sebagai kurator dan arsiparis profesional. "
-        "Kembalikan jawaban HANYA dalam format JSON valid tanpa teks pengantar atau markdown lainnya. "
-        "Struktur JSON yang wajib:\n"
+        "Analisis karya seni ini secara mendalam sebagai kurator seni rupa surealisme gotik. "
+        "Kembalikan HANYA JSON valid tanpa markdown pengantar:\n"
         "{\n"
-        '  "Judul": "Judul puitis/filosofis yang sesuai",\n'
+        '  "Judul": "Judul puitis karya",\n'
         '  "Tahun": "2026",\n'
-        '  "Media": "Tinta di atas kertas / Akrilik di kanvas / Conte / AI Generated",\n'
-        '  "artist_statement_id": "1-2 kalimat refleksi personal dan esensi filosofis karya.",\n'
-        '  "deskripsi_kuratorial": "Catatan kuratorial mengenai teknik arsir, komposisi visual, dan makna karya.",\n'
-        '  "tags": "art, sketch, drawing, indonesia, darkart, contemporaryart"\n'
+        '  "Media": "Tinta di atas kertas",\n'
+        '  "artist_statement_id": "1-2 kalimat refleksi filosofis karya.",\n'
+        '  "deskripsi_kuratorial": "Deskripsi kuratorial mengenai ritme tarikan garis, arsir rumit, dan makna organik karya.",\n'
+        '  "tags": "art, sketch, drawing, indonesia, darkart, contemporaryart, surealisgothic, gothic"\n'
         "}"
     )
 
     payload = {
+        "model": model_name,
         "messages": [
             {
                 "role": "user",
@@ -84,19 +218,20 @@ def analyze_with_local_ai(img_bytes):
                 ]
             }
         ],
-        "temperature": 0.4,
-        "max_tokens": 800
+        "temperature": 0.3,
+        "max_tokens": 700
     }
 
     resp = requests.post(LM_STUDIO_URL, json=payload, timeout=120)
-    resp.raise_for_status()
+    if resp.status_code != 200:
+        raise Exception(f"LM Studio Error ({resp.status_code}): {resp.text}")
+
     raw_content = resp.json()["choices"][0]["message"]["content"].strip()
     if "```" in raw_content:
         raw_content = re.sub(r"```(?:json)?", "", raw_content).strip()
     return json.loads(raw_content)
 
 def find_repo_folder():
-    """Mencari folder lokal git repositori katalog-maruto-septriono"""
     drives = [r"C:\Users", r"F:\\"]
     for d in drives:
         if os.path.exists(d):
@@ -113,22 +248,18 @@ def find_repo_folder():
     return None
 
 def trigger_build_and_push(art_id, title):
-    """Membangun ulang galeri web dan melakukan push otomatis ke GitHub Pages"""
-    # 1. Jalankan generator galeri
     gen_script = os.path.join(BASE_DIR, "generate_web_gallery.py")
     if os.path.exists(gen_script):
         subprocess.run(["python", gen_script], cwd=BASE_DIR, check=True)
 
-    # 2. Cari folder repositori
     repo_dir = find_repo_folder()
     if not repo_dir:
-        return False, "Folder repositori lokal 'katalog-maruto-septriono' tidak ditemukan."
+        return False, "Folder repositori lokal tidak ditemukan."
 
     web_dir = os.path.join(BASE_DIR, "web_galeri")
     repo_img_dir = os.path.join(repo_dir, "images")
     os.makedirs(repo_img_dir, exist_ok=True)
 
-    # 3. Salin index.html dan gambar
     shutil.copy2(os.path.join(web_dir, "index.html"), os.path.join(repo_dir, "index.html"))
     web_imgs = os.path.join(web_dir, "images")
     if os.path.exists(web_imgs):
@@ -138,10 +269,8 @@ def trigger_build_and_push(art_id, title):
             if not os.path.exists(dst_f):
                 shutil.copy2(src_f, dst_f)
 
-    # 4. Git Add, Commit, Push
     subprocess.run(["git", "add", "."], cwd=repo_dir, check=True)
-    commit_msg = f"Auto-publish {art_id}: {title} via Telegram Assistant"
-    subprocess.run(["git", "commit", "-m", commit_msg], cwd=repo_dir, check=True)
+    subprocess.run(["git", "commit", "-m", f"Auto-publish {art_id}: {title} via Multi-Platform Hub"], cwd=repo_dir, check=True)
     subprocess.run(["git", "push", "origin", "main"], cwd=repo_dir, check=True)
 
     return True, "Berhasil di-push ke GitHub Pages."
@@ -150,8 +279,8 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != AUTHORIZED_USER_ID:
         return
     await update.message.reply_text(
-        "👋 Halo Mas Maruto! Asisten AI Galeri Aktif.\n"
-        "📸 Kirimkan foto karya seni baru untuk diproses dan dipublikasikan otomatis."
+        "👋 Halo Mas Maruto! Asisten AI Galeri Multi-Platform Siap.\n"
+        "📸 Kirimkan foto lukisan/karya seni baru dari HP untuk dianalisis dan diterbitkan."
     )
 
 async def handle_incoming_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -216,7 +345,7 @@ async def handle_incoming_photo(update: Update, context: ContextTypes.DEFAULT_TY
         await update.message.reply_text(card_text, parse_mode="HTML")
 
     except Exception as err:
-        await status_msg.edit_text(f"⚠️ Terjadi kendala saat analisis AI di PC: {err}")
+        await status_msg.edit_text(f"⚠️ Terjadi kendala analisis AI di PC:\n{err}")
 
 async def handle_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -233,7 +362,7 @@ async def handle_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE
 
             keyboard = [
                 [
-                    InlineKeyboardButton("🚀 Setuju & Langsung Publish ke Web", callback_data=f"approve_{submission_key}"),
+                    InlineKeyboardButton("🚀 TERBITKAN KE SEMUA PLATFORM", callback_data=f"approve_{submission_key}"),
                     InlineKeyboardButton("❌ Batalkan", callback_data=f"reject_{submission_key}")
                 ]
             ]
@@ -241,12 +370,12 @@ async def handle_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE
 
             await update.message.reply_text(
                 f"📐 <b>Ukuran tercatat:</b> <code>{ukuran_input}</code> untuk {art_id}.\n\n"
-                f"Tekan tombol di bawah untuk menyimpan ke database dan <b>langsung menayangkan ke GitHub Pages</b>:",
+                f"Tekan tombol di bawah untuk <b>menyimpan, injeksi metadata EXIF, update web katalog, dan membuat draf medsos siap salin</b>:",
                 reply_markup=reply_markup,
                 parse_mode="HTML"
             )
     else:
-        await update.message.reply_text("Kirimkan foto karya baru untuk dianalisis oleh AI.")
+        await update.message.reply_text("Kirimkan foto karya baru untuk memulai analisis AI.")
 
 async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -268,9 +397,8 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
         img_bytes = item["image_bytes"]
         ukuran_final = item["ukuran"]
 
-        await query.edit_message_text(f"⏳ Sedang menyimpan data {art_id} dan mengunggah ke GitHub Pages...")
+        await query.edit_message_text(f"⏳ Sedang memproses {art_id} ke seluruh platform...")
 
-        # 1. Simpan gambar ke folder ART_70
         safe_title = re.sub(r'[^a-zA-Z0-9_\- ]', '', ai_data.get("Judul", "Karya")).strip()
         filename = f"{art_id} - {safe_title}.jpg"
         save_file_path = os.path.join(WATCH_DIR, filename)
@@ -278,7 +406,15 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
         with open(save_file_path, "wb") as f:
             f.write(img_bytes)
 
-        # 2. Catat ke art_catalog.json
+        inject_metadata_single(
+            save_file_path,
+            art_id,
+            ai_data.get("Judul", "Tanpa Judul"),
+            ai_data.get("artist_statement_id", ""),
+            ai_data.get("deskripsi_kuratorial", ""),
+            ai_data.get("tags", "")
+        )
+
         if os.path.exists(CATALOG_PATH):
             with open(CATALOG_PATH, "r", encoding="utf-8-sig") as f:
                 catalog = json.load(f)
@@ -301,21 +437,40 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
         safe_save_catalog(catalog, CATALOG_PATH)
         del PENDING_SUBMISSIONS[sub_key]
 
-        # 3. Auto-Build Web & Push ke GitHub Pages
         try:
             ok, msg = trigger_build_and_push(art_id, new_entry['Judul'])
-            publish_status = "🌐 <b>Karya LIVE di Web Galeri:</b>\nhttp://wizhclop.github.io/katalog-maruto-septriono" if ok else f"⚠️ Gagal upload web: {msg}"
+            web_status = "🌐 <b>Katalog Web:</b> LIVE di GitHub Pages" if ok else f"⚠️ Web: {msg}"
         except Exception as e:
-            publish_status = f"⚠️ Gagal sync otomatis: {e}"
+            web_status = f"⚠️ Web Sync: {e}"
+
+        ig_caption, pin_info = generate_promo_files(
+            art_id,
+            new_entry['Judul'],
+            new_entry['Tahun'],
+            new_entry['Media'],
+            new_entry['Ukuran'],
+            new_entry['artist_statement_id'],
+            new_entry['deskripsi_kuratorial'],
+            new_entry['tags']
+        )
 
         await query.message.reply_text(
-            f"✅ <b>KARYA BERHASIL DIARSIPKAN & DITERBITKAN!</b>\n\n"
-            f"• <b>ID:</b> {art_id}\n"
+            f"✅ <b>KARYA {art_id} SUKSES DIPUBLIKASIKAN!</b>\n\n"
             f"• <b>Judul:</b> {new_entry['Judul']}\n"
             f"• <b>Ukuran:</b> {new_entry['Ukuran']}\n"
-            f"• <b>Media:</b> {new_entry['Media']}\n"
-            f"• <b>Tags:</b> #{new_entry['tags'].replace(', ', ' #')}\n\n"
-            f"{publish_status}",
+            f"• <b>Metadata EXIF:</b> Tersuntik aman di gambar fisik\n"
+            f"• {web_status}\n\n"
+            f"👇 <i>Salin draf di bawah untuk Instagram & Pinterest:</i>",
+            parse_mode="HTML"
+        )
+
+        await query.message.reply_text(
+            f"📸 <b>TAKARIR INSTAGRAM (SIAP SALIN):</b>\n\n{ig_caption}",
+            parse_mode="HTML"
+        )
+
+        await query.message.reply_text(
+            f"📌 <b>MATERI PIN PINTEREST:</b>\n\n{pin_info}",
             parse_mode="HTML"
         )
 
@@ -325,25 +480,30 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
             del PENDING_SUBMISSIONS[sub_key]
         if query.from_user.id in AWAITING_UKURAN:
             del AWAITING_UKURAN[query.from_user.id]
-        await query.edit_message_text("❌ Proses dibatalkan. Data tidak dimasukkan ke database.")
+        await query.edit_message_text("❌ Proses dibatalkan. Berkas tidak dimasukkan ke database.")
 
 def main():
     print("==================================================")
-    print("  ASISTEN REMOTE TELEGRAM + AUTO-PUSH WEB AKTIF   ")
+    print("  ASISTEN TELEGRAM MULTI-PLATFORM HUB AKTIF       ")
     print(f"  Direktori Basis : {BASE_DIR}")
-    print(f"  Folder Pantau   : {WATCH_DIR}")
-    print("  Mode Auto-Deploy ke GitHub Pages: AKTIF")
-    print("  Menunggu kiriman karya baru dari HP...")
+    print("  Status: Standby menerima foto dari HP...")
     print("  Tekan Ctrl+C untuk berhenti.")
     print("==================================================")
 
-    app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
+    req = HTTPXRequest(
+        connect_timeout=30.0,
+        read_timeout=60.0,
+        write_timeout=30.0,
+        pool_timeout=30.0
+    )
+
+    app = ApplicationBuilder().token(TELEGRAM_TOKEN).request(req).build()
     app.add_handler(CommandHandler("start", start_command))
     app.add_handler(MessageHandler(filters.PHOTO | filters.Document.IMAGE, handle_incoming_photo))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text_message))
     app.add_handler(CallbackQueryHandler(handle_button_callback))
 
-    app.run_polling()
+    app.run_polling(bootstrap_retries=5, timeout=30)
 
 if __name__ == "__main__":
     main()
