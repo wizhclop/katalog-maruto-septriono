@@ -30,7 +30,7 @@ def find_repo_folder():
 
 def build_hybrid_gallery():
     print("==================================================")
-    print("  MEMBANGUN GALERI WEB HYBRID DENGAN DEEP LINKING")
+    print("  MEMPERBAIKI TAMPILAN 2 KOLOM MOBILE & DEEP LINK ")
     print("==================================================")
 
     if not os.path.exists(CATALOG_PATH):
@@ -81,7 +81,7 @@ def build_hybrid_gallery():
             web_img_rel = "images/notfound.jpg"
             item["web_image"] = ""
 
-        safe_statement = (statement[:130] + "...") if len(statement) > 130 else statement
+        safe_statement = (statement[:100] + "...") if len(statement) > 100 else statement
         search_blob = f"{art_id} {title} {media} {year} {raw_tags}".lower()
 
         card = f"""
@@ -91,7 +91,6 @@ def build_hybrid_gallery():
                 <div class="art-badge-row">
                     <span class="badge badge-id">{art_id}</span>
                     <span class="badge badge-year">{year}</span>
-                    <span class="badge badge-status">Karya Asli: Koleksi Pribadi</span>
                 </div>
             </div>
 
@@ -101,22 +100,21 @@ def build_hybrid_gallery():
 
                 <div class="commercial-box">
                     <div class="price-col">
-                        <span class="price-label">Soft File (High-Res)</span>
+                        <span class="price-label">Soft File</span>
                         <span class="price-val">$ 250</span>
                     </div>
                     <div class="price-col">
-                        <span class="price-label">Lisensi Cetak</span>
+                        <span class="price-label">Lisensi</span>
                         <span class="price-val">$ 100</span>
-                        <small class="free-shipping">Bebas Royalti</small>
                     </div>
                 </div>
 
                 <div class="action-buttons">
                     <a href="https://instagram.com/maruto.septriono" target="_blank" class="btn btn-dm">
-                        ✉ DM Instagram
+                        ✉ DM
                     </a>
                     <a href="mailto:kirimdoa@gmail.com?subject=Tanya Karya {art_id} - {title}" class="btn btn-email">
-                        ✉ Order Email
+                        ✉ Email
                     </a>
                 </div>
 
@@ -125,8 +123,8 @@ def build_hybrid_gallery():
                 </div>
 
                 <div class="card-footer-row">
-                    <span class="card-footer-link" onclick="openModal('{art_id}')">&bull; Detail & Kuratorial &rsaquo;</span>
-                    <button class="btn-copy-card" onclick="copyDirectLink('{art_id}', event)" title="Salin Tautan Langsung Karya">🔗 Salin Link</button>
+                    <span class="card-footer-link" onclick="openModal('{art_id}')">&bull; Detail &rsaquo;</span>
+                    <button class="btn-copy-card" onclick="copyDirectLink('{art_id}', event)" title="Salin Link">🔗 Link</button>
                 </div>
             </div>
         </div>
@@ -166,13 +164,13 @@ def build_hybrid_gallery():
             background-color: var(--bg-color);
             color: var(--text-main);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.5;
+            line-height: 1.4;
         }}
 
         .top-nav {{
             display: flex;
             justify-content: flex-end;
-            padding: 15px 30px;
+            padding: 12px 20px;
             background: #08080b;
             border-bottom: 1px solid var(--border-color);
         }}
@@ -181,8 +179,8 @@ def build_hybrid_gallery():
             background: #1b1d26;
             color: var(--text-muted);
             border: 1px solid var(--border-color);
-            padding: 5px 12px;
-            font-size: 0.8rem;
+            padding: 4px 10px;
+            font-size: 0.75rem;
             cursor: pointer;
             border-radius: 4px;
             font-family: inherit;
@@ -197,24 +195,24 @@ def build_hybrid_gallery():
 
         header {{
             text-align: center;
-            padding: 50px 20px 30px;
+            padding: 35px 15px 25px;
             background: radial-gradient(circle at center, #1e1b29 0%, var(--bg-color) 75%);
             border-bottom: 1px solid var(--border-color);
         }}
 
         header h1 {{
             font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            letter-spacing: 2px;
+            font-size: 2.2rem;
+            letter-spacing: 1.5px;
             color: #38bdf8;
             margin-bottom: 6px;
         }}
 
         header p.subtitle {{
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            letter-spacing: 1px;
-            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
         }}
 
         .search-container {{
@@ -228,9 +226,9 @@ def build_hybrid_gallery():
             background: #101217;
             border: 1px solid #2f3447;
             border-radius: 8px;
-            padding: 12px 20px;
+            padding: 10px 16px;
             color: #fff;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-family: inherit;
             outline: none;
             transition: all 0.3s;
@@ -238,36 +236,37 @@ def build_hybrid_gallery():
 
         .search-container input:focus {{
             border-color: #38bdf8;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
         }}
 
         .stats-tag {{
             display: inline-block;
-            margin-top: 15px;
-            font-size: 0.85rem;
+            margin-top: 12px;
+            font-size: 0.8rem;
             color: var(--accent-gold);
             background: rgba(197, 160, 89, 0.1);
-            padding: 4px 14px;
+            padding: 3px 12px;
             border-radius: 20px;
             border: 1px solid rgba(197, 160, 89, 0.25);
         }}
 
+        /* GRID UMUM (DESKTOP) */
         .container {{
             max-width: 1440px;
             margin: 0 auto;
-            padding: 40px 25px;
+            padding: 30px 15px;
         }}
 
         .gallery-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }}
 
         .art-card {{
             background: var(--card-color);
             border: 1px solid var(--border-color);
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -276,15 +275,15 @@ def build_hybrid_gallery():
 
         .art-card:hover {{
             border-color: #38bdf8;
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }}
 
         .img-container {{
             position: relative;
             background: #000;
             width: 100%;
-            height: 340px;
+            height: 280px;
             cursor: pointer;
             overflow: hidden;
         }}
@@ -302,19 +301,18 @@ def build_hybrid_gallery():
 
         .art-badge-row {{
             position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
+            top: 8px;
+            left: 8px;
             display: flex;
-            gap: 6px;
+            gap: 5px;
             flex-wrap: wrap;
         }}
 
         .badge {{
-            padding: 3px 8px;
-            font-size: 0.7rem;
+            padding: 2px 6px;
+            font-size: 0.65rem;
             font-weight: 600;
-            border-radius: 4px;
+            border-radius: 3px;
             backdrop-filter: blur(4px);
         }}
 
@@ -328,14 +326,8 @@ def build_hybrid_gallery():
             color: #e0f2fe;
         }}
 
-        .badge-status {{
-            background: rgba(30, 41, 59, 0.9);
-            color: #94a3b8;
-            border: 1px solid #475569;
-        }}
-
         .card-info {{
-            padding: 18px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -344,10 +336,11 @@ def build_hybrid_gallery():
 
         .art-title {{
             font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             color: #fff;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             cursor: pointer;
+            line-height: 1.25;
         }}
 
         .art-title:hover {{
@@ -355,9 +348,9 @@ def build_hybrid_gallery():
         }}
 
         .art-spec {{
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }}
 
         .commercial-box {{
@@ -365,10 +358,11 @@ def build_hybrid_gallery():
             grid-template-columns: 1fr 1fr;
             background: #181b24;
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 10px;
-            margin-bottom: 12px;
-            gap: 8px;
+            border-radius: 5px;
+            padding: 8px;
+            margin-bottom: 10px;
+            gap: 6px;
+            text-align: center;
         }}
 
         .price-col {{
@@ -377,33 +371,28 @@ def build_hybrid_gallery():
         }}
 
         .price-label {{
-            font-size: 0.72rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
         }}
 
         .price-val {{
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: #38bdf8;
-        }}
-
-        .free-shipping {{
-            font-size: 0.68rem;
-            color: #64748b;
         }}
 
         .action-buttons {{
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 12px;
+            gap: 6px;
+            margin-bottom: 10px;
         }}
 
         .btn {{
             text-align: center;
-            padding: 7px 10px;
-            border-radius: 5px;
-            font-size: 0.78rem;
+            padding: 6px 4px;
+            border-radius: 4px;
+            font-size: 0.72rem;
             font-weight: 600;
             text-decoration: none;
             transition: opacity 0.2s;
@@ -425,21 +414,21 @@ def build_hybrid_gallery():
         }}
 
         .card-statement {{
-            font-size: 0.82rem;
+            font-size: 0.75rem;
             color: #b3b7c8;
             font-style: italic;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             cursor: pointer;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            line-height: 1.45;
+            line-height: 1.35;
         }}
 
         .card-footer-row {{
             margin-top: auto;
-            padding-top: 10px;
+            padding-top: 8px;
             border-top: 1px solid #1f2330;
             display: flex;
             justify-content: space-between;
@@ -447,7 +436,7 @@ def build_hybrid_gallery():
         }}
 
         .card-footer-link {{
-            font-size: 0.76rem;
+            font-size: 0.72rem;
             color: #38bdf8;
             cursor: pointer;
         }}
@@ -456,9 +445,9 @@ def build_hybrid_gallery():
             background: #1e2230;
             color: #cbd5e1;
             border: 1px solid #334155;
-            padding: 3px 8px;
-            font-size: 0.72rem;
-            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 0.68rem;
+            border-radius: 3px;
             cursor: pointer;
             transition: all 0.2s;
         }}
@@ -481,13 +470,13 @@ def build_hybrid_gallery():
             backdrop-filter: blur(8px);
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 15px;
         }}
 
         .modal-content {{
             background: var(--surface-color);
             border: 1px solid var(--accent-gold);
-            border-radius: 12px;
+            border-radius: 10px;
             max-width: 1050px;
             width: 100%;
             max-height: 90vh;
@@ -500,10 +489,10 @@ def build_hybrid_gallery():
 
         .modal-close {{
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 12px;
+            right: 18px;
             color: var(--text-muted);
-            font-size: 2rem;
+            font-size: 1.8rem;
             cursor: pointer;
             z-index: 10;
         }}
@@ -517,7 +506,7 @@ def build_hybrid_gallery():
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 15px;
         }}
 
         .modal-img-wrap img {{
@@ -528,16 +517,16 @@ def build_hybrid_gallery():
         }}
 
         .modal-details {{
-            padding: 35px 30px;
+            padding: 25px 20px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
         }}
 
         .modal-id {{
             font-family: 'Cinzel', serif;
             color: var(--accent-gold);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 2px;
             display: flex;
             justify-content: space-between;
@@ -546,7 +535,7 @@ def build_hybrid_gallery():
 
         .modal-title {{
             font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: #fff;
             line-height: 1.25;
         }}
@@ -554,8 +543,8 @@ def build_hybrid_gallery():
         .modal-specs {{
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
-            padding: 10px 0;
-            font-size: 0.88rem;
+            padding: 8px 0;
+            font-size: 0.82rem;
             color: var(--text-muted);
             display: flex;
             flex-direction: column;
@@ -570,7 +559,7 @@ def build_hybrid_gallery():
         .modal-pricing-box {{
             background: #1a1e29;
             border: 1px solid #2d3448;
-            padding: 12px;
+            padding: 10px;
             border-radius: 6px;
             display: flex;
             justify-content: space-around;
@@ -579,44 +568,43 @@ def build_hybrid_gallery():
         .statement-box {{
             background: rgba(197, 160, 89, 0.05);
             border-left: 3px solid var(--accent-gold);
-            padding: 10px 14px;
+            padding: 8px 12px;
             font-style: italic;
-            font-size: 0.92rem;
+            font-size: 0.85rem;
             color: #dedee5;
         }}
 
         .curatorial-box {{
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
-            line-height: 1.65;
+            line-height: 1.55;
         }}
 
         .tag {{
             display: inline-block;
             background: rgba(255, 255, 255, 0.05);
             color: #b0b0c5;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.72rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.68rem;
             margin: 2px;
             border: 1px solid var(--border-color);
         }}
 
-        /* TOAST NOTIFIKASI */
         #toast {{
             visibility: hidden;
-            min-width: 250px;
+            min-width: 200px;
             background-color: #0284c7;
             color: #fff;
             text-align: center;
-            border-radius: 8px;
-            padding: 12px 18px;
+            border-radius: 6px;
+            padding: 10px 14px;
             position: fixed;
             z-index: 10000;
-            bottom: 30px;
+            bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }}
@@ -626,21 +614,70 @@ def build_hybrid_gallery():
             animation: fadein 0.3s, fadeout 0.5s 2.5s;
         }}
 
-        @keyframes fadein {{ from {{ bottom: 10px; opacity: 0; }} to {{ bottom: 30px; opacity: 1; }} }}
-        @keyframes fadeout {{ from {{ bottom: 30px; opacity: 1; }} to {{ bottom: 10px; opacity: 0; }} }}
+        @keyframes fadein {{ from {{ bottom: 10px; opacity: 0; }} to {{ bottom: 25px; opacity: 1; }} }}
+        @keyframes fadeout {{ from {{ bottom: 25px; opacity: 1; }} to {{ bottom: 10px; opacity: 0; }} }}
 
         footer {{
             text-align: center;
-            padding: 45px 20px;
+            padding: 35px 15px;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }}
 
-        @media (max-width: 900px) {{
-            .modal-content {{ grid-template-columns: 1fr; }}
-            .modal-img-wrap {{ height: 320px; }}
-            header h1 {{ font-size: 2rem; }}
+        /* --- KUNCI TAMPILAN 2 KOLOM DI LAYAR HP (MOBILE) --- */
+        @media (max-width: 768px) {{
+            .container {{
+                padding: 15px 8px;
+            }}
+            .gallery-grid {{
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+            }}
+            .img-container {{
+                height: 180px !important;
+            }}
+            .card-info {{
+                padding: 10px 8px !important;
+            }}
+            .art-title {{
+                font-size: 0.85rem !important;
+            }}
+            .art-spec {{
+                font-size: 0.68rem !important;
+                margin-bottom: 6px !important;
+            }}
+            .commercial-box {{
+                padding: 5px !important;
+                margin-bottom: 6px !important;
+                gap: 4px !important;
+            }}
+            .price-val {{
+                font-size: 0.82rem !important;
+            }}
+            .btn {{
+                padding: 5px 2px !important;
+                font-size: 0.65rem !important;
+            }}
+            .card-statement {{
+                display: none !important; /* Disembunyikan di HP agar kartu tetap rapi & compact */
+            }}
+            header h1 {{
+                font-size: 1.6rem !important;
+            }}
+            header {{
+                padding: 25px 12px 18px !important;
+            }}
+            .modal-content {{
+                grid-template-columns: 1fr !important;
+            }}
+            .modal-img-wrap {{
+                height: 280px !important;
+                padding: 10px !important;
+            }}
+            .modal-details {{
+                padding: 20px 15px !important;
+            }}
         }}
     </style>
 </head>
@@ -658,7 +695,7 @@ def build_hybrid_gallery():
         <p class="subtitle">Arsip Digital, Portofolio & Etalase Komersial Internasional</p>
 
         <div class="search-container">
-            <input type="text" id="searchInput" onkeyup="filterGallery()" placeholder="Cari judul karya, medium, tahun, atau ID (misal: ART-075, tinta)...">
+            <input type="text" id="searchInput" onkeyup="filterGallery()" placeholder="Cari judul, ID (ART-075), atau media...">
         </div>
 
         <div class="stats-tag">
@@ -681,7 +718,7 @@ def build_hybrid_gallery():
             <div class="modal-details">
                 <div class="modal-id">
                     <span id="mId">ART-000</span>
-                    <button class="btn-copy-card" onclick="copyModalLink()">🔗 Salin Link Karya</button>
+                    <button class="btn-copy-card" onclick="copyModalLink()">🔗 Salin Link</button>
                 </div>
                 <h2 class="modal-title" id="mTitle">Judul Karya</h2>
                 <div class="modal-specs">
@@ -820,7 +857,6 @@ def build_hybrid_gallery():
 
         document.addEventListener('keydown', (e) => {{ if (e.key === 'Escape') closeModal(); }});
 
-        // AUTO-OPEN JIKA URL MEMILIKI HASH (DEEP LINKING)
         window.addEventListener('DOMContentLoaded', () => {{
             const hash = window.location.hash.replace('#', '').trim();
             if (hash) {{
@@ -848,13 +884,13 @@ def build_hybrid_gallery():
     with open(os.path.join(OUTPUT_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"[OK] Selesai! Web Galeri berhasil dirakit ulang dengan {found_count} karya lengkap.")
+    print(f"[OK] Selesai! Web Galeri dirakit ulang dengan {found_count} karya (Format 2 Kolom Mobile).")
 
-    # SINKRONISASI OTOMATIS KE GITHUB PAGES
+    # SINKRONISASI KE GITHUB PAGES
     print("\n[>>] Menyinkronkan ke GitHub Pages...")
     repo_dir = find_repo_folder()
     if not repo_dir:
-        print("[!] Folder repositori lokal 'katalog-maruto-septriono' tidak ditemukan.")
+        print("[!] Folder repositori lokal tidak ditemukan.")
         return
 
     repo_img_dir = os.path.join(repo_dir, "images")
@@ -869,13 +905,13 @@ def build_hybrid_gallery():
 
     try:
         subprocess.run(["git", "add", "."], cwd=repo_dir, check=True)
-        subprocess.run(["git", "commit", "-m", "Fitur Deep Linking URL per gambar & update kontak resmi"], cwd=repo_dir, check=True)
+        subprocess.run(["git", "commit", "-m", "Perbaikan layout 2 kolom berjajar untuk HP"], cwd=repo_dir, check=True)
         subprocess.run(["git", "push", "origin", "main"], cwd=repo_dir, check=True)
         print("\n==================================================")
-        print(" [SUKSES BESAR] BERHASIL DI-PUSH KE GITHUB PAGES!")
+        print(" [BERHASIL] TAMPILAN 2 KOLOM SUDAH TERBIT DI WEB! ")
         print("==================================================")
     except subprocess.CalledProcessError as e:
-        print(f"[!] Git Push gagal atau tidak ada perubahan baru: {e}")
+        print(f"[!] Info Git: {e}")
 
 if __name__ == "__main__":
     build_hybrid_gallery()

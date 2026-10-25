@@ -23,6 +23,8 @@ telegram :
 http api Token :8525326297:AAF1jAnSrJbfZ0SVOg0nCVNrIbi3L5c5E4U
 Id: 6300301484
 
+github :http://wizhclop.github.io/katalog-maruto-septriono/
+
 Pilihan 1: Galeri Web Portofolio Otomatis (GitHub Pages) — Paling Direkomendasikan
            Konsep: Membuat satu skrip Python generator web. Setiap kali ada karya baru (atau sekali klik), skrip langsung membaca art_catalog.json dan menyusun halaman website galeri seni yang modern, responsif di HP/PC, bernuansa gelap (dark/gothic), dan langsung bisa dipublikasikan secara gratis lewat GitHub Pages tanpa biaya domain/hosting.
            Manfaat: Anda langsung punya link website galeri portofolio resmi (misal: maruto.github.io/galeri) untuk dibagikan ke calon kolektor, kurator, atau di bio media sosial.
