@@ -494,6 +494,7 @@
             <div class="img-container" onclick="openModal('ART-075')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-075.jpg" 
                      data-filename="ART-075.jpg"
+                     data-rawname="ART-75.jpg"
                      data-artid="ART-075"
                      data-try="0"
                      alt="Kehidupan di Antara Pintu-Pintu Batin" 
@@ -544,6 +545,7 @@
             <div class="img-container" onclick="openModal('ART-074')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-074.jpg" 
                      data-filename="ART-074.jpg"
+                     data-rawname="ART-74.jpg"
                      data-artid="ART-074"
                      data-try="0"
                      alt="Judul puitis karya" 
@@ -594,6 +596,7 @@
             <div class="img-container" onclick="openModal('ART-073')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-073.jpg" 
                      data-filename="ART-073.jpg"
+                     data-rawname="ART-73.jpg"
                      data-artid="ART-073"
                      data-try="0"
                      alt="Kerusakan yang Tidak Dapat Diatasi" 
@@ -644,6 +647,7 @@
             <div class="img-container" onclick="openModal('ART-072')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-072.jpg" 
                      data-filename="ART-072.jpg"
+                     data-rawname="ART-72.jpg"
                      data-artid="ART-072"
                      data-try="0"
                      alt="Keruntuhan yang Menyentuh" 
@@ -694,6 +698,7 @@
             <div class="img-container" onclick="openModal('ART-071')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-071.jpg" 
                      data-filename="ART-071.jpg"
+                     data-rawname="ART-71.jpg"
                      data-artid="ART-071"
                      data-try="0"
                      alt="Kematian yang Menyatu dengan Alam" 
@@ -744,6 +749,7 @@
             <div class="img-container" onclick="openModal('ART-070')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-070.jpg" 
                      data-filename="ART-070.jpg"
+                     data-rawname="ART-70.jpg"
                      data-artid="ART-070"
                      data-try="0"
                      alt="URBAN PRODUK" 
@@ -794,6 +800,7 @@
             <div class="img-container" onclick="openModal('ART-069')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-069.jpg" 
                      data-filename="ART-069.jpg"
+                     data-rawname="ART-69.jpg"
                      data-artid="ART-069"
                      data-try="0"
                      alt="untuk yang tercinta" 
@@ -844,6 +851,7 @@
             <div class="img-container" onclick="openModal('ART-068')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-068.jpg" 
                      data-filename="ART-068.jpg"
+                     data-rawname="ART-68.jpg"
                      data-artid="ART-068"
                      data-try="0"
                      alt="TRAGEDI SETELAH BENCANA" 
@@ -894,6 +902,7 @@
             <div class="img-container" onclick="openModal('ART-067')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-067.jpg" 
                      data-filename="ART-067.jpg"
+                     data-rawname="ART-67.jpg"
                      data-artid="ART-067"
                      data-try="0"
                      alt="The Thinker" 
@@ -944,6 +953,7 @@
             <div class="img-container" onclick="openModal('ART-066')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-066.jpg" 
                      data-filename="ART-066.jpg"
+                     data-rawname="ART-66.jpg"
                      data-artid="ART-066"
                      data-try="0"
                      alt="Terkenang" 
@@ -994,6 +1004,7 @@
             <div class="img-container" onclick="openModal('ART-065')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-065.jpg" 
                      data-filename="ART-065.jpg"
+                     data-rawname="ART-65.jpg"
                      data-artid="ART-065"
                      data-try="0"
                      alt="TERIKAT KEBEBASAN" 
@@ -1044,6 +1055,7 @@
             <div class="img-container" onclick="openModal('ART-064')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-064.jpg" 
                      data-filename="ART-064.jpg"
+                     data-rawname="ART-64.jpg"
                      data-artid="ART-064"
                      data-try="0"
                      alt="TERIKAT KERAGUAN" 
@@ -1094,6 +1106,7 @@
             <div class="img-container" onclick="openModal('ART-063')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-063.jpg" 
                      data-filename="ART-063.jpg"
+                     data-rawname="ART-63.jpg"
                      data-artid="ART-063"
                      data-try="0"
                      alt="Swara" 
@@ -1144,6 +1157,7 @@
             <div class="img-container" onclick="openModal('ART-062')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-062.jpg" 
                      data-filename="ART-062.jpg"
+                     data-rawname="ART-62.jpg"
                      data-artid="ART-062"
                      data-try="0"
                      alt="sleep on fire" 
@@ -1194,6 +1208,7 @@
             <div class="img-container" onclick="openModal('ART-061')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-061.jpg" 
                      data-filename="ART-061.jpg"
+                     data-rawname="ART-61.jpg"
                      data-artid="ART-061"
                      data-try="0"
                      alt="Sisa Direruntuhan Sepi" 
@@ -1244,6 +1259,7 @@
             <div class="img-container" onclick="openModal('ART-060')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-060.jpg" 
                      data-filename="ART-060.jpg"
+                     data-rawname="ART-60.jpg"
                      data-artid="ART-060"
                      data-try="0"
                      alt="senandung Doa" 
@@ -1294,6 +1310,7 @@
             <div class="img-container" onclick="openModal('ART-059')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-059.jpg" 
                      data-filename="ART-059.jpg"
+                     data-rawname="ART-59.jpg"
                      data-artid="ART-059"
                      data-try="0"
                      alt="Saat luka bencana datang" 
@@ -1344,6 +1361,7 @@
             <div class="img-container" onclick="openModal('ART-058')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-058.jpg" 
                      data-filename="ART-058.jpg"
+                     data-rawname="ART-58.jpg"
                      data-artid="ART-058"
                      data-try="0"
                      alt="ruang sesal tengah malam" 
@@ -1394,6 +1412,7 @@
             <div class="img-container" onclick="openModal('ART-057')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-057.jpg" 
                      data-filename="ART-057.jpg"
+                     data-rawname="ART-57.jpg"
                      data-artid="ART-057"
                      data-try="0"
                      alt="pohon dan gadis" 
@@ -1444,6 +1463,7 @@
             <div class="img-container" onclick="openModal('ART-056')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-056.jpg" 
                      data-filename="ART-056.jpg"
+                     data-rawname="ART-56.jpg"
                      data-artid="ART-056"
                      data-try="0"
                      alt="Perempuan dan Sayap" 
@@ -1494,6 +1514,7 @@
             <div class="img-container" onclick="openModal('ART-055')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-055.jpg" 
                      data-filename="ART-055.jpg"
+                     data-rawname="ART-55.jpg"
                      data-artid="ART-055"
                      data-try="0"
                      alt="Perempuan Berangin Api" 
@@ -1544,6 +1565,7 @@
             <div class="img-container" onclick="openModal('ART-054')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-054.jpg" 
                      data-filename="ART-054.jpg"
+                     data-rawname="ART-54.jpg"
                      data-artid="ART-054"
                      data-try="0"
                      alt="Perawan Disarang Cakrawala" 
@@ -1594,6 +1616,7 @@
             <div class="img-container" onclick="openModal('ART-053')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-053.jpg" 
                      data-filename="ART-053.jpg"
+                     data-rawname="ART-53.jpg"
                      data-artid="ART-053"
                      data-try="0"
                      alt="Penari" 
@@ -1644,6 +1667,7 @@
             <div class="img-container" onclick="openModal('ART-052')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-052.jpg" 
                      data-filename="ART-052.jpg"
+                     data-rawname="ART-52.jpg"
                      data-artid="ART-052"
                      data-try="0"
                      alt="MENYULAM KEBERSAMAAN" 
@@ -1694,6 +1718,7 @@
             <div class="img-container" onclick="openModal('ART-051')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-051.jpg" 
                      data-filename="ART-051.jpg"
+                     data-rawname="ART-51.jpg"
                      data-artid="ART-051"
                      data-try="0"
                      alt="Mengikat Hati" 
@@ -1744,6 +1769,7 @@
             <div class="img-container" onclick="openModal('ART-050')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-050.jpg" 
                      data-filename="ART-050.jpg"
+                     data-rawname="ART-50.jpg"
                      data-artid="ART-050"
                      data-try="0"
                      alt="Mengais Dikotak Logika" 
@@ -1794,6 +1820,7 @@
             <div class="img-container" onclick="openModal('ART-049')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-049.jpg" 
                      data-filename="ART-049.jpg"
+                     data-rawname="ART-49.jpg"
                      data-artid="ART-049"
                      data-try="0"
                      alt="Membebaskan beban" 
@@ -1844,6 +1871,7 @@
             <div class="img-container" onclick="openModal('ART-048')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-048.jpg" 
                      data-filename="ART-048.jpg"
+                     data-rawname="ART-48.jpg"
                      data-artid="ART-048"
                      data-try="0"
                      alt="Maut Merindu Putus Asa" 
@@ -1894,6 +1922,7 @@
             <div class="img-container" onclick="openModal('ART-047')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-047.jpg" 
                      data-filename="ART-047.jpg"
+                     data-rawname="ART-47.jpg"
                      data-artid="ART-047"
                      data-try="0"
                      alt="Matacahari" 
@@ -1944,6 +1973,7 @@
             <div class="img-container" onclick="openModal('ART-046')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-046.jpg" 
                      data-filename="ART-046.jpg"
+                     data-rawname="ART-46.jpg"
                      data-artid="ART-046"
                      data-try="0"
                      alt="MATABENCANA" 
@@ -1994,6 +2024,7 @@
             <div class="img-container" onclick="openModal('ART-045')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-045.jpg" 
                      data-filename="ART-045.jpg"
+                     data-rawname="ART-45.jpg"
                      data-artid="ART-045"
                      data-try="0"
                      alt="Lakon... in action" 
@@ -2044,6 +2075,7 @@
             <div class="img-container" onclick="openModal('ART-044')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-044.jpg" 
                      data-filename="ART-044.jpg"
+                     data-rawname="ART-44.jpg"
                      data-artid="ART-044"
                      data-try="0"
                      alt="lahir derita sia sia" 
@@ -2094,6 +2126,7 @@
             <div class="img-container" onclick="openModal('ART-043')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-043.jpg" 
                      data-filename="ART-043.jpg"
+                     data-rawname="ART-43.jpg"
                      data-artid="ART-043"
                      data-try="0"
                      alt="lahir derita sia sia (AI)" 
@@ -2144,6 +2177,7 @@
             <div class="img-container" onclick="openModal('ART-042')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-042.jpg" 
                      data-filename="ART-042.jpg"
+                     data-rawname="ART-42.jpg"
                      data-artid="ART-042"
                      data-try="0"
                      alt="KIRIM DOA" 
@@ -2194,6 +2228,7 @@
             <div class="img-container" onclick="openModal('ART-041')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-041.jpg" 
                      data-filename="ART-041.jpg"
+                     data-rawname="ART-41.jpg"
                      data-artid="ART-041"
                      data-try="0"
                      alt="khalayak" 
@@ -2244,6 +2279,7 @@
             <div class="img-container" onclick="openModal('ART-040')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-040.jpg" 
                      data-filename="ART-040.jpg"
+                     data-rawname="ART-40.jpg"
                      data-artid="ART-040"
                      data-try="0"
                      alt="Kerangka" 
@@ -2294,6 +2330,7 @@
             <div class="img-container" onclick="openModal('ART-039')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-039.jpg" 
                      data-filename="ART-039.jpg"
+                     data-rawname="ART-39.jpg"
                      data-artid="ART-039"
                      data-try="0"
                      alt="Hydrant People" 
@@ -2344,6 +2381,7 @@
             <div class="img-container" onclick="openModal('ART-038')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-038.jpg" 
                      data-filename="ART-038.jpg"
+                     data-rawname="ART-38.jpg"
                      data-artid="ART-038"
                      data-try="0"
                      alt="Gerbang dan Bayi" 
@@ -2394,6 +2432,7 @@
             <div class="img-container" onclick="openModal('ART-037')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-037.jpg" 
                      data-filename="ART-037.jpg"
+                     data-rawname="ART-37.jpg"
                      data-artid="ART-037"
                      data-try="0"
                      alt="Family&#x27;s Holiday" 
@@ -2444,6 +2483,7 @@
             <div class="img-container" onclick="openModal('ART-036')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-036.jpg" 
                      data-filename="ART-036.jpg"
+                     data-rawname="ART-36.jpg"
                      data-artid="ART-036"
                      data-try="0"
                      alt="Derita Berakar Gelap" 
@@ -2494,6 +2534,7 @@
             <div class="img-container" onclick="openModal('ART-035')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-035.jpg" 
                      data-filename="ART-035.jpg"
+                     data-rawname="ART-35.jpg"
                      data-artid="ART-035"
                      data-try="0"
                      alt="cinta tumbuh terkubur usia" 
@@ -2544,6 +2585,7 @@
             <div class="img-container" onclick="openModal('ART-034')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-034.jpg" 
                      data-filename="ART-034.jpg"
+                     data-rawname="ART-34.jpg"
                      data-artid="ART-034"
                      data-try="0"
                      alt="Cerita Dibalik Pohon" 
@@ -2594,6 +2636,7 @@
             <div class="img-container" onclick="openModal('ART-033')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-033.jpg" 
                      data-filename="ART-033.jpg"
+                     data-rawname="ART-33.jpg"
                      data-artid="ART-033"
                      data-try="0"
                      alt="Cerita Berduri" 
@@ -2644,6 +2687,7 @@
             <div class="img-container" onclick="openModal('ART-032')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-032.jpg" 
                      data-filename="ART-032.jpg"
+                     data-rawname="ART-32.jpg"
                      data-artid="ART-032"
                      data-try="0"
                      alt="Bintang Kosong Para Pemimpi" 
@@ -2694,6 +2738,7 @@
             <div class="img-container" onclick="openModal('ART-031')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-031.jpg" 
                      data-filename="ART-031.jpg"
+                     data-rawname="ART-31.jpg"
                      data-artid="ART-031"
                      data-try="0"
                      alt="Bermimpi Berpengharapan Nasib" 
@@ -2744,6 +2789,7 @@
             <div class="img-container" onclick="openModal('ART-030')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-030.jpg" 
                      data-filename="ART-030.jpg"
+                     data-rawname="ART-30.jpg"
                      data-artid="ART-030"
                      data-try="0"
                      alt="Pandangan Badut" 
@@ -2794,6 +2840,7 @@
             <div class="img-container" onclick="openModal('ART-029')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-029.jpg" 
                      data-filename="ART-029.jpg"
+                     data-rawname="ART-29.jpg"
                      data-artid="ART-029"
                      data-try="0"
                      alt="Actor in Action" 
@@ -2844,6 +2891,7 @@
             <div class="img-container" onclick="openModal('ART-028')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-028.jpg" 
                      data-filename="ART-028.jpg"
+                     data-rawname="ART-28.jpg"
                      data-artid="ART-028"
                      data-try="0"
                      alt="Pelita Hati" 
@@ -2894,6 +2942,7 @@
             <div class="img-container" onclick="openModal('ART-027')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-027.jpg" 
                      data-filename="ART-027.jpg"
+                     data-rawname="ART-27.jpg"
                      data-artid="ART-027"
                      data-try="0"
                      alt="Immoral" 
@@ -2944,6 +2993,7 @@
             <div class="img-container" onclick="openModal('ART-026')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-026.jpg" 
                      data-filename="ART-026.jpg"
+                     data-rawname="ART-26.jpg"
                      data-artid="ART-026"
                      data-try="0"
                      alt="Lorong Doa Abadi" 
@@ -2994,6 +3044,7 @@
             <div class="img-container" onclick="openModal('ART-025')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-025.jpg" 
                      data-filename="ART-025.jpg"
+                     data-rawname="ART-25.jpg"
                      data-artid="ART-025"
                      data-try="0"
                      alt="Perkembangbiakan" 
@@ -3044,6 +3095,7 @@
             <div class="img-container" onclick="openModal('ART-024')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-024.jpg" 
                      data-filename="ART-024.jpg"
+                     data-rawname="ART-24.jpg"
                      data-artid="ART-024"
                      data-try="0"
                      alt="Traumatic Kelahiran" 
@@ -3094,6 +3146,7 @@
             <div class="img-container" onclick="openModal('ART-023')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-023.jpg" 
                      data-filename="ART-023.jpg"
+                     data-rawname="ART-23.jpg"
                      data-artid="ART-023"
                      data-try="0"
                      alt="Keinginan Sumber Penderitaan" 
@@ -3144,6 +3197,7 @@
             <div class="img-container" onclick="openModal('ART-022')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-022.jpg" 
                      data-filename="ART-022.jpg"
+                     data-rawname="ART-22.jpg"
                      data-artid="ART-022"
                      data-try="0"
                      alt="Cahaya Penjaga Kesunyian" 
@@ -3194,6 +3248,7 @@
             <div class="img-container" onclick="openModal('ART-021')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-021.jpg" 
                      data-filename="ART-021.jpg"
+                     data-rawname="ART-21.jpg"
                      data-artid="ART-021"
                      data-try="0"
                      alt="Kandang Hati Membara" 
@@ -3244,6 +3299,7 @@
             <div class="img-container" onclick="openModal('ART-020')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-020.jpg" 
                      data-filename="ART-020.jpg"
+                     data-rawname="ART-20.jpg"
                      data-artid="ART-020"
                      data-try="0"
                      alt="Hujan Deras Persoalan" 
@@ -3294,6 +3350,7 @@
             <div class="img-container" onclick="openModal('ART-019')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-019.jpg" 
                      data-filename="ART-019.jpg"
+                     data-rawname="ART-19.jpg"
                      data-artid="ART-019"
                      data-try="0"
                      alt="Terbelenggu Cahaya Kecil" 
@@ -3344,6 +3401,7 @@
             <div class="img-container" onclick="openModal('ART-018')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-018.jpg" 
                      data-filename="ART-018.jpg"
+                     data-rawname="ART-18.jpg"
                      data-artid="ART-018"
                      data-try="0"
                      alt="Migrasi Jiwa Berterbangan" 
@@ -3394,6 +3452,7 @@
             <div class="img-container" onclick="openModal('ART-017')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-017.jpg" 
                      data-filename="ART-017.jpg"
+                     data-rawname="ART-17.jpg"
                      data-artid="ART-017"
                      data-try="0"
                      alt="DORONGAN DUNIA DISTOPIA" 
@@ -3444,6 +3503,7 @@
             <div class="img-container" onclick="openModal('ART-016')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-016.jpg" 
                      data-filename="ART-016.jpg"
+                     data-rawname="ART-16.jpg"
                      data-artid="ART-016"
                      data-try="0"
                      alt="Family" 
@@ -3494,6 +3554,7 @@
             <div class="img-container" onclick="openModal('ART-015')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-015.jpg" 
                      data-filename="ART-015.jpg"
+                     data-rawname="ART-15.jpg"
                      data-artid="ART-015"
                      data-try="0"
                      alt="Petarung" 
@@ -3544,6 +3605,7 @@
             <div class="img-container" onclick="openModal('ART-014')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-014.jpg" 
                      data-filename="ART-014.jpg"
+                     data-rawname="ART-14.jpg"
                      data-artid="ART-014"
                      data-try="0"
                      alt="Sawan" 
@@ -3594,6 +3656,7 @@
             <div class="img-container" onclick="openModal('ART-013')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-013.jpg" 
                      data-filename="ART-013.jpg"
+                     data-rawname="ART-13.jpg"
                      data-artid="ART-013"
                      data-try="0"
                      alt="Terjungkal" 
@@ -3644,6 +3707,7 @@
             <div class="img-container" onclick="openModal('ART-012')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-012.jpg" 
                      data-filename="ART-012.jpg"
+                     data-rawname="ART-12.jpg"
                      data-artid="ART-012"
                      data-try="0"
                      alt="Gadis, Pohon Dan Rembulan" 
@@ -3694,6 +3758,7 @@
             <div class="img-container" onclick="openModal('ART-011')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-011.jpg" 
                      data-filename="ART-011.jpg"
+                     data-rawname="ART-11.jpg"
                      data-artid="ART-011"
                      data-try="0"
                      alt="The Phobia " 
@@ -3744,6 +3809,7 @@
             <div class="img-container" onclick="openModal('ART-010')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-010.jpg" 
                      data-filename="ART-010.jpg"
+                     data-rawname="ART-10.jpg"
                      data-artid="ART-010"
                      data-try="0"
                      alt="Sakratulmaut" 
@@ -3794,6 +3860,7 @@
             <div class="img-container" onclick="openModal('ART-009')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-009.jpg" 
                      data-filename="ART-009.jpg"
+                     data-rawname="ART-9.jpg"
                      data-artid="ART-009"
                      data-try="0"
                      alt="Batik Gothic" 
@@ -3844,6 +3911,7 @@
             <div class="img-container" onclick="openModal('ART-008')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-008.jpg" 
                      data-filename="ART-008.jpg"
+                     data-rawname="ART-8.jpg"
                      data-artid="ART-008"
                      data-try="0"
                      alt="Kalay Kalay" 
@@ -3894,6 +3962,7 @@
             <div class="img-container" onclick="openModal('ART-007')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-007.jpg" 
                      data-filename="ART-007.jpg"
+                     data-rawname="ART-7.jpg"
                      data-artid="ART-007"
                      data-try="0"
                      alt="Kingdom of Skulls" 
@@ -3944,6 +4013,7 @@
             <div class="img-container" onclick="openModal('ART-006')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-006.jpg" 
                      data-filename="ART-006.jpg"
+                     data-rawname="ART-6.jpg"
                      data-artid="ART-006"
                      data-try="0"
                      alt="tiga ikan" 
@@ -3994,6 +4064,7 @@
             <div class="img-container" onclick="openModal('ART-005')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-005.jpg" 
                      data-filename="ART-005.jpg"
+                     data-rawname="ART-5.jpg"
                      data-artid="ART-005"
                      data-try="0"
                      alt="Terasang" 
@@ -4044,6 +4115,7 @@
             <div class="img-container" onclick="openModal('ART-004')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-004.jpg" 
                      data-filename="ART-004.jpg"
+                     data-rawname="ART-4.jpg"
                      data-artid="ART-004"
                      data-try="0"
                      alt="A story about a clown" 
@@ -4094,6 +4166,7 @@
             <div class="img-container" onclick="openModal('ART-003')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-003.jpg" 
                      data-filename="ART-003.jpg"
+                     data-rawname="ART-3.jpg"
                      data-artid="ART-003"
                      data-try="0"
                      alt="Tertikam Persoalan" 
@@ -4144,6 +4217,7 @@
             <div class="img-container" onclick="openModal('ART-002')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-002.jpg" 
                      data-filename="ART-002.jpg"
+                     data-rawname="ART-2.jpg"
                      data-artid="ART-002"
                      data-try="0"
                      alt="Thinker" 
@@ -4194,6 +4268,7 @@
             <div class="img-container" onclick="openModal('ART-001')">
                 <img src="https://wizhclop.github.io/katalog-maruto-septriono/images/ART-001.jpg" 
                      data-filename="ART-001.jpg"
+                     data-rawname="ART-1.jpg"
                      data-artid="ART-001"
                      data-try="0"
                      alt="AMIEN" 
@@ -4303,17 +4378,20 @@
         function handleImageFallback(img) {
             const currentTry = parseInt(img.getAttribute('data-try') || '0');
             const fname = img.getAttribute('data-filename') || '';
-            const artId = img.getAttribute('data-artid') || '';
+            const rawname = img.getAttribute('data-rawname') || '';
 
             if (currentTry === 0) {
+                // Percobaan 1: Coba format nama raw (misal: ART-53.jpg)
                 img.setAttribute('data-try', '1');
-                img.src = 'https://cdn.jsdelivr.net/gh/wizhclop/katalog-maruto-septriono@main/images/' + fname;
+                img.src = 'https://wizhclop.github.io/katalog-maruto-septriono/images/' + rawname;
             } else if (currentTry === 1) {
+                // Percobaan 2: Coba ke Vercel dengan format 3 digit
                 img.setAttribute('data-try', '2');
                 img.src = 'https://katalog-maruto-septriono.vercel.app/images/' + fname;
             } else if (currentTry === 2) {
+                // Percobaan 3: Coba ke Vercel dengan format raw
                 img.setAttribute('data-try', '3');
-                img.src = 'https://wizhclop.github.io/katalog-maruto-septriono/images/' + artId + '.PNG';
+                img.src = 'https://katalog-maruto-septriono.vercel.app/images/' + rawname;
             } else {
                 img.src = 'https://via.placeholder.com/400x500/181820/888?text=Maruto+Art';
             }
@@ -4368,13 +4446,17 @@
             document.getElementById('mMedia').innerText = item.Media || item.media || '-';
             document.getElementById('mSize').innerText = item.Ukuran || item.ukuran || '-';
             
-            const webImg = currentModalArtId + '.jpg';
+            const cleanNum = currentModalArtId.match(/\d+/);
+            const numInt = cleanNum ? parseInt(cleanNum[0]) : 0;
+            const img3d = 'ART-' + String(numInt).padStart(3, '0') + '.jpg';
+            const imgRaw = 'ART-' + numInt + '.jpg';
+
             const mImgEl = document.getElementById('mImg');
             mImgEl.setAttribute('data-try', '0');
-            mImgEl.setAttribute('data-filename', webImg);
-            mImgEl.setAttribute('data-artid', currentModalArtId);
+            mImgEl.setAttribute('data-filename', img3d);
+            mImgEl.setAttribute('data-rawname', imgRaw);
             mImgEl.onerror = function() { handleImageFallback(this); };
-            mImgEl.src = 'https://wizhclop.github.io/katalog-maruto-septriono/images/' + webImg;
+            mImgEl.src = 'https://wizhclop.github.io/katalog-maruto-septriono/images/' + img3d;
 
             document.getElementById('mStatement').innerText = '"' + (item.artist_statement_id || 'Refleksi artistik.') + '"';
             document.getElementById('mCuratorial').innerText = item.deskripsi_kuratorial || 'Belum ada catatan kuratorial rinci.';
