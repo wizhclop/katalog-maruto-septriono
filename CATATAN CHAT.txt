@@ -69,4 +69,5 @@ Paket Siap Pakai Ekosistem karya
  - Pasang LM Studio & aktifkan server lokal.  
  - Buat bot Telegram via BotFather untuk dapat token.   
  - Buka config.json pakai Notepad, ganti nama, email, akun medsos, dan token bot mereka.   
- - Jalankan file .bat, dan mereka sudah punya asisten kurasi seni sendiri!   
+ - Jalankan file .bat, dan mereka sudah punya asisten kurasi seni sendiri! 
+  
