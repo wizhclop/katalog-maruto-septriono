@@ -22,6 +22,37 @@ from telegram.ext import (
     filters,
 )
 
+BASE_DIR = r"F:\DATABASE_AI ART\ART"
+CONFIG_PATH = os.path.join(BASE_DIR, "config.json")
+
+# --- MEMBACA KONFIGURASI DARI CONFIG.JSON ---
+if not os.path.exists(CONFIG_PATH):
+    print(f"[ERROR] Berkas konfigurasi {CONFIG_PATH} tidak ditemukan!")
+    sys.exit(1)
+
+with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+    CONFIG = json.load(f)
+
+ARTIST_NAME = CONFIG.get("ARTIST_NAME", "Seniman")
+ARTIST_EMAIL = CONFIG.get("ARTIST_EMAIL", "")
+INSTAGRAM_HANDLE = CONFIG.get("INSTAGRAM_HANDLE", "")
+PINTEREST_HANDLE = CONFIG.get("PINTEREST_HANDLE", "")
+BLOG_URL = CONFIG.get("BLOG_URL", "")
+GITHUB_CATALOG_URL = CONFIG.get("GITHUB_CATALOG_URL", "")
+VERCEL_CATALOG_URL = CONFIG.get("VERCEL_CATALOG_URL", "")
+TELEGRAM_BOT_TOKEN = CONFIG.get("TELEGRAM_BOT_TOKEN", "")
+AUTHORIZED_USER_ID = int(CONFIG.get("AUTHORIZED_USER_ID", 0))
+LM_STUDIO_URL = CONFIG.get("LM_STUDIO_URL", "http://localhost:1234/v1/chat/completions")
+DEFAULT_TAGS = CONFIG.get("DEFAULT_TAGS", "art, sketch, gothic")
+
+# Direktori Operasional
+WATCH_DIR = os.path.join(BASE_DIR, "ART_70")
+CATALOG_PATH = os.path.join(BASE_DIR, "art_catalog.json")
+PROMO_DIR = os.path.join(BASE_DIR, "promosi_konten")
+
+os.makedirs(WATCH_DIR, exist_ok=True)
+os.makedirs(PROMO_DIR, exist_ok=True)
+
 # --- PENGAMAN KUNCI TUNGGAL ---
 LOCK_FILE = os.path.join(tempfile.gettempdir(), "maruto_bot_lock.lck")
 if os.path.exists(LOCK_FILE):
@@ -43,30 +74,6 @@ def cleanup_lock():
 import atexit
 atexit.register(cleanup_lock)
 
-# --- KONFIGURASI PRIBADI ---
-TELEGRAM_TOKEN = "8525326297:AAGnAmyTVsFyZ4zG4J5Y6DJE3RQOZRPPiVc"
-AUTHORIZED_USER_ID = 6300301484
-
-BASE_DIR = r"F:\DATABASE_AI ART\ART"
-WATCH_DIR = os.path.join(BASE_DIR, "ART_70")
-CATALOG_PATH = os.path.join(BASE_DIR, "art_catalog.json")
-PROMO_DIR = os.path.join(BASE_DIR, "promosi_konten")
-LM_STUDIO_URL = "http://localhost:1234/v1/chat/completions"
-LM_MODELS_URL = "http://localhost:1234/v1/models"
-
-# --- PROFIL RESMI SENIMAN ---
-ARTIST_NAME = "Maruto Septriono"
-ARTIST_EMAIL = "kirimdoa@gmail.com"
-ARTIST_IG = "@maruto.septriono"
-ARTIST_PIN = "@marutostudio"
-ARTIST_PIN_URL = "https://id.pinterest.com/marutostudio"
-ARTIST_BLOG = "https://artofdiary.blogspot.com/"
-ARTIST_FB = "https://www.facebook.com/maruto.septriono"
-CATALOG_WEB_URL = "http://wizhclop.github.io/katalog-maruto-septriono"
-
-os.makedirs(WATCH_DIR, exist_ok=True)
-os.makedirs(PROMO_DIR, exist_ok=True)
-
 PENDING_SUBMISSIONS = {}
 AWAITING_UKURAN = {}
 
@@ -87,18 +94,18 @@ def get_next_art_id(catalog_data):
                 max_id = num
     return f"ART-{max_id + 1:03d}"
 
-def resize_image_bytes(image_bytes, max_dim=800):
+def resize_image_bytes(image_bytes, max_dim=1024):
     with Image.open(BytesIO(image_bytes)) as img:
         img = img.convert("RGB")
         img.thumbnail((max_dim, max_dim), Image.Resampling.LANCZOS)
         buf = BytesIO()
-        img.save(buf, format="JPEG", quality=80)
+        img.save(buf, format="JPEG", quality=85)
         return buf.getvalue()
 
 def inject_metadata_single(img_path, art_id, title, statement, curatorial, tags):
     ext = os.path.splitext(img_path)[1].lower()
-    copyright_notice = f"© 2026 {ARTIST_NAME}. Portfolio: {CATALOG_WEB_URL} | Blog: {ARTIST_BLOG}"
-    full_desc = f"{statement}\n\nCatatan Kuratorial:\n{curatorial}\n\nKode Arsip: {art_id}\nKontak: {ARTIST_EMAIL}"[:1500]
+    copyright_notice = f"© 2026 {ARTIST_NAME}. Official Portfolio: {VERCEL_CATALOG_URL or GITHUB_CATALOG_URL}"
+    full_desc = f"{statement}\n\nCatatan Kuratorial:\n{curatorial}\n\nKode Arsip: {art_id}"[:1500]
     safe_tags = tags[:1000]
 
     try:
@@ -144,101 +151,67 @@ def inject_metadata_single(img_path, art_id, title, statement, curatorial, tags)
             im.close()
             shutil.move(tmp_file, img_path)
     except Exception as e:
-        print(f"Peringatan injeksi EXIF: {e}")
+        print(f"Peringatan injeksi metadata: {e}")
 
 def generate_promo_files(art_id, title, year, media, size, statement, curatorial, tags):
+    direct_link_github = f"{GITHUB_CATALOG_URL}/#{art_id}"
+    direct_link_vercel = f"{VERCEL_CATALOG_URL}/#{art_id}" if VERCEL_CATALOG_URL else direct_link_github
     tags_formatted = " ".join([f"#{t.strip().replace('#','')}" for t in tags.split(",") if t.strip()])
-    pin_title = f"{title} - Gothic Surrealism by {ARTIST_NAME}"[:100]
-    pin_desc = f'"{statement}" Karya orisinal "{title}" ({year}) oleh {ARTIST_NAME}. Medium: {media}, Dimensi: {size}. Inquiry: {ARTIST_EMAIL} | Web: {CATALOG_WEB_URL}'[:450]
 
-    # 1. Instagram
+    pin_title = f"{title} - Gothic Surrealism Art by {ARTIST_NAME}"[:100]
+    pin_desc = f'"{statement}" Karya orisinal "{title}" ({year}) oleh {ARTIST_NAME}. Medium: {media}, Dimensi: {size}. Tersedia High-Res Digital Master ($250) & Lisensi Cetak ($100). Inquiry lisensi: {direct_link_vercel}'[:450]
+
     ig_text = (
         f"\"{statement}\"\n\n"
         f"{title} ({year})\n"
-        f"Karya ini mengalirkan ketegangan visual antara ruang sunyi dan detail organik, "
-        f"merefleksikan dialog batin seniman melalui tarikan {media.lower()}.\n\n"
+        f"Karya ini mengalirkan dialog estetika melalui tarikan {media.lower()}.\n\n"
         f"📐 Rincian Teknis & Arsip:\n"
         f"• Kode Arsip: {art_id}\n"
         f"• Medium: {media}\n"
         f"• Dimensi Fisik: {size}\n"
-        f"• Status: Koleksi Pribadi / Karya Orisinal\n\n"
+        f"• Status Fisik: Koleksi Pribadi\n\n"
         f"💼 Ketersediaan Lisensi & Format Digital:\n"
         f"• High-Res Digital Master: $ 250 USD\n"
         f"• Commercial Print License: $ 100 USD (Bebas Royalti)\n\n"
         f"Inquiry lisensi atau koleksi:\n"
-        f"DM Instagram: {ARTIST_IG}\n"
-        f"Email: {ARTIST_EMAIL}\n"
-        f"Katalog Web: {CATALOG_WEB_URL}\n"
-        f"Blog Diary: {ARTIST_BLOG}\n\n"
+        f"• DM Instagram: @{INSTAGRAM_HANDLE}\n"
+        f"• Email: {ARTIST_EMAIL}\n"
+        f"• Tautan Karya Langsung: {direct_link_vercel}\n"
+        f"• Portofolio Cadangan: {direct_link_github}\n"
+        f"• Blog Catatan Proses: {BLOG_URL}\n\n"
         f"{tags_formatted}"
     )
 
-    # 2. Pinterest
     pin_text = (
         f"📌 JUDUL PIN:\n{pin_title}\n\n"
         f"📝 DESKRIPSI:\n{pin_desc}\n\n"
-        f"🔗 TAUTAN TUJUAN:\n{CATALOG_WEB_URL}\n\n"
-        f"👤 AKUN PINTEREST: {ARTIST_PIN} ({ARTIST_PIN_URL})\n"
-        f"🏷 REKOMENDASI PAPAN: Gothic Surrealism, Dark Fantasy Ink Art"
+        f"🔗 TAUTAN TUJUAN:\n{direct_link_vercel}\n\n"
+        f"🏷 REKOMENDASI PAPAN: Dark Surrealism Art, Fine Art Ink Drawings"
     )
 
-    # 3. Blogspot / Facebook Draft
-    blog_fb_text = (
-        f"📝 DRAF BLOGSPOT & FACEBOOK:\n\n"
-        f"Judul Post: {title} ({year}) - Catatan Visual {ARTIST_NAME}\n\n"
-        f"{statement}\n\n"
-        f"Catatan Kuratorial:\n{curatorial}\n\n"
-        f"Detail Karya:\n"
-        f"- Arsip: {art_id}\n"
-        f"- Media: {media}\n"
-        f"- Ukuran: {size}\n\n"
-        f"Galeri Portofolio: {CATALOG_WEB_URL}\n"
-        f"Profil Seniman: {ARTIST_FB} | IG: {ARTIST_IG}\n"
-        f"Kontak: {ARTIST_EMAIL}"
-    )
-
-    full_content = f"{ig_text}\n\n{'='*50}\n\n{pin_text}\n\n{'='*50}\n\n{blog_fb_text}"
+    full_content = f"{ig_text}\n\n{'='*50}\n\n{pin_text}"
     with open(os.path.join(PROMO_DIR, f"{art_id}_promosi.txt"), "w", encoding="utf-8") as f:
         f.write(full_content)
 
-    return ig_text, pin_text, blog_fb_text
-
-def get_active_model_name():
-    try:
-        r = requests.get(LM_MODELS_URL, timeout=5)
-        if r.status_code == 200:
-            data = r.json().get("data", [])
-            for m in data:
-                m_id = m.get("id", "")
-                if "vl" in m_id.lower() or "vision" in m_id.lower():
-                    return m_id
-            if data:
-                return data[0].get("id")
-    except Exception:
-        pass
-    return "qwen3-vl-2b-instruct"
+    return ig_text, pin_text
 
 def analyze_with_local_ai(img_bytes):
     b64_img = base64.b64encode(img_bytes).decode("utf-8")
-    model_name = get_active_model_name()
-
     prompt_text = (
-        "Kamu adalah kurator seni rupa ahli surealisme gotik. "
-        "Lihat gambar ini dan berikan analisis kuratorial orisinal yang puitis dan mendalam. "
-        "DILARANG keras menyalin teks contoh. Tuliskan analisis asli dari gambar. "
-        "Kembalikan HANYA format JSON murni tanpa pengantar:\n"
+        "Analisis karya seni ini secara mendalam sebagai kurator dan arsiparis profesional. "
+        "Kembalikan jawaban HANYA dalam format JSON valid tanpa teks pengantar atau markdown lainnya. "
+        "Struktur JSON yang wajib:\n"
         "{\n"
-        '  "Judul": "Tulis judul puitis/mistis spesifik untuk gambar ini",\n'
+        '  "Judul": "Judul puitis/filosofis yang sesuai",\n'
         '  "Tahun": "2026",\n'
-        '  "Media": "Tinta di atas kertas",\n'
-        '  "artist_statement_id": "Tulis 1-2 kalimat refleksi filosofis puitis mengenai esensi gambar ini",\n'
-        '  "deskripsi_kuratorial": "Tulis 1 paragraf analisis detail mengenai arsitektur imajinatif, ritme arsir tinta, dan suasana gotik dalam karya ini",\n'
+        '  "Media": "Tinta di atas kertas / Akrilik di kanvas / Conte / AI Generated",\n'
+        '  "artist_statement_id": "1-2 kalimat refleksi personal dan esensi filosofis karya.",\n'
+        '  "deskripsi_kuratorial": "Catatan kuratorial mengenai teknik arsir, komposisi visual, dan makna karya.",\n'
         '  "tags": "art, sketch, drawing, indonesia, darkart, contemporaryart, surealisgothic, gothic"\n'
         "}"
     )
 
     payload = {
-        "model": model_name,
         "messages": [
             {
                 "role": "user",
@@ -248,14 +221,12 @@ def analyze_with_local_ai(img_bytes):
                 ]
             }
         ],
-        "temperature": 0.5,
+        "temperature": 0.4,
         "max_tokens": 800
     }
 
     resp = requests.post(LM_STUDIO_URL, json=payload, timeout=120)
-    if resp.status_code != 200:
-        raise Exception(f"LM Studio Error ({resp.status_code}): {resp.text}")
-
+    resp.raise_for_status()
     raw_content = resp.json()["choices"][0]["message"]["content"].strip()
     if "```" in raw_content:
         raw_content = re.sub(r"```(?:json)?", "", raw_content).strip()
@@ -303,13 +274,15 @@ def trigger_build_and_push(art_id, title):
     subprocess.run(["git", "commit", "-m", f"Auto-publish {art_id}: {title} via Multi-Platform Hub"], cwd=repo_dir, check=True)
     subprocess.run(["git", "push", "origin", "main"], cwd=repo_dir, check=True)
 
-    return True, "Berhasil di-push ke GitHub Pages."
+    return True, "Berhasil di-push ke GitHub & Vercel."
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != AUTHORIZED_USER_ID:
         return
     await update.message.reply_text(
-        "👋 Halo Mas Maruto! Asisten AI Galeri Multi-Platform Siap.\n"
+        f"👋 Halo {ARTIST_NAME}! Asisten AI Galeri Multi-Platform Siap.\n"
+        f"🌐 Web GitHub: {GITHUB_CATALOG_URL}\n"
+        f"⚡ Web Vercel: {VERCEL_CATALOG_URL}\n\n"
         "📸 Kirimkan foto lukisan/karya seni baru dari HP untuk dianalisis dan diterbitkan."
     )
 
@@ -332,7 +305,7 @@ async def handle_incoming_photo(update: Update, context: ContextTypes.DEFAULT_TY
         optimized_bytes = resize_image_bytes(raw_bytes)
         ai_data = analyze_with_local_ai(optimized_bytes)
 
-        tag_list = ["art", "sketch", "drawing", "indonesia", "darkart", "contemporaryart", "surealisgothic", "gothic"]
+        tag_list = [t.strip() for t in DEFAULT_TAGS.split(",") if t.strip()]
         ai_raw_tags = ai_data.get("tags", "")
         for t in ai_raw_tags.split(","):
             cleaned_tag = t.strip().replace("#", "")
@@ -368,14 +341,14 @@ async def handle_incoming_photo(update: Update, context: ContextTypes.DEFAULT_TY
             f"📖 <b>Catatan Kuratorial:</b>\n{ai_data.get('deskripsi_kuratorial', '-')}\n\n"
             f"🏷 <b>Tags:</b> {tag_display}\n\n"
             f"👉 <b>Berapa ukuran karya fisik ini?</b>\n"
-            f"Ketik ukurannya di chat sekarang (misal: <code>29.7 cm x 42 cm</code>):"
+            f"Ketik ukurannya di chat sekarang (misal: <code>20 cm x 10 cm</code>):"
         )
 
         await status_msg.delete()
         await update.message.reply_text(card_text, parse_mode="HTML")
 
     except Exception as err:
-        await status_msg.edit_text(f"⚠️ Terjadi kendala analisis AI di PC:\n{err}")
+        await status_msg.edit_text(f"⚠️ Terjadi kendala analisis AI di PC: {err}")
 
 async def handle_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -400,7 +373,7 @@ async def handle_text_message(update: Update, context: ContextTypes.DEFAULT_TYPE
 
             await update.message.reply_text(
                 f"📐 <b>Ukuran tercatat:</b> <code>{ukuran_input}</code> untuk {art_id}.\n\n"
-                f"Tekan tombol di bawah untuk <b>menyimpan, injeksi metadata EXIF, update web katalog, dan membuat draf medsos siap salin</b>:",
+                f"Tekan tombol di bawah untuk <b>menyimpan, menyuntikkan metadata EXIF, update katalog Web (GitHub & Vercel), dan membuat draf medsos</b>:",
                 reply_markup=reply_markup,
                 parse_mode="HTML"
             )
@@ -427,7 +400,7 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
         img_bytes = item["image_bytes"]
         ukuran_final = item["ukuran"]
 
-        await query.edit_message_text(f"⏳ Sedang memproses {art_id} ke seluruh platform...")
+        await query.edit_message_text(f"⏳ Sedang memproses {art_id} ke GitHub Pages & Vercel...")
 
         safe_title = re.sub(r'[^a-zA-Z0-9_\- ]', '', ai_data.get("Judul", "Karya")).strip()
         filename = f"{art_id} - {safe_title}.jpg"
@@ -469,11 +442,11 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
 
         try:
             ok, msg = trigger_build_and_push(art_id, new_entry['Judul'])
-            web_status = "🌐 <b>Katalog Web:</b> LIVE di GitHub Pages" if ok else f"⚠️ Web: {msg}"
+            web_status = "🌐 <b>Katalog Web:</b> LIVE di GitHub & Vercel" if ok else f"⚠️ Web: {msg}"
         except Exception as e:
             web_status = f"⚠️ Web Sync: {e}"
 
-        ig_caption, pin_info, blog_info = generate_promo_files(
+        ig_caption, pin_info = generate_promo_files(
             art_id,
             new_entry['Judul'],
             new_entry['Tahun'],
@@ -484,32 +457,23 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
             new_entry['tags']
         )
 
-        # Balasan 1: Status Publikasi Web & Metadata
         await query.message.reply_text(
             f"✅ <b>KARYA {art_id} SUKSES DIPUBLIKASIKAN!</b>\n\n"
             f"• <b>Judul:</b> {new_entry['Judul']}\n"
             f"• <b>Ukuran:</b> {new_entry['Ukuran']}\n"
-            f"• <b>Metadata EXIF:</b> Tersuntik aman hak cipta Maruto Septriono\n"
+            f"• <b>Metadata EXIF:</b> Tersuntik aman\n"
             f"• {web_status}\n\n"
-            f"👇 <i>Draf konten siap salin di bawah ini:</i>",
+            f"👇 <i>Salin draf di bawah untuk Instagram & Pinterest:</i>",
             parse_mode="HTML"
         )
 
-        # Balasan 2: Takarir Instagram
         await query.message.reply_text(
             f"📸 <b>TAKARIR INSTAGRAM (SIAP SALIN):</b>\n\n{ig_caption}",
             parse_mode="HTML"
         )
 
-        # Balasan 3: Materi Pinterest
         await query.message.reply_text(
             f"📌 <b>MATERI PIN PINTEREST:</b>\n\n{pin_info}",
-            parse_mode="HTML"
-        )
-
-        # Balasan 4: Materi Blogspot & Facebook
-        await query.message.reply_text(
-            f"🌐 <b>MATERI BLOGSPOT & FACEBOOK:</b>\n\n{blog_info}",
             parse_mode="HTML"
         )
 
@@ -524,7 +488,8 @@ async def handle_button_callback(update: Update, context: ContextTypes.DEFAULT_T
 def main():
     print("==================================================")
     print("  ASISTEN TELEGRAM MULTI-PLATFORM HUB AKTIF       ")
-    print(f"  Direktori Basis : {BASE_DIR}")
+    print(f"  Artis : {ARTIST_NAME}")
+    print(f"  Vercel: {VERCEL_CATALOG_URL}")
     print("  Status: Standby menerima foto dari HP...")
     print("  Tekan Ctrl+C untuk berhenti.")
     print("==================================================")

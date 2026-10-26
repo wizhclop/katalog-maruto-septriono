@@ -1,0 +1,13 @@
+﻿{
+  "ARTIST_NAME": "Maruto Septriono",
+  "ARTIST_EMAIL": "kirimdoa@gmail.com",
+  "INSTAGRAM_HANDLE": "maruto.septriono",
+  "PINTEREST_HANDLE": "marutostudio",
+  "BLOG_URL": "http://artofdiary.blogspot.com",
+  "GITHUB_CATALOG_URL": "http://wizhclop.github.io/katalog-maruto-septriono",
+  "VERCEL_CATALOG_URL": "https://katalog-maruto-septriono.vercel.app",
+  "TELEGRAM_BOT_TOKEN": "8525326297:AAGnAmyTVsFyZ4zG4J5Y6DJE3RQOZRPPiVc",
+  "AUTHORIZED_USER_ID": 6300301484,
+  "LM_STUDIO_URL": "http://localhost:1234/v1/chat/completions",
+  "DEFAULT_TAGS": "art, sketch, drawing, indonesia, darkart, contemporaryart, surealisgothic, gothic"
+}

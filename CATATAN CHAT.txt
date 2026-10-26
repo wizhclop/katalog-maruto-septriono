@@ -58,3 +58,15 @@ PORTFOLIO_WEBSITES
   ├─► Otomatis terbit ke Web Portofolio (GitHub Pages)
   ├─► Otomatis terbit ke Artikel Blogspot Resmi
   └─► Mengirimkan draft siap salin untuk Instagram & Pinterest ke HP Anda
+
+Web Portofolio Aktif Bersamaan:
+
+GitHub Pages: [http://wizhclop.github.io/katalog-maruto-septriono](http://wizhclop.github.io/katalog-maruto-septriono)
+
+Vercel: [https://katalog-maruto-septriono.vercel.app](https://katalog-maruto-septriono.vercel.app)
+
+Paket Siap Pakai Ekosistem karya
+ - Pasang LM Studio & aktifkan server lokal.  
+ - Buat bot Telegram via BotFather untuk dapat token.   
+ - Buka config.json pakai Notepad, ganti nama, email, akun medsos, dan token bot mereka.   
+ - Jalankan file .bat, dan mereka sudah punya asisten kurasi seni sendiri!   
