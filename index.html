@@ -4554,5 +4554,20 @@
             }
         });
     </script>
+
+    <!-- Pelacak Real-Time Gratis & Riil (GoatCounter) -->
+    <script data-goatcounter="https://katalog-maruto.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script>
+        // Ambil hitungan riil secara otomatis
+        fetch("https://katalog-maruto.goatcounter.com/counter/" + encodeURIComponent(location.pathname) + ".json")
+            .then(r => r.json())
+            .then(data => {
+                var el = document.getElementById("real-hits-count");
+                if (el && data && data.count) {
+                    el.innerText = data.count;
+                }
+            }).catch(() => {});
+    </script>
+
 </body>
 </html>
