@@ -566,7 +566,51 @@
         <div class="stats-tag">
             Total Terarsip: <strong>76 Karya Seni</strong>
         </div>
-    </header>
+    
+    <!-- WIDGET GOOGLE TRANSLATE OTOMATIS -->
+    <div id="google_translate_element" style="position: fixed; top: 15px; right: 20px; z-index: 9999;"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'id',
+          includedLanguages: 'en,ja,de,fr,es,ko,zh-CN',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+      /* Rapikan tampilan Google Translate agar selaras dengan tema gelap */
+      #google_translate_element select {
+        background-color: #1e1e1e !important;
+        color: #e0e0e0 !important;
+        border: 1px solid #444 !important;
+        padding: 6px 10px !important;
+        border-radius: 6px !important;
+        font-family: inherit !important;
+        font-size: 13px !important;
+        cursor: pointer;
+      }
+      .goog-te-gadget {
+        color: #888 !important;
+        font-size: 11px !important;
+      }
+      .goog-te-gadget .goog-te-combo {
+        margin: 4px 0 !important;
+      }
+      .goog-logo-link {
+        display: none !important;
+      }
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+      body {
+        top: 0px !important;
+      }
+    </style>
+
+</header>
 
     <main class="container">
         <div class="gallery-grid" id="galleryGrid">
