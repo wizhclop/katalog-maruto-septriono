@@ -129,6 +129,8 @@
         }
 
         .art-card {
+            content-visibility: auto;
+            contain-intrinsic-size: 320px 480px;
             background: var(--card-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -544,6 +546,28 @@
                 padding: 20px 15px !important;
             }
         }
+    
+        /* TURBO ENGINE PERFORMANCE UNTUK HP */
+        @media (max-width: 768px) {
+            .art-card {
+                contain-intrinsic-size: 160px 320px !important;
+                box-shadow: none !important;
+                transform: none !important;
+                transition: border-color 0.15s ease !important;
+            }
+            .art-card:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            .img-container img {
+                transform: none !important;
+                transition: none !important;
+            }
+            .gallery-grid {
+                will-change: scroll-position;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -573,7 +597,7 @@
             
         <div class="art-card" id="card-ART-076" data-search="art-076 kerusakan dan keheningan tinta di atas kertas 2026 sketch, drawing, inkdrawing, urbansketch, marutoseptriono">
             <div class="img-container" onclick="openModal('ART-076')">
-                <img src="images/ART-076.jpg" alt="Kerusakan dan Keheningan" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-076.jpg" alt="Kerusakan dan Keheningan" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-076</span>
                     <span class="badge badge-year">2026</span>
@@ -617,7 +641,7 @@
         
         <div class="art-card" id="card-ART-075" data-search="art-075 kehidupan di antara pintu-pintu batin tinta di atas kertas 2026 art, sketch, drawing, indonesia, darkart, contemporaryart, surealisgothic, gothic">
             <div class="img-container" onclick="openModal('ART-075')">
-                <img src="images/ART-075.jpg" alt="Kehidupan di Antara Pintu-Pintu Batin" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-075.jpg" alt="Kehidupan di Antara Pintu-Pintu Batin" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-075</span>
                     <span class="badge badge-year">2026</span>
@@ -661,7 +685,7 @@
         
         <div class="art-card" id="card-ART-074" data-search="art-074 judul puitis karya tinta di atas kertas 2026 art, sketch, drawing, indonesia, darkart, contemporaryart, surealisgothic, gothic">
             <div class="img-container" onclick="openModal('ART-074')">
-                <img src="images/ART-074.jpg" alt="Judul puitis karya" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-074.jpg" alt="Judul puitis karya" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-074</span>
                     <span class="badge badge-year">2026</span>
@@ -705,7 +729,7 @@
         
         <div class="art-card" id="card-ART-073" data-search="art-073 kerusakan yang tidak dapat diatasi tinta di atas kertas 2026 art, sketch, drawing, indonesia, darkart, contemporaryart, surealisgothic, gothic">
             <div class="img-container" onclick="openModal('ART-073')">
-                <img src="images/ART-073.jpg" alt="Kerusakan yang Tidak Dapat Diatasi" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-073.jpg" alt="Kerusakan yang Tidak Dapat Diatasi" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-073</span>
                     <span class="badge badge-year">2026</span>
@@ -749,7 +773,7 @@
         
         <div class="art-card" id="card-ART-072" data-search="art-072 keruntuhan yang menyentuh tinta di atas kertas 2026 art, sketch, drawing, indonesia, darkart, contemporaryart, surealisgothic, gothic">
             <div class="img-container" onclick="openModal('ART-072')">
-                <img src="images/ART-072.jpg" alt="Keruntuhan yang Menyentuh" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-072.jpg" alt="Keruntuhan yang Menyentuh" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-072</span>
                     <span class="badge badge-year">2026</span>
@@ -793,7 +817,7 @@
         
         <div class="art-card" id="card-ART-071" data-search="art-071 kematian yang menyatu dengan alam ai generated 2026 art, sketch, drawing, indonesia, darkart, contemporaryart">
             <div class="img-container" onclick="openModal('ART-071')">
-                <img src="images/ART-071.png" alt="Kematian yang Menyatu dengan Alam" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-071.png" alt="Kematian yang Menyatu dengan Alam" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-071</span>
                     <span class="badge badge-year">2026</span>
@@ -837,7 +861,7 @@
         
         <div class="art-card" id="card-ART-070" data-search="art-070 urban produk conte di atas kertas 2006 ">
             <div class="img-container" onclick="openModal('ART-070')">
-                <img src="images/ART-070.jpg" alt="URBAN PRODUK" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-070.jpg" alt="URBAN PRODUK" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-070</span>
                     <span class="badge badge-year">2006</span>
@@ -881,7 +905,7 @@
         
         <div class="art-card" id="card-ART-069" data-search="art-069 untuk yang tercinta tinta di atas kertas 2011 ">
             <div class="img-container" onclick="openModal('ART-069')">
-                <img src="images/ART-069.jpg" alt="untuk yang tercinta" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-069.jpg" alt="untuk yang tercinta" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-069</span>
                     <span class="badge badge-year">2011</span>
@@ -925,7 +949,7 @@
         
         <div class="art-card" id="card-ART-068" data-search="art-068 tragedi setelah bencana conte di atas kertas 2005 ">
             <div class="img-container" onclick="openModal('ART-068')">
-                <img src="images/ART-068.jpg" alt="TRAGEDI SETELAH BENCANA" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-068.jpg" alt="TRAGEDI SETELAH BENCANA" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-068</span>
                     <span class="badge badge-year">2005</span>
@@ -969,7 +993,7 @@
         
         <div class="art-card" id="card-ART-067" data-search="art-067 the thinker image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-067')">
-                <img src="images/ART-067.png" alt="The Thinker" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-067.png" alt="The Thinker" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-067</span>
                     <span class="badge badge-year">2026</span>
@@ -1013,7 +1037,7 @@
         
         <div class="art-card" id="card-ART-066" data-search="art-066 terkenang tinta di atas kertas 2011 ">
             <div class="img-container" onclick="openModal('ART-066')">
-                <img src="images/ART-066.jpg" alt="Terkenang" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-066.jpg" alt="Terkenang" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-066</span>
                     <span class="badge badge-year">2011</span>
@@ -1057,7 +1081,7 @@
         
         <div class="art-card" id="card-ART-065" data-search="art-065 terikat kebebasan tinta di atas kertas 2003 ">
             <div class="img-container" onclick="openModal('ART-065')">
-                <img src="images/ART-065.jpg" alt="TERIKAT KEBEBASAN" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-065.jpg" alt="TERIKAT KEBEBASAN" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-065</span>
                     <span class="badge badge-year">2003</span>
@@ -1101,7 +1125,7 @@
         
         <div class="art-card" id="card-ART-064" data-search="art-064 terikat keraguan conte di atas kertas 2005 ">
             <div class="img-container" onclick="openModal('ART-064')">
-                <img src="images/ART-064.JPG" alt="TERIKAT KERAGUAN" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-064.JPG" alt="TERIKAT KERAGUAN" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-064</span>
                     <span class="badge badge-year">2005</span>
@@ -1145,7 +1169,7 @@
         
         <div class="art-card" id="card-ART-063" data-search="art-063 swara acrylik di kanvas 2010 ">
             <div class="img-container" onclick="openModal('ART-063')">
-                <img src="images/ART-063.JPG" alt="Swara" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-063.JPG" alt="Swara" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-063</span>
                     <span class="badge badge-year">2010</span>
@@ -1189,7 +1213,7 @@
         
         <div class="art-card" id="card-ART-062" data-search="art-062 sleep on fire tinta di atas kertas 2026 ">
             <div class="img-container" onclick="openModal('ART-062')">
-                <img src="images/ART-062.jpg" alt="sleep on fire" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-062.jpg" alt="sleep on fire" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-062</span>
                     <span class="badge badge-year">2026</span>
@@ -1233,7 +1257,7 @@
         
         <div class="art-card" id="card-ART-061" data-search="art-061 sisa direruntuhan sepi image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-061')">
-                <img src="images/ART-061.png" alt="Sisa Direruntuhan Sepi" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-061.png" alt="Sisa Direruntuhan Sepi" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-061</span>
                     <span class="badge badge-year">2026</span>
@@ -1277,7 +1301,7 @@
         
         <div class="art-card" id="card-ART-060" data-search="art-060 senandung doa cat air di atas kertas 2026 ">
             <div class="img-container" onclick="openModal('ART-060')">
-                <img src="images/ART-060.JPG" alt="senandung Doa" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-060.JPG" alt="senandung Doa" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-060</span>
                     <span class="badge badge-year">2026</span>
@@ -1321,7 +1345,7 @@
         
         <div class="art-card" id="card-ART-059" data-search="art-059 saat luka bencana datang acrylik di kanvas 2005 ">
             <div class="img-container" onclick="openModal('ART-059')">
-                <img src="images/ART-059.jpg" alt="Saat luka bencana datang" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-059.jpg" alt="Saat luka bencana datang" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-059</span>
                     <span class="badge badge-year">2005</span>
@@ -1365,7 +1389,7 @@
         
         <div class="art-card" id="card-ART-058" data-search="art-058 ruang sesal tengah malam image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-058')">
-                <img src="images/ART-058.PNG" alt="ruang sesal tengah malam" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-058.PNG" alt="ruang sesal tengah malam" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-058</span>
                     <span class="badge badge-year">2026</span>
@@ -1409,7 +1433,7 @@
         
         <div class="art-card" id="card-ART-057" data-search="art-057 pohon dan gadis image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-057')">
-                <img src="images/ART-057.png" alt="pohon dan gadis" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-057.png" alt="pohon dan gadis" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-057</span>
                     <span class="badge badge-year">2026</span>
@@ -1453,7 +1477,7 @@
         
         <div class="art-card" id="card-ART-056" data-search="art-056 perempuan dan sayap image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-056')">
-                <img src="images/ART-056.png" alt="Perempuan dan Sayap" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-056.png" alt="Perempuan dan Sayap" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-056</span>
                     <span class="badge badge-year">2026</span>
@@ -1497,7 +1521,7 @@
         
         <div class="art-card" id="card-ART-055" data-search="art-055 perempuan berangin api image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-055')">
-                <img src="images/ART-055.png" alt="Perempuan Berangin Api" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-055.png" alt="Perempuan Berangin Api" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-055</span>
                     <span class="badge badge-year">2026</span>
@@ -1541,7 +1565,7 @@
         
         <div class="art-card" id="card-ART-054" data-search="art-054 perawan disarang cakrawala image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-054')">
-                <img src="images/ART-054.png" alt="Perawan Disarang Cakrawala" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-054.png" alt="Perawan Disarang Cakrawala" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-054</span>
                     <span class="badge badge-year">2026</span>
@@ -1585,7 +1609,7 @@
         
         <div class="art-card" id="card-ART-053" data-search="art-053 penari tinta di atas kertas 1997 ">
             <div class="img-container" onclick="openModal('ART-053')">
-                <img src="images/ART-053.JPG" alt="Penari" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-053.JPG" alt="Penari" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-053</span>
                     <span class="badge badge-year">1997</span>
@@ -1629,7 +1653,7 @@
         
         <div class="art-card" id="card-ART-052" data-search="art-052 menyulam kebersamaan tinta di atas kertas 2005 ">
             <div class="img-container" onclick="openModal('ART-052')">
-                <img src="images/ART-052.jpg" alt="MENYULAM KEBERSAMAAN" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-052.jpg" alt="MENYULAM KEBERSAMAAN" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-052</span>
                     <span class="badge badge-year">2005</span>
@@ -1673,7 +1697,7 @@
         
         <div class="art-card" id="card-ART-051" data-search="art-051 mengikat hati tinta di atas kertas 2025 ">
             <div class="img-container" onclick="openModal('ART-051')">
-                <img src="images/ART-051.jpg" alt="Mengikat Hati" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-051.jpg" alt="Mengikat Hati" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-051</span>
                     <span class="badge badge-year">2025</span>
@@ -1717,7 +1741,7 @@
         
         <div class="art-card" id="card-ART-050" data-search="art-050 mengais dikotak logika tinta di atas kertas 2022 ">
             <div class="img-container" onclick="openModal('ART-050')">
-                <img src="images/ART-050.png" alt="Mengais Dikotak Logika" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-050.png" alt="Mengais Dikotak Logika" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-050</span>
                     <span class="badge badge-year">2022</span>
@@ -1761,7 +1785,7 @@
         
         <div class="art-card" id="card-ART-049" data-search="art-049 membebaskan beban conte di atas kertas 2024 ">
             <div class="img-container" onclick="openModal('ART-049')">
-                <img src="images/ART-049.jpg" alt="Membebaskan beban" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-049.jpg" alt="Membebaskan beban" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-049</span>
                     <span class="badge badge-year">2024</span>
@@ -1805,7 +1829,7 @@
         
         <div class="art-card" id="card-ART-048" data-search="art-048 maut merindu putus asa image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-048')">
-                <img src="images/ART-048.png" alt="Maut Merindu Putus Asa" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-048.png" alt="Maut Merindu Putus Asa" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-048</span>
                     <span class="badge badge-year">2026</span>
@@ -1849,7 +1873,7 @@
         
         <div class="art-card" id="card-ART-047" data-search="art-047 matacahari tinta di atas kertas 2004 ">
             <div class="img-container" onclick="openModal('ART-047')">
-                <img src="images/ART-047.jpg" alt="Matacahari" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-047.jpg" alt="Matacahari" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-047</span>
                     <span class="badge badge-year">2004</span>
@@ -1893,7 +1917,7 @@
         
         <div class="art-card" id="card-ART-046" data-search="art-046 matabencana conte di atas kertas 2004 ">
             <div class="img-container" onclick="openModal('ART-046')">
-                <img src="images/ART-046.JPG" alt="MATABENCANA" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-046.JPG" alt="MATABENCANA" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-046</span>
                     <span class="badge badge-year">2004</span>
@@ -1937,7 +1961,7 @@
         
         <div class="art-card" id="card-ART-045" data-search="art-045 lakon... in action acrylik di kanvas 2011 ">
             <div class="img-container" onclick="openModal('ART-045')">
-                <img src="images/ART-045.JPG" alt="Lakon... in action" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-045.JPG" alt="Lakon... in action" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-045</span>
                     <span class="badge badge-year">2011</span>
@@ -1981,7 +2005,7 @@
         
         <div class="art-card" id="card-ART-044" data-search="art-044 lahir derita sia sia tinta di atas kertas 2013 ">
             <div class="img-container" onclick="openModal('ART-044')">
-                <img src="images/ART-044.JPG" alt="lahir derita sia sia" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-044.JPG" alt="lahir derita sia sia" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-044</span>
                     <span class="badge badge-year">2013</span>
@@ -2025,7 +2049,7 @@
         
         <div class="art-card" id="card-ART-043" data-search="art-043 lahir derita sia sia (ai) image generate ai 2013 ">
             <div class="img-container" onclick="openModal('ART-043')">
-                <img src="images/ART-043.png" alt="lahir derita sia sia (AI)" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-043.png" alt="lahir derita sia sia (AI)" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-043</span>
                     <span class="badge badge-year">2013</span>
@@ -2069,7 +2093,7 @@
         
         <div class="art-card" id="card-ART-042" data-search="art-042 kirim doa conte di atas kertas 2005 ">
             <div class="img-container" onclick="openModal('ART-042')">
-                <img src="images/ART-042.jpg" alt="KIRIM DOA" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-042.jpg" alt="KIRIM DOA" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-042</span>
                     <span class="badge badge-year">2005</span>
@@ -2113,7 +2137,7 @@
         
         <div class="art-card" id="card-ART-041" data-search="art-041 khalayak tinta di atas kertas 2011 ">
             <div class="img-container" onclick="openModal('ART-041')">
-                <img src="images/ART-041.jpg" alt="khalayak" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-041.jpg" alt="khalayak" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-041</span>
                     <span class="badge badge-year">2011</span>
@@ -2157,7 +2181,7 @@
         
         <div class="art-card" id="card-ART-040" data-search="art-040 kerangka conte di atas kertas 2019 ">
             <div class="img-container" onclick="openModal('ART-040')">
-                <img src="images/ART-040.jpg" alt="Kerangka" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-040.jpg" alt="Kerangka" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-040</span>
                     <span class="badge badge-year">2019</span>
@@ -2201,7 +2225,7 @@
         
         <div class="art-card" id="card-ART-039" data-search="art-039 hydrant people acrylik di kanvas 2005 ">
             <div class="img-container" onclick="openModal('ART-039')">
-                <img src="images/ART-039.JPG" alt="Hydrant People" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-039.JPG" alt="Hydrant People" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-039</span>
                     <span class="badge badge-year">2005</span>
@@ -2245,7 +2269,7 @@
         
         <div class="art-card" id="card-ART-038" data-search="art-038 gerbang dan bayi image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-038')">
-                <img src="images/ART-038.png" alt="Gerbang dan Bayi" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-038.png" alt="Gerbang dan Bayi" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-038</span>
                     <span class="badge badge-year">2026</span>
@@ -2289,7 +2313,7 @@
         
         <div class="art-card" id="card-ART-037" data-search="art-037 family's holiday acrylik di kanvas 2012 ">
             <div class="img-container" onclick="openModal('ART-037')">
-                <img src="images/ART-037.JPG" alt="Family's Holiday" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-037.JPG" alt="Family's Holiday" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-037</span>
                     <span class="badge badge-year">2012</span>
@@ -2333,7 +2357,7 @@
         
         <div class="art-card" id="card-ART-036" data-search="art-036 derita berakar gelap image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-036')">
-                <img src="images/ART-036.png" alt="Derita Berakar Gelap" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-036.png" alt="Derita Berakar Gelap" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-036</span>
                     <span class="badge badge-year">2026</span>
@@ -2377,7 +2401,7 @@
         
         <div class="art-card" id="card-ART-035" data-search="art-035 cinta tumbuh terkubur usia tinta di atas kertas 2022 ">
             <div class="img-container" onclick="openModal('ART-035')">
-                <img src="images/ART-035.jpg" alt="cinta tumbuh terkubur usia" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-035.jpg" alt="cinta tumbuh terkubur usia" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-035</span>
                     <span class="badge badge-year">2022</span>
@@ -2421,7 +2445,7 @@
         
         <div class="art-card" id="card-ART-034" data-search="art-034 cerita dibalik pohon tinta di atas kertas 2023 ">
             <div class="img-container" onclick="openModal('ART-034')">
-                <img src="images/ART-034.jpg" alt="Cerita Dibalik Pohon" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-034.jpg" alt="Cerita Dibalik Pohon" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-034</span>
                     <span class="badge badge-year">2023</span>
@@ -2465,7 +2489,7 @@
         
         <div class="art-card" id="card-ART-033" data-search="art-033 cerita berduri tinta di atas kertas 2025 ">
             <div class="img-container" onclick="openModal('ART-033')">
-                <img src="images/ART-033.jpg" alt="Cerita Berduri" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-033.jpg" alt="Cerita Berduri" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-033</span>
                     <span class="badge badge-year">2025</span>
@@ -2509,7 +2533,7 @@
         
         <div class="art-card" id="card-ART-032" data-search="art-032 bintang kosong para pemimpi tinta di atas kertas 2002 ">
             <div class="img-container" onclick="openModal('ART-032')">
-                <img src="images/ART-032.jpg" alt="Bintang Kosong Para Pemimpi" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-032.jpg" alt="Bintang Kosong Para Pemimpi" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-032</span>
                     <span class="badge badge-year">2002</span>
@@ -2553,7 +2577,7 @@
         
         <div class="art-card" id="card-ART-031" data-search="art-031 bermimpi berpengharapan nasib tinta di atas kertas 2003 ">
             <div class="img-container" onclick="openModal('ART-031')">
-                <img src="images/ART-031.jpg" alt="Bermimpi Berpengharapan Nasib" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-031.jpg" alt="Bermimpi Berpengharapan Nasib" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-031</span>
                     <span class="badge badge-year">2003</span>
@@ -2597,7 +2621,7 @@
         
         <div class="art-card" id="card-ART-030" data-search="art-030 pandangan badut tinta di atas kertas 2011 ">
             <div class="img-container" onclick="openModal('ART-030')">
-                <img src="images/ART-030.jpg" alt="Pandangan Badut" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-030.jpg" alt="Pandangan Badut" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-030</span>
                     <span class="badge badge-year">2011</span>
@@ -2641,7 +2665,7 @@
         
         <div class="art-card" id="card-ART-029" data-search="art-029 actor in action acrylik di kanvas 2019 ">
             <div class="img-container" onclick="openModal('ART-029')">
-                <img src="images/ART-029.JPG" alt="Actor in Action" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-029.JPG" alt="Actor in Action" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-029</span>
                     <span class="badge badge-year">2019</span>
@@ -2685,7 +2709,7 @@
         
         <div class="art-card" id="card-ART-028" data-search="art-028 pelita hati tinta di atas kertas 2019 ">
             <div class="img-container" onclick="openModal('ART-028')">
-                <img src="images/ART-028.JPG" alt="Pelita Hati" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-028.JPG" alt="Pelita Hati" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-028</span>
                     <span class="badge badge-year">2019</span>
@@ -2729,7 +2753,7 @@
         
         <div class="art-card" id="card-ART-027" data-search="art-027 immoral tinta di atas kertas 2000 ">
             <div class="img-container" onclick="openModal('ART-027')">
-                <img src="images/ART-027.jpg" alt="Immoral" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-027.jpg" alt="Immoral" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-027</span>
                     <span class="badge badge-year">2000</span>
@@ -2773,7 +2797,7 @@
         
         <div class="art-card" id="card-ART-026" data-search="art-026 lorong doa abadi tinta di atas kertas 2020 ">
             <div class="img-container" onclick="openModal('ART-026')">
-                <img src="images/ART-026.jpg" alt="Lorong Doa Abadi" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-026.jpg" alt="Lorong Doa Abadi" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-026</span>
                     <span class="badge badge-year">2020</span>
@@ -2817,7 +2841,7 @@
         
         <div class="art-card" id="card-ART-025" data-search="art-025 perkembangbiakan tinta di atas kertas 2017 ">
             <div class="img-container" onclick="openModal('ART-025')">
-                <img src="images/ART-025.jpg" alt="Perkembangbiakan" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-025.jpg" alt="Perkembangbiakan" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-025</span>
                     <span class="badge badge-year">2017</span>
@@ -2861,7 +2885,7 @@
         
         <div class="art-card" id="card-ART-024" data-search="art-024 traumatic kelahiran tinta di atas kertas 2019 ">
             <div class="img-container" onclick="openModal('ART-024')">
-                <img src="images/ART-024.jpg" alt="Traumatic Kelahiran" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-024.jpg" alt="Traumatic Kelahiran" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-024</span>
                     <span class="badge badge-year">2019</span>
@@ -2905,7 +2929,7 @@
         
         <div class="art-card" id="card-ART-023" data-search="art-023 keinginan sumber penderitaan tinta di atas kertas 2010 ">
             <div class="img-container" onclick="openModal('ART-023')">
-                <img src="images/ART-023.jpg" alt="Keinginan Sumber Penderitaan" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-023.jpg" alt="Keinginan Sumber Penderitaan" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-023</span>
                     <span class="badge badge-year">2010</span>
@@ -2949,7 +2973,7 @@
         
         <div class="art-card" id="card-ART-022" data-search="art-022 cahaya penjaga kesunyian tinta di atas kertas 2012 ">
             <div class="img-container" onclick="openModal('ART-022')">
-                <img src="images/ART-022.JPG" alt="Cahaya Penjaga Kesunyian" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-022.JPG" alt="Cahaya Penjaga Kesunyian" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-022</span>
                     <span class="badge badge-year">2012</span>
@@ -2993,7 +3017,7 @@
         
         <div class="art-card" id="card-ART-021" data-search="art-021 kandang hati membara tinta di atas kertas 2013 ">
             <div class="img-container" onclick="openModal('ART-021')">
-                <img src="images/ART-021.JPG" alt="Kandang Hati Membara" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-021.JPG" alt="Kandang Hati Membara" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-021</span>
                     <span class="badge badge-year">2013</span>
@@ -3037,7 +3061,7 @@
         
         <div class="art-card" id="card-ART-020" data-search="art-020 hujan deras persoalan tinta di atas kertas 2011 ">
             <div class="img-container" onclick="openModal('ART-020')">
-                <img src="images/ART-020.JPG" alt="Hujan Deras Persoalan" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-020.JPG" alt="Hujan Deras Persoalan" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-020</span>
                     <span class="badge badge-year">2011</span>
@@ -3081,7 +3105,7 @@
         
         <div class="art-card" id="card-ART-019" data-search="art-019 terbelenggu cahaya kecil tinta di atas kertas 2015 ">
             <div class="img-container" onclick="openModal('ART-019')">
-                <img src="images/ART-019.JPG" alt="Terbelenggu Cahaya Kecil" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-019.JPG" alt="Terbelenggu Cahaya Kecil" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-019</span>
                     <span class="badge badge-year">2015</span>
@@ -3125,7 +3149,7 @@
         
         <div class="art-card" id="card-ART-018" data-search="art-018 migrasi jiwa berterbangan tinta di atas kertas 2013 ">
             <div class="img-container" onclick="openModal('ART-018')">
-                <img src="images/ART-018.JPG" alt="Migrasi Jiwa Berterbangan" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-018.JPG" alt="Migrasi Jiwa Berterbangan" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-018</span>
                     <span class="badge badge-year">2013</span>
@@ -3169,7 +3193,7 @@
         
         <div class="art-card" id="card-ART-017" data-search="art-017 dorongan dunia distopia tinta di atas kertas 2017 ">
             <div class="img-container" onclick="openModal('ART-017')">
-                <img src="images/ART-017.JPG" alt="DORONGAN DUNIA DISTOPIA" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-017.JPG" alt="DORONGAN DUNIA DISTOPIA" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-017</span>
                     <span class="badge badge-year">2017</span>
@@ -3213,7 +3237,7 @@
         
         <div class="art-card" id="card-ART-016" data-search="art-016 family tinta di atas kertas 2017 ">
             <div class="img-container" onclick="openModal('ART-016')">
-                <img src="images/ART-016.JPG" alt="Family" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-016.JPG" alt="Family" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-016</span>
                     <span class="badge badge-year">2017</span>
@@ -3257,7 +3281,7 @@
         
         <div class="art-card" id="card-ART-015" data-search="art-015 petarung tinta di atas kertas 2006 ">
             <div class="img-container" onclick="openModal('ART-015')">
-                <img src="images/ART-015.JPG" alt="Petarung" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-015.JPG" alt="Petarung" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-015</span>
                     <span class="badge badge-year">2006</span>
@@ -3301,7 +3325,7 @@
         
         <div class="art-card" id="card-ART-014" data-search="art-014 sawan image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-014')">
-                <img src="images/ART-014.png" alt="Sawan" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-014.png" alt="Sawan" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-014</span>
                     <span class="badge badge-year">2026</span>
@@ -3345,7 +3369,7 @@
         
         <div class="art-card" id="card-ART-013" data-search="art-013 terjungkal tinta di atas kertas 2026 ">
             <div class="img-container" onclick="openModal('ART-013')">
-                <img src="images/ART-013.JPG" alt="Terjungkal" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-013.JPG" alt="Terjungkal" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-013</span>
                     <span class="badge badge-year">2026</span>
@@ -3389,7 +3413,7 @@
         
         <div class="art-card" id="card-ART-012" data-search="art-012 gadis, pohon dan rembulan tinta di atas kertas 2026 ">
             <div class="img-container" onclick="openModal('ART-012')">
-                <img src="images/ART-012.jpg" alt="Gadis, Pohon Dan Rembulan" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-012.jpg" alt="Gadis, Pohon Dan Rembulan" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-012</span>
                     <span class="badge badge-year">2026</span>
@@ -3433,7 +3457,7 @@
         
         <div class="art-card" id="card-ART-011" data-search="art-011 the phobia  tinta di atas kertas 2026 ">
             <div class="img-container" onclick="openModal('ART-011')">
-                <img src="images/ART-011.jpg" alt="The Phobia " loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-011.jpg" alt="The Phobia " loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-011</span>
                     <span class="badge badge-year">2026</span>
@@ -3477,7 +3501,7 @@
         
         <div class="art-card" id="card-ART-010" data-search="art-010 sakratulmaut tinta di atas kertas 2026 ">
             <div class="img-container" onclick="openModal('ART-010')">
-                <img src="images/ART-010.jpg" alt="Sakratulmaut" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-010.jpg" alt="Sakratulmaut" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-010</span>
                     <span class="badge badge-year">2026</span>
@@ -3521,7 +3545,7 @@
         
         <div class="art-card" id="card-ART-009" data-search="art-009 batik gothic tinta di atas kertas 2003 ">
             <div class="img-container" onclick="openModal('ART-009')">
-                <img src="images/ART-009.JPG" alt="Batik Gothic" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-009.JPG" alt="Batik Gothic" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-009</span>
                     <span class="badge badge-year">2003</span>
@@ -3565,7 +3589,7 @@
         
         <div class="art-card" id="card-ART-008" data-search="art-008 kalay kalay tinta di atas kertas 2015 ">
             <div class="img-container" onclick="openModal('ART-008')">
-                <img src="images/ART-008.JPG" alt="Kalay Kalay" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-008.JPG" alt="Kalay Kalay" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-008</span>
                     <span class="badge badge-year">2015</span>
@@ -3609,7 +3633,7 @@
         
         <div class="art-card" id="card-ART-007" data-search="art-007 kingdom of skulls image generate ai 2026 ">
             <div class="img-container" onclick="openModal('ART-007')">
-                <img src="images/ART-007.png" alt="Kingdom of Skulls" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-007.png" alt="Kingdom of Skulls" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-007</span>
                     <span class="badge badge-year">2026</span>
@@ -3653,7 +3677,7 @@
         
         <div class="art-card" id="card-ART-006" data-search="art-006 tiga ikan tinta di atas kertas 2006 ">
             <div class="img-container" onclick="openModal('ART-006')">
-                <img src="images/ART-006.jpg" alt="tiga ikan" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-006.jpg" alt="tiga ikan" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-006</span>
                     <span class="badge badge-year">2006</span>
@@ -3697,7 +3721,7 @@
         
         <div class="art-card" id="card-ART-005" data-search="art-005 terasang tinta di atas kertas 2001 ">
             <div class="img-container" onclick="openModal('ART-005')">
-                <img src="images/ART-005.jpg" alt="Terasang" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-005.jpg" alt="Terasang" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-005</span>
                     <span class="badge badge-year">2001</span>
@@ -3741,7 +3765,7 @@
         
         <div class="art-card" id="card-ART-004" data-search="art-004 a story about a clown conte di atas kanvas 2003 ">
             <div class="img-container" onclick="openModal('ART-004')">
-                <img src="images/ART-004.JPG" alt="A story about a clown" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-004.JPG" alt="A story about a clown" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-004</span>
                     <span class="badge badge-year">2003</span>
@@ -3785,7 +3809,7 @@
         
         <div class="art-card" id="card-ART-003" data-search="art-003 tertikam persoalan tinta di atas kertas 2008 ">
             <div class="img-container" onclick="openModal('ART-003')">
-                <img src="images/ART-003.jpg" alt="Tertikam Persoalan" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-003.jpg" alt="Tertikam Persoalan" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-003</span>
                     <span class="badge badge-year">2008</span>
@@ -3829,7 +3853,7 @@
         
         <div class="art-card" id="card-ART-002" data-search="art-002 thinker tinta di atas kertas 2008 ">
             <div class="img-container" onclick="openModal('ART-002')">
-                <img src="images/ART-002.jpg" alt="Thinker" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-002.jpg" alt="Thinker" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-002</span>
                     <span class="badge badge-year">2008</span>
@@ -3873,7 +3897,7 @@
         
         <div class="art-card" id="card-ART-001" data-search="art-001 amien tinta di atas kertas 2003 ">
             <div class="img-container" onclick="openModal('ART-001')">
-                <img src="images/ART-001.jpg" alt="AMIEN" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
+                <img src="images/ART-001.jpg" alt="AMIEN" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/181820/888?text=Maruto+Art'">
                 <div class="art-badge-row">
                     <span class="badge badge-id">ART-001</span>
                     <span class="badge badge-year">2003</span>
